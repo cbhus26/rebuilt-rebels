@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rebuilt Rebels — The Hormone Reset</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#FAF7F2;--ecru:#F5F0E8;--parchment:#EDE8DE;
+  --taupe:#C4B9A8;--greige:#A89C8C;--ash:#7A7068;--charcoal:#3A3530;--ink:#252018;
+  --berry:#7A2040;--berry-lt:#9A3058;--berry-glow:#B04070;
+  --berry-dim:#5A1530;--berry-mist:#F8EFF3;
+  --gold:#8A6A20;--gold-lt:#B08A30;
+  --b:rgba(58,53,48,0.08);--bmd:rgba(58,53,48,0.14);
+}
+html{scroll-behavior:smooth}
+body{background:#FAF7F2;color:#252018;font-family:'Lora',serif;font-weight:400;line-height:1.82;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:999;opacity:0.025;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23n)'/%3E%3C/svg%3E")}
+@keyframes rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes breathe{0%,100%{opacity:0.04}50%{opacity:0.07}}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity 0.9s ease,transform 0.9s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 52px;background:rgba(250,247,242,0.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--b)}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1rem;font-style:italic;color:var(--charcoal);text-decoration:none}
+.nav-logo span{font-style:normal;color:var(--berry);font-weight:600}
+.nav-links{display:flex;gap:0}
+.nav-link{font-family:'Jost',sans-serif;font-size:0.62rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--greige);text-decoration:none;padding:4px 10px;transition:color 0.2s}
+.nav-link:hover{color:var(--berry)}
+.nav-cta{font-family:'Jost',sans-serif;font-size:0.62rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--cream);background:var(--berry);text-decoration:none;padding:8px 18px;transition:background 0.2s}
+.nav-cta:hover{background:var(--berry-lt)}
+
+/* HERO */
+.hero{min-height:100vh;padding-top:58px;position:relative;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr auto;background:var(--ecru)}
+.hero-texture{position:absolute;inset:0;background-image:linear-gradient(var(--b) 1px,transparent 1px),linear-gradient(90deg,var(--b) 1px,transparent 1px);background-size:60px 60px;opacity:0.6}
+.hero-glow{position:absolute;inset:0;background:radial-gradient(ellipse 55% 50% at 30% 50%,rgba(122,32,64,0.06) 0%,transparent 65%)}
+.hero-ghost{position:absolute;right:-40px;bottom:-20px;font-family:'Playfair Display',serif;font-size:clamp(8rem,16vw,16rem);font-weight:700;line-height:0.85;color:rgba(122,32,64,0.04);user-select:none;animation:breathe 8s ease-in-out infinite}
+.hero-wm{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:min(65vw,500px);height:min(65vw,500px);opacity:0.05;filter:grayscale(100%) contrast(0.5) brightness(1.4);background-size:contain;background-repeat:no-repeat;background-position:center;pointer-events:none;user-select:none;z-index:1}
+.hero-left{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;padding:80px 56px 80px 72px}
+.hero-eyebrow{font-family:'Jost',sans-serif;font-size:0.62rem;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:var(--berry);margin-bottom:24px;display:flex;align-items:center;gap:14px;animation:rise 0.8s ease both}
+.hero-eyebrow::before{content:'';width:24px;height:1px;background:var(--berry)}
+h1.hero-title{font-family:'Playfair Display',serif;font-size:clamp(3rem,7vw,6rem);font-weight:700;line-height:0.92;color:var(--ink);margin-bottom:8px;animation:rise 0.8s 0.1s ease both}
+h1.hero-title em{font-style:italic;font-weight:400;color:var(--berry)}
+.hero-sub{font-family:'Lora',serif;font-style:italic;font-size:clamp(1rem,1.8vw,1.25rem);color:var(--ash);margin-bottom:32px;animation:rise 0.8s 0.2s ease both}
+.hero-desc{font-family:'Lora',serif;font-size:0.97rem;color:var(--ash);max-width:420px;line-height:1.88;margin-bottom:40px;animation:rise 0.8s 0.3s ease both}
+.hero-desc strong{color:var(--charcoal);font-weight:600}
+.hero-btns{display:flex;flex-wrap:wrap;gap:12px;animation:rise 0.8s 0.4s ease both}
+.btn-primary{display:inline-block;background:var(--berry);color:#FAF7F2;padding:13px 32px;font-family:'Jost',sans-serif;font-size:0.72rem;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;text-decoration:none;transition:background 0.25s}
+.btn-primary:hover{background:var(--berry-lt)}
+.btn-secondary{display:inline-block;background:transparent;color:var(--berry);padding:13px 32px;font-family:'Jost',sans-serif;font-size:0.72rem;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;text-decoration:none;border:1px solid var(--bmd);transition:all 0.25s}
+.btn-secondary:hover{border-color:var(--berry);background:var(--berry-mist)}
+.hero-right{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;padding:80px 56px}
+.rr-emblem{width:280px;height:280px;border-radius:50%;background:var(--charcoal);border:2px solid var(--taupe);display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 0 0 8px var(--ecru),0 0 0 9px var(--taupe),0 20px 60px rgba(58,53,48,0.15);animation:rise 0.8s 0.5s ease both;position:relative;overflow:hidden}
+.rr-emblem-inner{width:240px;height:240px;border-radius:50%;border:1px solid rgba(245,240,232,0.12);display:flex;flex-direction:column;align-items:center;justify-content:center}
+.rr-emblem-series{font-family:'Jost',sans-serif;font-size:0.5rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:rgba(245,240,232,0.35);margin-bottom:8px}
+.rr-emblem-rr{font-family:'Playfair Display',serif;font-size:4rem;font-weight:700;color:#FAF7F2;line-height:1;margin-bottom:6px;letter-spacing:-0.02em}
+.rr-emblem-title{font-family:'Lora',serif;font-style:italic;font-size:0.78rem;color:var(--berry-glow);text-align:center;padding:0 24px;line-height:1.4}
+.rr-emblem-rule{width:40px;height:1px;background:rgba(245,240,232,0.2);margin:10px auto}
+.rr-emblem-sub{font-family:'Jost',sans-serif;font-size:0.52rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,240,232,0.28)}
+.hero-foot{grid-column:1/-1;padding:14px 28px;border-top:1px solid var(--b);display:flex;justify-content:center;text-align:center;font-family:'Jost',sans-serif;font-size:0.58rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--taupe)}
+
+section{padding:88px 72px;background:#FAF7F2}
+section.alt{background:var(--ecru)}
+.eyebrow{font-family:'Jost',sans-serif;font-size:0.6rem;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:var(--berry);margin-bottom:16px;display:flex;align-items:center;gap:14px}
+.eyebrow::after{content:'';width:32px;height:1px;background:var(--berry)}
+h2.sh{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:600;line-height:1.15;color:var(--ink);margin-bottom:14px}
+h2.sh em{font-style:italic;font-weight:400;color:var(--berry)}
+.lead{font-family:'Lora',serif;font-size:1rem;color:#3A3530;max-width:620px;line-height:1.88;margin-bottom:52px}
+.lead strong{color:var(--ink);font-weight:600}
+
+/* STATS */
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--bmd);margin:44px 0}
+.stat-card{background:#FAF7F2;padding:28px 22px;text-align:center}
+.stat-num{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:700;color:var(--berry);line-height:1;margin-bottom:6px}
+.stat-label{font-family:'Jost',sans-serif;font-size:0.62rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--charcoal);margin-bottom:6px}
+.stat-body{font-family:'Lora',serif;font-size:0.82rem;color:#3A3530;line-height:1.6}
+
+/* RECOGNITION */
+.recognition-list{display:flex;flex-direction:column;gap:2px;background:var(--bmd);margin:44px 0}
+.rec-item{background:#FAF7F2;padding:20px 28px;display:flex;align-items:flex-start;gap:16px;border-left:2px solid transparent;transition:border-color 0.25s}
+.rec-item:hover{border-left-color:var(--berry)}
+.rec-icon{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--berry);flex-shrink:0;margin-top:2px}
+.rec-body{font-family:'Lora',serif;font-size:0.95rem;color:#3A3530;line-height:1.72}
+.rec-body strong{color:var(--ink);font-weight:600}
+
+/* FIVE PILLARS */
+.pillars-grid{display:flex;flex-direction:column;gap:2px;background:var(--bmd);margin:44px 0}
+.pillar-row{background:#FAF7F2;padding:28px 32px;display:grid;grid-template-columns:80px 1fr auto;gap:20px;align-items:center;text-decoration:none;border-left:3px solid transparent;transition:all 0.25s}
+.pillar-row:hover{border-left-color:var(--berry);background:var(--berry-mist)}
+.pillar-row-num{font-family:'Playfair Display',serif;font-size:3rem;font-weight:700;color:rgba(122,32,64,0.15);line-height:1}
+.pillar-row-content{}
+.pillar-row-name{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;color:var(--ink);margin-bottom:4px}
+.pillar-row-desc{font-family:'Lora',serif;font-size:0.86rem;color:#3A3530;line-height:1.6}
+.pillar-row-desc strong{color:var(--ink);font-weight:600}
+.pillar-row-badge{font-family:'Jost',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:5px 12px;white-space:nowrap}
+.pillar-row-badge.start{background:rgba(122,32,64,0.1);color:var(--berry)}
+.pillar-row-badge.next{background:rgba(58,53,48,0.06);color:var(--charcoal)}
+
+/* WHY SEQUENCE */
+.sequence-grid{display:flex;flex-direction:column;gap:2px;background:var(--bmd);margin:44px 0}
+.seq-card{background:#FAF7F2;padding:28px 32px}
+.seq-num{font-family:'Jost',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--berry);margin-bottom:6px}
+.seq-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:8px;line-height:1.2}
+.seq-body{font-family:'Lora',serif;font-size:0.84rem;color:#3A3530;line-height:1.75}
+.seq-body strong{color:var(--ink);font-weight:600}
+
+/* IS BRIDGE */
+.is-bridge{background:#F0EEEB;border:1px solid var(--bmd);padding:52px 72px;margin:44px 0;display:flex;flex-direction:column;align-items:center;text-align:center;gap:24px}
+.is-bridge-body{display:flex;flex-direction:column;align-items:center;text-align:center}
+.is-bridge-eyebrow{font-family:'Jost',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--charcoal);margin-bottom:10px}
+.is-bridge-title{font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:600;color:var(--charcoal);margin-bottom:10px;line-height:1.2}
+.is-bridge-text{font-family:'Lora',serif;font-size:0.9rem;color:var(--charcoal);line-height:1.78;max-width:600px}
+.is-bridge-text strong{color:var(--charcoal);font-weight:600}
+.is-bridge-link{display:inline-block;font-family:'Jost',sans-serif;font-size:0.68rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--charcoal);text-decoration:none;border:1px solid var(--charcoal);padding:10px 22px;transition:all 0.25s}
+.is-bridge-link:hover{background:rgba(58,53,48,0.06)}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--bmd);margin:44px 0}
+.about-left{background:#FAF7F2;padding:40px 40px}
+.about-right{background:var(--ecru);padding:40px 40px}
+.about-eyebrow{font-family:'Jost',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--berry);margin-bottom:16px}
+.about-title{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:600;color:var(--ink);margin-bottom:16px;line-height:1.2}
+.about-title em{font-style:italic;font-weight:400;color:var(--berry)}
+.about-body{font-family:'Lora',serif;font-size:0.9rem;color:#3A3530;line-height:1.85}
+.about-body p{margin-bottom:14px}
+.about-body p:last-child{margin-bottom:0}
+.about-body strong{color:var(--ink);font-weight:600}
+.cred-list{display:flex;flex-direction:column;gap:10px;margin-top:20px}
+.cred-item{font-family:'Jost',sans-serif;font-size:0.62rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--charcoal);padding-left:14px;position:relative}
+.cred-item::before{content:'✦';position:absolute;left:0;color:var(--berry);font-size:0.55rem}
+
+/* CTA SECTION */
+.cta-section{background:var(--charcoal);padding:88px 72px;text-align:center;position:relative;overflow:hidden}
+.cta-section::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--berry),transparent)}
+.cta-ghost{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:clamp(10rem,20vw,20rem);font-weight:700;color:rgba(122,32,64,0.05);line-height:1;user-select:none;pointer-events:none}
+.cta-eyebrow{font-family:'Jost',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--berry-glow);margin-bottom:16px;position:relative;z-index:1}
+.cta-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:600;color:#FAF7F2;margin-bottom:14px;line-height:1.15;position:relative;z-index:1}
+.cta-title em{font-style:italic;font-weight:400;color:var(--berry-glow)}
+.cta-body{font-family:'Lora',serif;font-size:0.97rem;color:rgba(245,240,232,0.5);max-width:540px;margin:0 auto 32px;line-height:1.85;position:relative;z-index:1}
+.cta-btn{display:inline-block;background:var(--berry);color:#FAF7F2;padding:16px 48px;font-family:'Jost',sans-serif;font-size:0.8rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;text-decoration:none;transition:background 0.25s;position:relative;z-index:1}
+.cta-btn:hover{background:var(--berry-lt)}
+.cta-note{margin-top:16px;font-family:'Jost',sans-serif;font-size:0.6rem;color:rgba(245,240,232,0.2);letter-spacing:0.1em;text-transform:uppercase;position:relative;z-index:1}
+
+/* CALLOUT */
+.callout{border-left:2px solid var(--berry);padding:18px 26px;background:var(--berry-mist);margin:28px 0}
+.callout-label{font-family:'Jost',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--berry);margin-bottom:8px}
+.callout p{font-family:'Lora',serif;font-size:0.95rem;color:var(--charcoal);line-height:1.78}
+.callout p strong{color:var(--berry);font-weight:600}
+
+/* PULL QUOTE */
+.pull-quote{background:var(--charcoal);padding:40px 48px;margin:40px 0;position:relative;overflow:hidden}
+.pull-quote::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--berry),transparent)}
+.pq-label{font-family:'Jost',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--berry-glow);margin-bottom:14px}
+.pull-quote p{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1.1rem,2vw,1.5rem);color:#FAF7F2;line-height:1.55;max-width:700px;font-weight:400}
+.pq-attr{margin-top:16px;font-family:'Jost',sans-serif;font-size:0.65rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:rgba(245,240,232,0.3)}
+
+@media(max-width:900px){
+  nav{padding:0 20px}.nav-links{display:none}
+  .hero{grid-template-columns:1fr}.hero-right{display:none}.hero-left{padding:72px 28px 56px}
+  section,.cta-section{padding:64px 28px}
+  .stats-row{grid-template-columns:1fr 1fr}
+  .about-grid,.is-bridge{grid-template-columns:1fr}
+  .pillars-grid .pillar-row{grid-template-columns:60px 1fr}
+  .pillar-row-badge{display:none}
+  footer{padding:24px 28px;flex-direction:column;gap:10px;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo"><span>Rebuilt Rebels</span> &middot; <em style="font-style:italic;">The Hormone Reset</em></a>
+  <div class="nav-links">
+    <a href="#why" class="nav-link">Why This Works</a>
+    <a href="#pillars" class="nav-link">The Five Pillars</a>
+    <a href="#about" class="nav-link">Candace</a>
+    <a href="invisible-syndrome-pillar-1-final.html" class="nav-link">The Invisible Syndrome</a>
+  </div>
+  <a href="rr-pillar-1-final.html" class="nav-cta">Begin Pillar 1</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-texture"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-ghost">REBUILT</div>
+  <div class="hero-wm" style="background-image:none"></div>
+  <div class="hero-left">
+    <div class="hero-eyebrow" style="animation:rise 0.8s ease both">Rebuilt Rebels &middot; The Hormone Reset &middot; Five Pillars</div>
+    <h1 class="hero-title">Your body<br>isn&rsquo;t <em>broken.</em><br>The protocol is.</h1>
+    <p class="hero-sub">A clinical framework for women 40+ who are done being dismissed.</p>
+    <p class="hero-desc">You&rsquo;ve been handed a prescription and sent home without a plan. Hormones don&rsquo;t work in isolation &mdash; <strong>they work downstream of everything else.</strong> Sleep architecture. Cortisol rhythm. Gut estrogen metabolism. Insulin sensitivity. Skip the foundation and go straight to prescribing, and the prescription won&rsquo;t stick. This course fixes the foundation first.</p>
+    <div class="hero-btns">
+      <a href="rr-pillar-1-final.html" class="btn-primary">Begin Pillar 1 &mdash; Sleep Restoration &rarr;</a>
+      <a href="#pillars" class="btn-secondary">See All Five Pillars</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="rr-emblem">
+      <div class="rr-emblem-inner">
+        <div class="rr-emblem-series">Rebuilt Rebels</div>
+        <div class="rr-emblem-rr">RR</div>
+        <div class="rr-emblem-title">The Hormone Reset</div>
+        <div class="rr-emblem-rule"></div>
+        <div class="rr-emblem-sub">Five Pillars &middot; Candace, PA-C</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-foot">
+    <span>Candace, PA-C &middot; 23 Years in Healthcare &middot; Hormone Specialist &middot; Educational content &middot; Not a substitute for medical care</span>
+  </div>
+</section>
+
+<!-- WHY THIS WORKS -->
+<section class="reveal" id="why">
+  <div class="eyebrow">The Real Problem</div>
+  <h2 class="sh">You&rsquo;re not imagining it.<br><em>You&rsquo;re just being treated wrong.</em></h2>
+  <p class="lead">Conventional medicine jumps straight to the prescription. It skips the five things that determine whether that prescription will actually work. <strong>Hormones don&rsquo;t fail you. The sequence fails you.</strong></p>
+
+  <div class="recognition-list reveal">
+    <div class="rec-item"><div class="rec-icon">&#10022;</div><div class="rec-body">You&rsquo;ve been told your labs are &ldquo;normal&rdquo; while you feel anything but</div></div>
+    <div class="rec-item"><div class="rec-icon">&#10022;</div><div class="rec-body">You started HRT and felt nothing &mdash; or felt worse</div></div>
+    <div class="rec-item"><div class="rec-icon">&#10022;</div><div class="rec-body">You can&rsquo;t sleep, can&rsquo;t think clearly, and your weight won&rsquo;t move no matter what you do</div></div>
+    <div class="rec-item"><div class="rec-icon">&#10022;</div><div class="rec-body">You&rsquo;ve been handed a prescription and sent home without a plan</div></div>
+    <div class="rec-item"><div class="rec-icon">&#10022;</div><div class="rec-body">You&rsquo;ve done &ldquo;all the right things&rdquo; and your body is still fighting you</div></div>
+    <div class="rec-item"><div class="rec-icon">&#10022;</div><div class="rec-body">You feel dismissed every time you bring up symptoms your doctor can&rsquo;t explain</div></div>
+  </div>
+
+  <div class="pull-quote reveal">
+    <div class="pq-label">The Clinical Position</div>
+    <p>Hormones don&rsquo;t work in isolation. They work downstream of everything else &mdash; your sleep architecture, your cortisol rhythm, your gut&rsquo;s ability to metabolize estrogen, your blood sugar stability. When you skip the foundation and go straight to prescribing, you&rsquo;re trying to paint a wall that hasn&rsquo;t been primed. The paint won&rsquo;t stick.</p>
+    <div class="pq-attr">&mdash; Candace, PA-C &middot; Rebuilt Rebels</div>
+  </div>
+
+  <div class="sequence-grid reveal">
+    <div class="seq-card">
+      <div class="seq-num">01</div>
+      <div class="seq-name">Foundation Before Hormones</div>
+      <div class="seq-body">Sleep architecture, cortisol rhythm, hormone metabolism, and insulin sensitivity must be addressed <strong>before</strong> HRT is layered in &mdash; or HRT underperforms, and you wonder why.</div>
+    </div>
+    <div class="seq-card">
+      <div class="seq-num">02</div>
+      <div class="seq-name">Sequence Changes Everything</div>
+      <div class="seq-body">The five pillars of Rebuilt Rebels are not interchangeable. Each one creates the conditions that make the next one more effective. <strong>Skipping ahead undermines everything downstream.</strong></div>
+    </div>
+    <div class="seq-card">
+      <div class="seq-num">03</div>
+      <div class="seq-name">The PMOS History Matters</div>
+      <div class="seq-body">Women arriving at perimenopause with a PMOS history need a framework that accounts for <strong>both conditions simultaneously.</strong> This course was built for that woman specifically.</div>
+    </div>
+  </div>
+
+  <div class="stats-row reveal">
+    <div class="stat-card">
+      <div class="stat-num">23</div>
+      <div class="stat-label">Years in Healthcare</div>
+      <div class="stat-body">Behind this framework</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">5</div>
+      <div class="stat-label">Pillars That Must Be Sequenced</div>
+      <div class="stat-body">Not skipped</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">10</div>
+      <div class="stat-label">Weeks to a Body That Responds</div>
+      <div class="stat-body">To treatment</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num">$0</div>
+      <div class="stat-label">Wasted on Prescriptions</div>
+      <div class="stat-body">That never had a chance</div>
+    </div>
+  </div>
+</section>
+
+<!-- THE FIVE PILLARS -->
+<section class="alt reveal" id="pillars">
+  <div class="eyebrow">The Five Pillars</div>
+  <h2 class="sh">The sequence that changes<br><em>whether hormones work.</em></h2>
+  <p class="lead">Each pillar builds the foundation for the next. Begin with Pillar 1 and work through in sequence &mdash; <strong>this is the clinical architecture that makes everything downstream more effective.</strong></p>
+
+  <div class="pillars-grid reveal">
+    <a href="rr-pillar-1-final.html" class="pillar-row">
+      <div class="pillar-row-num">1</div>
+      <div class="pillar-row-content">
+        <div class="pillar-row-name">Sleep Restoration</div>
+        <div class="pillar-row-desc">Sleep is the master regulator of every hormonal axis. <strong>Before anything else.</strong> The biology of sleep architecture, the three-way hormonal loop that hijacks it in perimenopause, and the complete clinical protocol to restore it &mdash; supplements, timing, environment, and what to stop.</div>
+      </div>
+      <span class="pillar-row-badge start">Start Here &rarr;</span>
+    </a>
+    <a href="rr-pillar-2-final.html" class="pillar-row">
+      <div class="pillar-row-num">2</div>
+      <div class="pillar-row-content">
+        <div class="pillar-row-name">HPA Axis &amp; Cortisol</div>
+        <div class="pillar-row-desc">Chronic stress floods cortisol, steals progesterone precursors, and keeps your body in survival mode. The adrenal androgen driver that runs in perimenopause independently of the ovaries &mdash; and the protocol that addresses it directly.</div>
+      </div>
+      <span class="pillar-row-badge next">Coming Next</span>
+    </a>
+    <a href="rr-pillar-3-final.html" class="pillar-row">
+      <div class="pillar-row-num">3</div>
+      <div class="pillar-row-content">
+        <div class="pillar-row-name">Hormone Metabolism</div>
+        <div class="pillar-row-desc">Your gut estrobolome, liver detox pathways, and COMT genetics determine whether estrogen heals or harms. The metabolism layer that determines how efficiently HRT is processed &mdash; and why two women on the same dose have completely different outcomes.</div>
+      </div>
+      <span class="pillar-row-badge next">Coming Next</span>
+    </a>
+    <a href="rr-pillar-4-final.html" class="pillar-row">
+      <div class="pillar-row-num">4</div>
+      <div class="pillar-row-content">
+        <div class="pillar-row-name">Metabolic Rehabilitation</div>
+        <div class="pillar-row-desc">Insulin resistance blocks hormone receptor sensitivity. Until this is addressed, exogenous hormones won&rsquo;t land properly. The same resistance training and protein prescription from The Invisible Syndrome &mdash; now also preserving bone density and lean mass that estrogen was supporting.</div>
+      </div>
+      <span class="pillar-row-badge next">Coming Next</span>
+    </a>
+    <a href="rr-pillar-5-final.html" class="pillar-row">
+      <div class="pillar-row-num">5</div>
+      <div class="pillar-row-content">
+        <div class="pillar-row-name">Hormone Optimization</div>
+        <div class="pillar-row-desc">Now &mdash; and only now &mdash; we layer in targeted hormone support. The body is primed. HRT options decoded, the bioidentical and transdermal preference for PMOS women explained, testosterone in perimenopause, and the complete monitoring picture.</div>
+      </div>
+      <span class="pillar-row-badge next">Coming Next</span>
+    </a>
+  </div>
+
+  <div class="callout reveal">
+    <div class="callout-label">The Pillar 1 Commitment</div>
+    <p>Give Pillar 1 a minimum of <strong>3 weeks of consistent implementation</strong> before moving to Pillar 2. Sleep architecture changes are measurable by Week 2 in most women, but the HPA axis requires 3&ndash;4 weeks of consistent circadian anchoring before cortisol rhythm meaningfully shifts. The sequence only works when each pillar is genuinely implemented, not just read.</p>
+  </div>
+</section>
+
+<!-- IS BRIDGE -->
+<section class="reveal">
+  <div class="is-bridge">
+    <div class="is-bridge-body">
+      <div class="is-bridge-eyebrow">Coming From The Invisible Syndrome?</div>
+      <div class="is-bridge-title">This is the next chapter of the same story.</div>
+      <div class="is-bridge-text">The Invisible Syndrome addressed PMOS &mdash; the insulin-androgen loop, the adrenal driver, the methylation layer, the metabolic rehabilitation, and the hormone optimization that comes after the foundation is built. Rebuilt Rebels is the same clinical framework applied to the perimenopausal chapter. <strong>The same pillars, the same sequence, now with estrogen withdrawal as the additional variable.</strong> Everything you implemented in The Invisible Syndrome carries forward here &mdash; your HOMA-IR foundation, your methylation support, your resistance training program, your Root &middot; Loop.</div>
+    </div>
+    <a href="invisible-syndrome-pillar-1-final.html" class="is-bridge-link">Return to The Invisible Syndrome &rarr;</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="alt reveal" id="about">
+  <div class="eyebrow">Your Guide</div>
+  <h2 class="sh">I built this framework<br><em>because I needed it myself.</em></h2>
+
+  <div class="about-grid reveal">
+    <div class="about-left">
+      <div class="about-eyebrow">Candace, PA-C</div>
+      <div class="about-title">Clinician. Lifter.<br><em>Rebuilt Rebel.</em></div>
+      <div class="about-body">
+        <p>I&rsquo;m a PA-C with 23 years in healthcare &mdash; starting in nuclear medicine, then transitioning to practice as a PA with a focus on primary care beginning in 2012 and hormone health since 2014. I&rsquo;ve treated thousands of women who came to me after being dismissed, misdiagnosed, or handed a prescription with no plan.</p>
+        <p>And then perimenopause came for me. I knew the textbook. I missed it in myself. I spent months fragmented &mdash; the sleep, the fog, the weight that wouldn&rsquo;t move &mdash; before I stopped treating my symptoms and started treating the system.</p>
+        <p>That&rsquo;s when I built the Rebuilt Rebels framework. <strong>It&rsquo;s not theory. It&rsquo;s what actually worked &mdash; on my patients, and on me.</strong> I&rsquo;m not here to replace your doctor. I&rsquo;m here to give you the clinical education your doctor doesn&rsquo;t have time to provide.</p>
+        <div class="cred-list">
+          <div class="cred-item">PA-C &middot; Certified by NCCPA</div>
+          <div class="cred-item">23 Years in Healthcare</div>
+          <div class="cred-item">BioTE &amp; Evexipel Advanced Training Completed</div>
+          <div class="cred-item">Advanced Training in Personalized Medicine &middot; University of Florida</div>
+          <div class="cred-item">1,000s of Hours of CME Completed in the Hormone Space</div>
+        </div>
+      </div>
+    </div>
+    <div class="about-right">
+      <div class="about-eyebrow">The Clinical Philosophy</div>
+      <div class="about-title">The body is an ecosystem.<br><em>Medicine got too singular.</em></div>
+      <div class="about-body">
+        <p>The body is an ecosystem of intricate systems that never function individually &mdash; but in harmony, or in some cases disharmony. Medicine got too singular. It treated the ovary when the problem was the insulin. It treated the thyroid when the problem was the cortisol. It handed out prescriptions when the problem was the foundation.</p>
+        <p>Rebuilt Rebels is the rebellion against reductionist medicine. It is the clinical acknowledgment that the woman who cannot sleep, cannot lose weight, cannot think clearly, and cannot feel like herself is not a collection of separate problems &mdash; <strong>she is a system in disharmony that requires a systems intervention.</strong></p>
+        <p>The five pillars are that intervention. In sequence. With the evidence base behind every recommendation. Built by a clinician who has lived both the practice and the patient experience.</p>
+        <p><em>Rooted. Rebuilt. Refined.</em></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section reveal">
+  <div class="cta-ghost">BEGIN</div>
+  <div class="cta-eyebrow">Ready to Begin</div>
+  <div class="cta-title">Start with Pillar 1.<br><em>Start with sleep.</em></div>
+  <p class="cta-body">Sleep is the foundation everything else depends on. Every other pillar &mdash; HPA axis regulation, hormone metabolism, metabolic rehabilitation, hormone optimization &mdash; is more effective when you begin with sleep. Begin here. Build from there.</p>
+  <a href="rr-pillar-1-final.html" class="cta-btn">Begin Pillar 1 &mdash; Sleep Restoration &rarr;</a>
+  <div class="cta-note">Candace, PA-C &middot; Educational content &middot; Not a substitute for medical care</div>
+</div>
+
+<footer style="background:#3A3530;border-top:1px solid rgba(245,240,232,0.06);padding:28px 52px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
+  <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:0.95rem;color:rgba(245,240,232,0.4);"><span style="color:#B04070;font-style:normal;">Rebuilt Rebels</span> &middot; The Hormone Reset</div>
+  <div style="font-family:'Jost',sans-serif;font-size:0.6rem;color:rgba(245,240,232,0.2);letter-spacing:0.08em;text-align:right;">Candace, PA-C &middot; Educational content &middot; Not a substitute for medical care &middot; <a href="glossary.html" style="color:#B04070;text-decoration:none;">Glossary &rarr;</a></div>
+</footer>
+
+<script>
+const ro=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
+},{threshold:0.05});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+</script>
+</body>
+</html>

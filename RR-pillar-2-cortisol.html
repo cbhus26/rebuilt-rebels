@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pillar 2: HPA Axis & Cortisol — Rebuilt Rebels</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#FAF7F2;--ecru:#F5F0E8;--parchment:#EDE8DE;
+  --taupe:#C4B9A8;--greige:#A89C8C;--ash:#7A7068;--charcoal:#3A3530;--ink:#252018;
+  --berry:#7A2040;--berry-lt:#9A3058;--berry-glow:#B04070;
+  --berry-dim:#5A1530;--berry-mist:#F8EFF3;
+  --gold:#8A6A20;--gold-lt:#B08A30;
+  --b:rgba(58,53,48,0.08);--bmd:rgba(58,53,48,0.14);
+}
+html{scroll-behavior:smooth}
+body{background:#FAF7F2;color:#252018;font-family:'Lora',serif;font-weight:400;line-height:1.82;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:999;opacity:0.025;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23n)'/%3E%3C/svg%3E")}
+@keyframes rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+@keyframes breathe{0%,100%{opacity:0.04}50%{opacity:0.07}}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity 0.9s ease,transform 0.9s ease}
+.reveal.visible{opacity:1;transform:none}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 52px;background:rgba(250,247,242,0.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--b)}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1rem;font-style:italic;color:var(--charcoal);text-decoration:none}
+.nav-logo span{font-style:normal;color:var(--berry);font-weight:600}
+.nav-links{display:flex}
+.nav-link{font-family:'Jost',sans-serif;font-size:0.62rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--greige);text-decoration:none;padding:4px 10px;transition:color 0.2s}
+.nav-link:hover{color:var(--berry)}
+.pbar{position:fixed;top:58px;left:0;height:2px;background:linear-gradient(90deg,var(--berry-dim),var(--berry),var(--berry-glow));z-index:201;width:0%;transition:width 0.1s}
+.hero{min-height:100vh;padding-top:58px;position:relative;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr auto;background:var(--ecru)}
+.hero-texture{position:absolute;inset:0;background-image:linear-gradient(var(--b) 1px,transparent 1px),linear-gradient(90deg,var(--b) 1px,transparent 1px);background-size:60px 60px;opacity:0.6}
+.hero-glow{position:absolute;inset:0;background:radial-gradient(ellipse 55% 50% at 30% 50%,rgba(122,32,64,0.06) 0%,transparent 65%)}
+.hero-ghost{position:absolute;right:-40px;bottom:-20px;font-family:'Playfair Display',serif;font-size:clamp(7rem,15vw,15rem);font-weight:700;line-height:0.85;color:rgba(122,32,64,0.04);user-select:none;animation:breathe 8s ease-in-out infinite}
+.hero-left{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;padding:80px 56px 80px 72px}
+.hero-eyebrow{font-family:'Jost',sans-serif;font-size:0.62rem;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:var(--berry);margin-bottom:24px;display:flex;align-items:center;gap:14px;animation:rise 0.8s ease both}
+.hero-eyebrow::before{content:'';width:24px;height:1px;background:var(--berry)}
+h1.hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,6vw,5.5rem);font-weight:700;line-height:0.92;color:var(--ink);margin-bottom:8px;animation:rise 0.8s 0.1s ease both}
+h1.hero-title em{font-style:italic;font-weight:400;color:var(--berry)}
+.hero-sub{font-family:'Lora',serif;font-style:italic;font-size:clamp(0.95rem,1.6vw,1.15rem);color:var(--ash);margin-bottom:32px;animation:rise 0.8s 0.2s ease both}
+.hero-desc{font-family:'Lora',serif;font-size:0.97rem;color:var(--ash);max-width:420px;line-height:1.88;margin-bottom:40px;animation:rise 0.8s 0.3s ease both}
+.hero-desc strong{color:var(--charcoal);font-weight:600}
+.hero-chips{display:flex;flex-wrap:wrap;gap:8px;animation:rise 0.8s 0.4s ease both}
+.chip{border:1px solid var(--bmd);padding:7px 16px;font-family:'Jost',sans-serif;font-size:0.62rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--greige);text-decoration:none;background:rgba(250,247,242,0.7);transition:all 0.25s}
+.chip:hover{border-color:var(--berry);color:var(--berry);background:var(--berry-mist)}
+.hero-right{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;padding:80px 56px}
+.pillar-seal{width:240px;height:240px;border-radius:50%;background:var(--charcoal);border:2px solid var(--taupe);display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 0 0 8px var(--ecru),0 0 0 9px var(--taupe),0 20px 60px rgba(58,53,48,0.15);animation:rise 0.8s 0.5s ease both}
+.seal-inner{width:200px;height:200px;border-radius:50%;border:1px solid rgba(245,240,232,0.15);display:flex;flex-direction:column;align-items:center;justify-content:center}
+.seal-series{font-family:'Jost',sans-serif;font-size:0.5rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:rgba(245,240,232,0.4);margin-bottom:8px}
+.seal-num{font-family:'Playfair Display',serif;font-size:5.5rem;font-weight:700;color:#FAF7F2;line-height:1;margin-bottom:4px}
+.seal-title{font-family:'Lora',serif;font-style:italic;font-size:0.72rem;color:var(--berry-glow);text-align:center;padding:0 20px;line-height:1.4}
+.seal-rule{width:40px;height:1px;background:rgba(245,240,232,0.2);margin:10px auto}
+.seal-sub{font-family:'Jost',sans-serif;font-size:0.5rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,240,232,0.3)}
+.hero-foot{grid-column:1/-1;padding:14px 28px;border-top:1px solid var(--b);display:flex;justify-content:center;text-align:center;font-family:'Jost',sans-serif;font-size:0.58rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--taupe)}
+section{padding:88px 72px;background:#FAF7F2}
+section.alt{background:var(--ecru)}
+.eyebrow{font-family:'Jost',sans-serif;font-size:0.6rem;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:var(--berry);margin-bottom:16px;display:flex;align-items:center;gap:14px}
+.eyebrow::after{content:'';width:32px;height:1px;background:var(--berry)}
+h2.sh{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:600;line-height:1.15;color:var(--ink);margin-bottom:14px}
+h2.sh em{font-style:italic;font-weight:400;color:var(--berry)}
+.lead{font-family:'Lora',serif;font-size:1rem;color:#3A3530;max-width:620px;line-height:1.88;margin-bottom:52px}
+.lead strong{color:var(--ink);font-weight:600}
+
+/* HPA CASCADE */
+.hpa-cascade{display:flex;flex-direction:column;gap:2px;background:var(--bmd);margin:44px 0}
+.hpa-node{background:#FAF7F2;padding:20px 26px;position:relative}
+.hpa-node-label{font-family:'Jost',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--berry);margin-bottom:4px}
+.hpa-node-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:6px}
+.hpa-node-body{font-family:'Lora',serif;font-size:0.84rem;color:#3A3530;line-height:1.65}
+.hpa-node-body strong{color:var(--ink);font-weight:600}
+.hpa-arrow{text-align:center;padding:6px 0;font-family:'Jost',sans-serif;font-size:0.7rem;color:var(--berry);letter-spacing:0.1em;background:#FAF7F2}
+
+/* CORTISOL CURVE */
+.curve-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--bmd);margin:44px 0}
+.curve-card{background:#FAF7F2;padding:22px 18px}
+.curve-time{font-family:'Jost',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--berry);margin-bottom:6px}
+.curve-name{font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:600;color:var(--ink);margin-bottom:6px;line-height:1.2}
+.curve-body{font-family:'Lora',serif;font-size:0.82rem;color:#3A3530;line-height:1.65}
+.curve-body strong{color:var(--ink);font-weight:600}
+.curve-note{margin-top:8px;font-family:'Jost',sans-serif;font-size:0.6rem;color:var(--berry);font-style:italic;border-top:1px solid var(--b);padding-top:6px;line-height:1.55}
+
+/* STEAL GRID */
+.steal-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--bmd);margin:44px 0}
+.steal-card{background:#FAF7F2;padding:30px 26px}
+.steal-badge{font-family:'Jost',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;padding:4px 10px;display:inline-block;margin-bottom:12px}
+.steal-badge.healthy{background:rgba(138,106,32,0.1);color:var(--gold)}
+.steal-badge.steal{background:rgba(122,32,64,0.1);color:var(--berry)}
+.steal-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;color:var(--ink);margin-bottom:10px;line-height:1.2}
+.steal-list{display:flex;flex-direction:column;gap:8px}
+.steal-item{font-family:'Lora',serif;font-size:0.84rem;color:#3A3530;padding-left:18px;position:relative;line-height:1.6}
+.steal-item::before{position:absolute;left:0;font-weight:700}
+.steal-item.good::before{content:'✓';color:var(--gold)}
+.steal-item.bad::before{content:'✗';color:var(--berry)}
+
+/* CASCADE STEPS */
+.cascade-steps{display:flex;flex-direction:column;gap:2px;background:var(--bmd);margin:44px 0}
+.cascade-step{background:#FAF7F2;padding:18px 28px;display:grid;grid-template-columns:140px 1fr;gap:16px;align-items:start;border-left:2px solid transparent;transition:border-color 0.25s}
+.cascade-step:hover{border-left-color:var(--berry)}
+.cascade-step-label{font-family:'Playfair Display',serif;font-size:0.9rem;font-weight:600;color:var(--ink);line-height:1.3}
+.cascade-step-body{font-family:'Lora',serif;font-size:0.84rem;color:#3A3530;line-height:1.65}
+.cascade-step-body strong{color:var(--ink);font-weight:600}
+
+/* PATTERN CARDS */
+.pattern-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--bmd);margin:44px 0}
+.pattern-card{background:#FAF7F2;padding:28px 22px}
+.pattern-badge{font-family:'Jost',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;padding:4px 10px;display:inline-block;margin-bottom:10px}
+.pattern-badge.high{background:rgba(122,32,64,0.1);color:var(--berry)}
+.pattern-badge.low{background:rgba(138,106,32,0.1);color:var(--gold)}
+.pattern-badge.inv{background:rgba(58,53,48,0.06);color:var(--charcoal)}
+.pattern-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:4px;line-height:1.2}
+.pattern-sub{font-family:'Lora',serif;font-style:italic;font-size:0.82rem;color:var(--berry);margin-bottom:10px}
+.pattern-list{display:flex;flex-direction:column;gap:6px}
+.pattern-item{font-family:'Lora',serif;font-size:0.82rem;color:#3A3530;padding-left:16px;position:relative;line-height:1.55}
+.pattern-item::before{content:'→';position:absolute;left:0;color:var(--berry);font-size:0.75rem}
+.pattern-driver{margin-top:10px;font-family:'Jost',sans-serif;font-size:0.6rem;color:var(--charcoal);border-top:1px solid var(--b);padding-top:8px;line-height:1.6;font-style:italic}
+
+/* HRT MECHANISMS */
+.mech-list{display:flex;flex-direction:column;gap:2px;background:var(--bmd);margin:44px 0}
+.mech-item{background:#FAF7F2;padding:22px 28px;display:grid;grid-template-columns:160px 1fr;gap:20px;align-items:start;border-left:2px solid transparent;transition:border-color 0.25s}
+.mech-item:hover{border-left-color:var(--berry)}
+.mech-num{font-family:'Playfair Display',serif;font-size:0.9rem;font-weight:600;color:var(--ink);margin-bottom:4px}
+.mech-label{font-family:'Jost',sans-serif;font-size:0.58rem;color:var(--berry);font-weight:600;letter-spacing:0.08em}
+.mech-body{font-family:'Lora',serif;font-size:0.84rem;color:#3A3530;line-height:1.65}
+.mech-body strong{color:var(--ink);font-weight:600}
+
+/* SEQUENCE COMPARE */
+.seq-compare{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--bmd);margin:44px 0}
+.seq-col{background:#FAF7F2;padding:28px 24px}
+.seq-col-badge{font-family:'Jost',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;padding:4px 10px;display:inline-block;margin-bottom:16px}
+.seq-col-badge.conv{background:rgba(122,32,64,0.1);color:var(--berry)}
+.seq-col-badge.rr{background:rgba(138,106,32,0.1);color:var(--gold)}
+.seq-steps{display:flex;flex-direction:column;gap:8px}
+.seq-step{font-family:'Lora',serif;font-size:0.84rem;color:#3A3530;padding-left:28px;position:relative;line-height:1.6}
+.seq-step-num{position:absolute;left:0;font-family:'Jost',sans-serif;font-size:0.65rem;font-weight:700;color:var(--berry)}
+.seq-step-num.gold{color:var(--gold)}
+
+/* THREE AXES */
+.axes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--bmd);margin:44px 0}
+.axis-card{background:#FAF7F2;padding:28px 22px}
+.axis-icon{font-size:1.2rem;margin-bottom:8px;display:block;color:var(--berry)}
+.axis-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:4px}
+.axis-sub{font-family:'Jost',sans-serif;font-size:0.6rem;color:var(--greige);margin-bottom:10px;letter-spacing:0.06em}
+.axis-body{font-family:'Lora',serif;font-size:0.84rem;color:#3A3530;line-height:1.72}
+.axis-body strong{color:var(--ink);font-weight:600}
+.axis-impact{margin-top:10px;font-family:'Jost',sans-serif;font-size:0.6rem;color:var(--berry);border-top:1px solid var(--b);padding-top:8px;font-style:italic;line-height:1.55}
+
+/* LAB LIST */
+.lab-list{display:flex;flex-direction:column;gap:2px;background:var(--bmd);margin:44px 0}
+.lab-item{background:#FAF7F2;padding:22px 28px;display:grid;grid-template-columns:160px 1fr 1fr;gap:16px;align-items:start;border-left:2px solid transparent;transition:border-color 0.25s}
+.lab-item:hover{border-left-color:var(--berry)}
+.lab-priority{font-family:'Jost',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:3px 8px;display:inline-block;margin-bottom:6px}
+.lab-priority.essential{background:rgba(122,32,64,0.1);color:var(--berry)}
+.lab-priority.important{background:rgba(138,106,32,0.1);color:var(--gold)}
+.lab-name{font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:600;color:var(--ink)}
+.lab-body{font-family:'Lora',serif;font-size:0.84rem;color:#3A3530;line-height:1.65}
+.lab-body strong{color:var(--ink);font-weight:600}
+.lab-target{font-family:'Jost',sans-serif;font-size:0.62rem;color:var(--berry);font-style:italic}
+
+/* ADAPTOGEN CARDS */
+.adaptogen-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--bmd);margin:32px 0}
+.adapt-card{background:#FAF7F2;padding:26px 20px}
+.adapt-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:3px}
+.adapt-dose{font-family:'Jost',sans-serif;font-size:0.6rem;color:var(--berry);margin-bottom:10px;font-weight:600;letter-spacing:0.06em}
+.adapt-body{font-family:'Lora',serif;font-size:0.82rem;color:#3A3530;line-height:1.72}
+.adapt-body strong{color:var(--ink);font-weight:600}
+.adapt-timing{margin-top:8px;font-family:'Jost',sans-serif;font-size:0.6rem;color:var(--gold);border-top:1px solid var(--b);padding-top:6px;font-style:italic;line-height:1.55}
+.adapt-caution{margin-top:4px;font-family:'Jost',sans-serif;font-size:0.6rem;color:var(--berry);font-style:italic;line-height:1.55}
+
+/* LIFESTYLE TIMING */
+.lifestyle-list{display:flex;flex-direction:column;gap:2px;background:var(--bmd);margin:32px 0}
+.lifestyle-item{background:#FAF7F2;padding:20px 28px;display:grid;grid-template-columns:100px 1fr;gap:16px;align-items:start;border-left:2px solid transparent;transition:border-color 0.25s}
+.lifestyle-item:hover{border-left-color:var(--berry)}
+.lifestyle-time{font-family:'Jost',sans-serif;font-size:0.62rem;font-weight:700;color:var(--berry);letter-spacing:0.08em;line-height:1.4}
+.lifestyle-name{font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:600;color:var(--ink);margin-bottom:4px}
+.lifestyle-body{font-family:'Lora',serif;font-size:0.84rem;color:#3A3530;line-height:1.65}
+.lifestyle-body strong{color:var(--ink);font-weight:600}
+.lifestyle-tag{display:inline-block;margin-top:6px;font-family:'Jost',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:3px 8px;background:rgba(122,32,64,0.08);color:var(--berry)}
+
+/* STOP/START */
+.stop-start-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--bmd);margin:32px 0}
+.ss-card{background:#FAF7F2;padding:28px 24px}
+.ss-badge{font-family:'Jost',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;padding:4px 10px;display:inline-block;margin-bottom:12px}
+.ss-badge.stop{background:rgba(122,32,64,0.1);color:var(--berry)}
+.ss-badge.start{background:rgba(138,106,32,0.1);color:var(--gold)}
+.ss-list{display:flex;flex-direction:column;gap:8px}
+.ss-item{font-family:'Lora',serif;font-size:0.84rem;color:#3A3530;padding-left:20px;position:relative;line-height:1.6}
+.ss-item::before{position:absolute;left:0;font-weight:700}
+.ss-item.stop::before{content:'✗';color:var(--berry)}
+.ss-item.start::before{content:'✓';color:var(--gold)}
+
+/* PATTERN PROTOCOL */
+.pp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--bmd);margin:32px 0}
+.pp-card{background:#FAF7F2;padding:26px 20px}
+.pp-badge{font-family:'Jost',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;padding:4px 10px;display:inline-block;margin-bottom:10px}
+.pp-badge.high{background:rgba(122,32,64,0.1);color:var(--berry)}
+.pp-badge.low{background:rgba(138,106,32,0.1);color:var(--gold)}
+.pp-badge.inv{background:rgba(58,53,48,0.06);color:var(--charcoal)}
+.pp-name{font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:600;color:var(--ink);margin-bottom:10px;line-height:1.2}
+.pp-list{display:flex;flex-direction:column;gap:6px}
+.pp-item{font-family:'Lora',serif;font-size:0.8rem;color:#3A3530;padding-left:16px;position:relative;line-height:1.55}
+.pp-item::before{content:'→';position:absolute;left:0;color:var(--berry);font-size:0.75rem}
+.pp-timeline{margin-top:10px;font-family:'Jost',sans-serif;font-size:0.6rem;color:var(--gold);border-top:1px solid var(--b);padding-top:6px;font-style:italic}
+
+/* PULL QUOTE */
+.pull-quote{background:var(--charcoal);padding:40px 48px;margin:40px 0;position:relative;overflow:hidden}
+.pull-quote::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--berry),transparent)}
+.pq-label{font-family:'Jost',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--berry-glow);margin-bottom:14px}
+.pull-quote p{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1.1rem,2vw,1.5rem);color:#FAF7F2;line-height:1.55;max-width:700px;font-weight:400}
+.pq-attr{margin-top:16px;font-family:'Jost',sans-serif;font-size:0.65rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:rgba(245,240,232,0.3)}
+
+/* CALLOUT */
+.callout{border-left:2px solid var(--berry);padding:18px 26px;background:var(--berry-mist);margin:28px 0}
+.callout-label{font-family:'Jost',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--berry);margin-bottom:8px}
+.callout p{font-family:'Lora',serif;font-size:0.95rem;color:var(--charcoal);line-height:1.78}
+.callout p strong{color:var(--berry);font-weight:600}
+.callout.gold{border-left-color:var(--gold);background:rgba(138,106,32,0.05)}
+.callout.gold .callout-label{color:var(--gold)}
+.callout.gold p strong{color:var(--gold)}
+
+/* WORKBOOK */
+.workbook{background:var(--parchment);border-top:2px solid var(--berry);padding:88px 72px}
+.wb-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:44px}
+.wb-block{background:#FAF7F2;border:1px solid var(--bmd);padding:28px}
+.wb-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:600;color:var(--ink);margin-bottom:5px}
+.wb-prompt{font-family:'Lora',serif;font-size:0.78rem;color:var(--greige);margin-bottom:16px;line-height:1.6}
+.wb-lines{display:flex;flex-direction:column}
+.wbl{border-bottom:1px solid var(--bmd);height:34px;position:relative}
+.wbll{position:absolute;left:0;bottom:5px;font-family:'Jost',sans-serif;font-size:0.53rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--taupe)}
+.wb-tbl{width:100%;border-collapse:collapse;margin-top:8px}
+.wb-tbl th{text-align:left;padding:8px 10px;font-family:'Jost',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--greige);border-bottom:1px solid var(--bmd);background:var(--ecru)}
+.wb-tbl td{padding:9px 10px;border-bottom:1px solid var(--b);font-family:'Lora',serif;font-size:0.8rem;color:#3A3530}
+.wb-e{display:block;width:100%;height:20px;border-bottom:1px dashed var(--bmd)}
+
+/* COMPLETION */
+.completion{background:var(--charcoal);padding:96px 72px;text-align:center;position:relative;overflow:hidden}
+.completion::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--berry),transparent)}
+.comp-ghost{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:clamp(12rem,22vw,22rem);font-weight:700;color:rgba(122,32,64,0.06);line-height:1;user-select:none;pointer-events:none}
+.comp-eyebrow{font-family:'Jost',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--berry-glow);margin-bottom:16px;position:relative;z-index:1}
+.comp-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:600;color:#FAF7F2;margin-bottom:10px;line-height:1.15;position:relative;z-index:1}
+.comp-title em{font-style:italic;font-weight:400;color:var(--berry-glow)}
+.comp-sub{font-family:'Lora',serif;font-size:0.97rem;color:rgba(245,240,232,0.5);max-width:560px;margin:0 auto 32px;line-height:1.85;position:relative;z-index:1}
+.comp-btn{display:inline-block;background:var(--berry);color:#FAF7F2;padding:13px 36px;font-family:'Jost',sans-serif;font-size:0.72rem;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;text-decoration:none;transition:background 0.25s;position:relative;z-index:1}
+.comp-btn:hover{background:var(--berry-lt)}
+.comp-next{margin-top:16px;font-family:'Jost',sans-serif;font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(245,240,232,0.2);position:relative;z-index:1}
+
+@media(max-width:900px){
+  nav{padding:0 20px}.nav-links{display:none}
+  .hero{grid-template-columns:1fr}.hero-right{display:none}.hero-left{padding:72px 28px 56px}
+  section,.workbook,.completion{padding:64px 28px}
+  .curve-grid,.pattern-grid,.axes-grid,.adaptogen-grid,.pp-grid{grid-template-columns:1fr}
+  .steal-grid,.seq-compare,.stop-start-grid,.wb-grid{grid-template-columns:1fr}
+  .mech-item,.cascade-step,.lab-item,.lifestyle-item{grid-template-columns:1fr}
+  footer{padding:24px 28px;flex-direction:column;gap:10px;text-align:center}
+}
+</style>
+</head>
+<body>
+<div class="pbar" id="pbar"></div>
+<nav>
+  <a href="rebuilt-rebels-index.html" class="nav-logo"><span>Rebuilt Rebels</span> &middot; <em style="font-style:italic;">Pillar 2</em></a>
+  <div class="nav-links">
+    <a href="#hpa" class="nav-link">The Axis</a>
+    <a href="#steal" class="nav-link">The Steal</a>
+    <a href="#patterns" class="nav-link">Patterns</a>
+    <a href="#hrt" class="nav-link">HRT &amp; Cortisol</a>
+    <a href="#trio" class="nav-link">The Trio</a>
+    <a href="#labs" class="nav-link">Labs</a>
+    <a href="#protocol" class="nav-link">Protocol</a>
+    <a href="#workbook" class="nav-link">Workbook</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-texture"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-ghost">CORTISOL</div>
+  
+  <div class="hero-left">
+    <div class="hero-eyebrow">Rebuilt Rebels &middot; Pillar Two of Five &middot; The Hormone Reset</div>
+    <h1 class="hero-title">HPA Axis<br>&amp; <em>Cortisol.</em></h1>
+    <p class="hero-sub">The master regulator no one is measuring correctly.</p>
+    <p class="hero-desc">You&rsquo;ve been told your stress is psychological. That you need to meditate more, worry less, practice self-care. What no one told you is that your HPA axis &mdash; the biological command center that governs your cortisol rhythm &mdash; is running a broken feedback loop. <strong>And that broken loop is actively dismantling your hormones, your metabolism, and your sleep. Every single day.</strong></p>
+    <div class="hero-chips">
+      <a href="#hpa" class="chip">01 &mdash; The HPA Axis</a>
+      <a href="#steal" class="chip">02 &mdash; The Pregnenolone Steal</a>
+      <a href="#patterns" class="chip">03 &mdash; Three Cortisol Patterns</a>
+      <a href="#hrt" class="chip">04 &mdash; Why HRT Isn&rsquo;t Working</a>
+      <a href="#trio" class="chip">05 &mdash; Adrenal-Thyroid-Ovarian Axis</a>
+      <a href="#labs" class="chip">06 &mdash; Your Labs</a>
+      <a href="#protocol" class="chip">07 &mdash; Your Protocol</a>
+      <a href="#workbook" class="chip">08 &mdash; Workbook</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="pillar-seal">
+      <div class="seal-inner">
+        <div class="seal-series">Rebuilt Rebels</div>
+        <div class="seal-num">2</div>
+        <div class="seal-title">HPA Axis &amp; Cortisol</div>
+        <div class="seal-rule"></div>
+        <div class="seal-sub">Pillar Two of Five</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-foot">
+    <span>Candace, PA-C &middot; Rebuilt Rebels &middot; Educational content &middot; Not a substitute for medical care</span>
+  </div>
+</section>
+
+<!-- S1: HPA AXIS -->
+<section class="reveal" id="hpa">
+  <div class="eyebrow">The Architecture</div>
+  <h2 class="sh">The HPA axis is not<br><em>a stress system.</em></h2>
+  <p class="lead">That&rsquo;s the first reframe. Your hypothalamic-pituitary-adrenal axis is your master hormonal regulator. Stress is just one of its inputs. <strong>When the axis malfunctions, everything downstream &mdash; sex hormones, thyroid, metabolism, immune function &mdash; goes with it.</strong></p>
+
+  <div class="hpa-cascade reveal">
+    <div class="hpa-node">
+      <div class="hpa-node-label">Hypothalamus &mdash; Command Center</div>
+      <div class="hpa-node-body">Detects stress, blood sugar shifts, inflammation, and circadian signals. Releases CRH to initiate the cascade. <strong>Also governs thermoregulation</strong> &mdash; directly linking HPA dysregulation to hot flashes.</div>
+    </div>
+    <div class="hpa-arrow">&darr; CRH</div>
+    <div class="hpa-node">
+      <div class="hpa-node-label">Pituitary &mdash; Signal Relay</div>
+      <div class="hpa-node-body">Receives CRH and releases ACTH. <strong>Also regulates thyroid (TSH) and ovarian (FSH/LH) function</strong> &mdash; which is why HPA dysregulation cascades across all three hormonal axes simultaneously.</div>
+    </div>
+    <div class="hpa-arrow">&darr; ACTH</div>
+    <div class="hpa-node">
+      <div class="hpa-node-label">Adrenal Glands &mdash; Output</div>
+      <div class="hpa-node-body">Receive ACTH and produce cortisol, DHEA, aldosterone, and adrenaline. In chronic stress, the adrenals are chronically activated &mdash; and eventually, chronically depleted. <strong>This depletion is measurable and treatable.</strong></div>
+    </div>
+    <div class="hpa-arrow">&circlearrowleft; Negative Feedback &mdash; and why it breaks</div>
+    <div class="hpa-node">
+      <div class="hpa-node-body">In a healthy system, cortisol feeds back to suppress further CRH and ACTH release. In chronic stress and perimenopause, <strong>this feedback loop becomes blunted or inverted</strong> &mdash; cortisol stays elevated, the hypothalamus stops responding to its own signal. The brake fails.</div>
+    </div>
+  </div>
+
+  <div class="callout reveal">
+    <div class="callout-label">The Reframe</div>
+    <p>Cortisol dysregulation isn&rsquo;t a personality problem or a stress management failure. It&rsquo;s a broken feedback loop in a biological system never designed for sustained, low-grade psychological stress &mdash; layered on top of perimenopausal hormonal volatility. <strong>It will not resolve with yoga alone. It requires a clinical intervention.</strong></p>
+  </div>
+  <div class="callout gold reveal">
+    <div class="callout-label">Cortisol Is Not the Enemy</div>
+    <p>Cortisol is not meant to be low. It is meant to be <strong>timed.</strong> A healthy curve rises sharply at waking (the Cortisol Awakening Response), declines steadily across the day, and reaches its nadir around midnight &mdash; enabling the hormonal repair cycle Pillar 1 depends on. The goal is not low cortisol. It is a properly timed curve.</p>
+  </div>
+
+  <div class="curve-grid reveal" style="margin-top:44px;">
+    <div class="curve-card">
+      <div class="curve-time">6&ndash;8 AM</div>
+      <div class="curve-name">Cortisol Awakening Response</div>
+      <div class="curve-body">50&ndash;160% rise above baseline within 30 minutes of waking. The biological ignition signal for metabolism, immune function, and cognitive alertness. Not stress &mdash; <strong>activation.</strong></div>
+      <div class="curve-note">Blunted CAR = unrefreshing sleep, slow morning cognition, caffeine dependency</div>
+    </div>
+    <div class="curve-card">
+      <div class="curve-time">8 AM &ndash; Noon</div>
+      <div class="curve-name">Productive Decline</div>
+      <div class="curve-body">Cortisol declines steadily from its peak. Cognitive performance and decision-making are sharpest here. <strong>Deep work, important conversations, and demanding exercise belong in this window.</strong></div>
+      <div class="curve-note">Premature crash = mid-morning fog, carb cravings, anxiety spikes before noon</div>
+    </div>
+    <div class="curve-card">
+      <div class="curve-time">Noon &ndash; 6 PM</div>
+      <div class="curve-name">Afternoon Stabilization</div>
+      <div class="curve-body">Cortisol continues falling. A brief 2&ndash;3 PM dip is physiological. In a dysregulated system it becomes an energy canyon that drives afternoon caffeine and sugar seeking.</div>
+      <div class="curve-note">Elevated cortisol here = wired-tired at 4&ndash;6 PM</div>
+    </div>
+    <div class="curve-card">
+      <div class="curve-time">6 PM &ndash; Midnight</div>
+      <div class="curve-name">Evening Descent to Nadir</div>
+      <div class="curve-body">Cortisol reaches its absolute nadir around midnight. <strong>This nadir is when growth hormone surges and all of Pillar 1&rsquo;s restoration occurs.</strong> Sleep architecture depends on this nadir being reached.</div>
+      <div class="curve-note">Elevated nocturnal cortisol = the direct driver of 2&ndash;4 AM waking from Pillar 1</div>
+    </div>
+  </div>
+</section>
+
+<!-- S2: PREGNENOLONE STEAL -->
+<section class="alt reveal" id="steal">
+  <div class="eyebrow">The Hidden Mechanism</div>
+  <h2 class="sh">The Pregnenolone Steal.<br><em>Stress literally depletes your hormones.</em></h2>
+  <p class="lead">This explains why stressed women feel hormonally depleted even before perimenopause officially begins &mdash; and why HRT frequently fails when cortisol is unaddressed. <strong>It is one of the most clinically important concepts in this entire framework.</strong></p>
+
+  <div class="steal-grid reveal">
+    <div class="steal-card">
+      <span class="steal-badge healthy">Healthy State &mdash; Balanced Routing</span>
+      <div class="steal-title">Pregnenolone distributed across all pathways</div>
+      <div class="steal-list">
+        <div class="steal-item good">Progesterone &mdash; GABA support, restorative sleep, cycle regularity, anti-anxiety</div>
+        <div class="steal-item good">Estrogen &mdash; Thermal regulation, bone density, cognitive function</div>
+        <div class="steal-item good">Testosterone &mdash; Libido, muscle maintenance, motivation</div>
+        <div class="steal-item good">DHEA &mdash; Immune regulation, adrenal reserve, energy</div>
+        <div class="steal-item good">Cortisol &mdash; Appropriate stress response, anti-inflammatory signaling</div>
+      </div>
+    </div>
+    <div class="steal-card">
+      <span class="steal-badge steal">Chronic Stress State &mdash; The Steal</span>
+      <div class="steal-title">Pregnenolone diverted to cortisol production</div>
+      <div class="steal-list">
+        <div class="steal-item bad">Progesterone depleted &mdash; sleep fragmentation, anxiety, GABA deficiency, racing mind at bedtime</div>
+        <div class="steal-item bad">Estrogen dysregulated &mdash; thermoregulation failure, hot flashes, brain fog amplified</div>
+        <div class="steal-item bad">Testosterone suppressed &mdash; loss of libido, muscle loss, fatigue, diminished drive</div>
+        <div class="steal-item bad">DHEA depleted &mdash; immune vulnerability, exhaustion at a cellular level</div>
+        <div class="steal-item bad">Cortisol overproduced &rarr; eventually depleted &mdash; adrenal exhaustion</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cascade-steps reveal">
+    <div class="cascade-step">
+      <div class="cascade-step-label">Chronic Cortisol Demand</div>
+      <div class="cascade-step-body">Sustained stress maintains continuous CRH/ACTH signaling. The demand signal never turns off &mdash; so pregnenolone routing never rebalances.</div>
+    </div>
+    <div class="cascade-step">
+      <div class="cascade-step-label">Pregnenolone Diverted</div>
+      <div class="cascade-step-body">Enzyme 3&beta;-HSD preferentially routes pregnenolone toward the cortisol pathway. The progesterone pathway receives less substrate. <strong>This is biochemistry, not willpower.</strong></div>
+    </div>
+    <div class="cascade-step">
+      <div class="cascade-step-label">Progesterone Low</div>
+      <div class="cascade-step-body">Allopregnanolone drops &rarr; hyperexcitability, anxiety, insomnia. Progesterone&rsquo;s anti-estrogen effect disappears &rarr; <strong>estrogen dominance even with low absolute estrogen levels.</strong></div>
+    </div>
+    <div class="cascade-step">
+      <div class="cascade-step-label">Estrogen Dominance</div>
+      <div class="cascade-step-body">Despite low total estrogen, the estrogen:progesterone ratio is unfavorable. Bloating, breast tenderness, mood dysregulation, worsening hot flashes. <strong>Estrogen is low AND dominant simultaneously.</strong></div>
+    </div>
+    <div class="cascade-step">
+      <div class="cascade-step-label">HRT Without Fixing Steal</div>
+      <div class="cascade-step-body">Exogenous hormones added to a system still routing pregnenolone to cortisol. Levels fluctuate. Symptoms persist. Doses escalate. Patient feels worse. <strong>This is the failure cycle that brings most women to a hormone specialist.</strong></div>
+    </div>
+  </div>
+
+  <div class="pull-quote reveal">
+    <div class="pq-label">The Clinical Implication</div>
+    <p>When you prescribe estrogen and progesterone to a woman whose pregnenolone is continuously routed to cortisol production, you are filling a bucket with a hole in the bottom. The hormones won&rsquo;t maintain stable levels. Symptoms persist. The steal must be addressed first &mdash; or Pillar 5 will fail.</p>
+    <div class="pq-attr">&mdash; Candace, PA-C &middot; Rebuilt Rebels</div>
+  </div>
+</section>
+
+<!-- S3: THREE PATTERNS -->
+<section class="reveal" id="patterns">
+  <div class="eyebrow">Clinical Patterns</div>
+  <h2 class="sh">Three cortisol patterns.<br><em>Three different women.</em></h2>
+  <p class="lead">HPA dysregulation is not a single presentation. Most protocols treat it as one &mdash; which is why generic &ldquo;adrenal support&rdquo; products don&rsquo;t work. <strong>Your pattern determines your symptoms, your treatment, and your protocol.</strong></p>
+
+  <div class="pattern-grid reveal">
+    <div class="pattern-card">
+      <span class="pattern-badge high">Pattern 01</span>
+      <div class="pattern-name">High Cortisol</div>
+      <div class="pattern-sub">The Wired Woman</div>
+      <div class="pattern-list">
+        <div class="pattern-item">Can&rsquo;t turn off racing thoughts at bedtime</div>
+        <div class="pattern-item">Wired but exhausted simultaneously</div>
+        <div class="pattern-item">Anxiety that feels physical, not psychological</div>
+        <div class="pattern-item">Difficulty falling asleep despite exhaustion</div>
+        <div class="pattern-item">Abdominal weight gain despite diet</div>
+        <div class="pattern-item">Blood pressure creeping up</div>
+      </div>
+      <div class="pattern-driver">HPA axis stuck in activation. Cortisol chronically elevated &mdash; suppressing immune function, driving insulin resistance, blocking progesterone. The feedback loop cannot downregulate.</div>
+    </div>
+    <div class="pattern-card">
+      <span class="pattern-badge low">Pattern 02</span>
+      <div class="pattern-name">Low Cortisol</div>
+      <div class="pattern-sub">The Depleted Woman</div>
+      <div class="pattern-list">
+        <div class="pattern-item">Profound exhaustion sleep doesn&rsquo;t fix</div>
+        <div class="pattern-item">No morning energy &mdash; absent CAR</div>
+        <div class="pattern-item">Salt cravings especially in the morning</div>
+        <div class="pattern-item">Dizziness on standing quickly</div>
+        <div class="pattern-item">Near-total loss of stress resilience</div>
+        <div class="pattern-item">Everything feels overwhelming</div>
+      </div>
+      <div class="pattern-driver">Adrenal exhaustion after prolonged high-cortisol state. Measurable HPA hypocortisolism &mdash; not a vague wellness concept. A real biological state confirmed on DUTCH testing.</div>
+    </div>
+    <div class="pattern-card">
+      <span class="pattern-badge inv">Pattern 03</span>
+      <div class="pattern-name">Inverted Cortisol</div>
+      <div class="pattern-sub">The Nocturnal Woman</div>
+      <div class="pattern-list">
+        <div class="pattern-item">Groggy and non-functional before noon</div>
+        <div class="pattern-item">Energy peaks after 8&ndash;9 PM &mdash; the &ldquo;second wind&rdquo;</div>
+        <div class="pattern-item">Cannot fall asleep before midnight</div>
+        <div class="pattern-item">2&ndash;4 AM waking &mdash; the Pillar 1 connection</div>
+        <div class="pattern-item">Mood and cognition worst in the morning</div>
+        <div class="pattern-item">DHEA-S typically low on testing</div>
+      </div>
+      <div class="pattern-driver">The cortisol diurnal rhythm has inverted. Lowest when it should be highest. Elevated at night when it should be at nadir. Directly explains the most common perimenopausal sleep complaint from Pillar 1.</div>
+    </div>
+  </div>
+
+  <div class="callout reveal">
+    <div class="callout-label">Many Women Show Mixed Patterns</div>
+    <p>A full DUTCH diurnal assessment is essential to clarify your exact curve &mdash; <strong>a single morning cortisol blood draw reveals almost nothing clinically useful.</strong> The DUTCH captures the full diurnal arc including nocturnal cortisol, the Cortisol Awakening Response, and metabolite totals that reveal production even when free cortisol appears normal.</p>
+  </div>
+</section>
+
+<!-- S4: WHY HRT ISN'T WORKING -->
+<section class="alt reveal" id="hrt">
+  <div class="eyebrow">The Conversation That Changes Everything</div>
+  <h2 class="sh">Cortisol blocks your HRT<br><em>at the receptor level.</em></h2>
+  <p class="lead">For women who&rsquo;ve been told their HRT isn&rsquo;t working, or who&rsquo;ve needed dose after dose increase without improvement &mdash; the problem is rarely the hormone. <strong>It&rsquo;s the cortisol environment the hormone is landing in.</strong></p>
+
+  <div class="mech-list reveal">
+    <div class="mech-item">
+      <div>
+        <div class="mech-num">Mechanism 01</div>
+        <div class="mech-label">Receptor Competition</div>
+      </div>
+      <div class="mech-body">Cortisol and progesterone compete for the same receptor. Glucocorticoid receptors and progesterone receptors share significant structural homology. In a high-cortisol environment, <strong>glucocorticoids competitively bind to progesterone receptors</strong> &mdash; blocking progesterone&rsquo;s action even when levels are adequate. 200mg of progesterone can be functionally ineffective because cortisol is occupying the receptor it needs.</div>
+    </div>
+    <div class="mech-item">
+      <div>
+        <div class="mech-num">Mechanism 02</div>
+        <div class="mech-label">Receptor Downregulation</div>
+      </div>
+      <div class="mech-body">Prolonged cortisol elevation triggers <strong>downregulation of estrogen and progesterone receptors</strong> &mdash; cells reduce the number of docking sites available. You can achieve normal serum hormone levels and still have poor receptor response. Women often report that HRT &ldquo;stopped working&rdquo; after initially helping &mdash; receptor downregulation has caught up.</div>
+    </div>
+    <div class="mech-item">
+      <div>
+        <div class="mech-num">Mechanism 03</div>
+        <div class="mech-label">SHBG Elevation</div>
+      </div>
+      <div class="mech-body">SHBG binds estrogen and testosterone, making them biologically unavailable. <strong>Cortisol increases hepatic SHBG production.</strong> A woman can have adequate total estrogen and testosterone on labs but very low free fractions &mdash; because SHBG is binding them all. This is why labs without SHBG are diagnostically incomplete.</div>
+    </div>
+  </div>
+
+  <div class="seq-compare reveal">
+    <div class="seq-col">
+      <span class="seq-col-badge conv">Conventional Medicine</span>
+      <div class="seq-steps">
+        <div class="seq-step"><span class="seq-step-num">1</span>Symptoms reported</div>
+        <div class="seq-step"><span class="seq-step-num">2</span>Single lab draw (TSH + estradiol only)</div>
+        <div class="seq-step"><span class="seq-step-num">3</span>HRT prescribed immediately</div>
+        <div class="seq-step"><span class="seq-step-num">4</span>No response &rarr; dose increased</div>
+        <div class="seq-step"><span class="seq-step-num">5</span>&ldquo;Try antidepressants&rdquo;</div>
+      </div>
+    </div>
+    <div class="seq-col">
+      <span class="seq-col-badge rr">Rebuilt Rebels Sequence</span>
+      <div class="seq-steps">
+        <div class="seq-step"><span class="seq-step-num gold">P1</span>Sleep architecture restored</div>
+        <div class="seq-step"><span class="seq-step-num gold">P2</span>HPA axis regulated &middot; steal corrected</div>
+        <div class="seq-step"><span class="seq-step-num gold">P3</span>Hormone metabolism optimized</div>
+        <div class="seq-step"><span class="seq-step-num gold">P4</span>Metabolic rehabilitation</div>
+        <div class="seq-step"><span class="seq-step-num gold">P5</span>HRT added &mdash; now it works</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S5: THE TRIO -->
+<section class="reveal" id="trio">
+  <div class="eyebrow">The Interconnected System</div>
+  <h2 class="sh">The Adrenal-Thyroid-<br><em>Ovarian Axis.</em></h2>
+  <p class="lead">These three glandular systems communicate constantly through shared hormonal signaling &mdash; and they fail together. <strong>Treating one in isolation is the tunnel vision that keeps women symptomatic.</strong></p>
+
+  <div class="axes-grid reveal">
+    <div class="axis-card">
+      <span class="axis-icon">&#10022;</span>
+      <div class="axis-name">Adrenal</div>
+      <div class="axis-sub">HPA Axis &middot; Cortisol, DHEA, Aldosterone</div>
+      <div class="axis-body">Produces cortisol, DHEA, aldosterone, and adrenaline. The axis that drives the pregnenolone steal. <strong>When adrenal output dysregulates, it directly suppresses thyroid hormone conversion and destabilizes ovarian signaling</strong> through the shared hypothalamic-pituitary pathway.</div>
+      <div class="axis-impact">Elevated cortisol suppresses TSH, reduces T4&rarr;T3 conversion, and increases reverse T3 production. Functionally hypothyroid with a normal TSH.</div>
+    </div>
+    <div class="axis-card">
+      <span class="axis-icon">&#10022;</span>
+      <div class="axis-name">Thyroid</div>
+      <div class="axis-sub">HPT Axis &middot; T4, T3, Metabolic Thermostat</div>
+      <div class="axis-body">Produces T4 (inactive) and T3 (active) &mdash; the metabolic thermostat of every cell. Thyroid and ovarian function are deeply interdependent. <strong>Thyroid hormones regulate the production and metabolism of estrogen, progesterone, and testosterone.</strong> Hypothyroidism amplifies every perimenopausal symptom.</div>
+      <div class="axis-impact">Low thyroid disrupts the ovarian cycle, increases SHBG, impairs progesterone production, and causes anovulation &mdash; all mimicking perimenopause.</div>
+    </div>
+    <div class="axis-card">
+      <span class="axis-icon">&#10022;</span>
+      <div class="axis-name">Ovarian</div>
+      <div class="axis-sub">HPG Axis &middot; Estrogen, Progesterone, Testosterone</div>
+      <div class="axis-body">Produces estrogen, progesterone, and testosterone in response to FSH and LH. The ovarian axis is the target of perimenopause &mdash; <strong>but cannot be optimized in isolation from the adrenal and thyroid axes</strong> governing its upstream signaling environment.</div>
+      <div class="axis-impact">As ovarian output declines, the adrenal glands become the primary DHEA source. Adrenal health becomes critical post-perimenopause in ways it was not before.</div>
+    </div>
+  </div>
+
+  <div class="callout reveal">
+    <div class="callout-label">The Diagnostic Implication</div>
+    <p>A woman presenting with perimenopausal symptoms must be evaluated across all three axes simultaneously. Treating the ovarian axis without evaluating adrenal function and thyroid conversion is treating one leg of a three-legged stool. <strong>It will wobble.</strong> A TSH alone is an inadequate workup.</p>
+  </div>
+</section>
+
+<!-- S6: LABS -->
+<section class="alt reveal" id="labs">
+  <div class="eyebrow">Clinical Testing</div>
+  <h2 class="sh">The labs that actually<br><em>show you the axis.</em></h2>
+  <p class="lead">A morning cortisol blood draw is nearly useless for diagnosing the patterns we&rsquo;ve covered. You need the full diurnal curve, the downstream markers, and the thyroid conversion picture. <strong>Here is exactly what to order.</strong></p>
+
+  <div class="lab-list reveal">
+    <div class="lab-item">
+      <div>
+        <span class="lab-priority essential">Essential</span>
+        <div class="lab-name">DUTCH Complete &mdash; Diurnal Cortisol</div>
+        <div class="lab-target">Full diurnal curve &middot; CAR &middot; Metabolite totals &middot; DHEA:cortisol ratio</div>
+      </div>
+      <div class="lab-body">The non-negotiable test for Pillar 2. Dried urine at 4 time points captures the full cortisol diurnal curve &mdash; morning, noon, evening, midnight. Also measures the Cortisol Awakening Response, not captured by any blood draw. <strong>The DUTCH captures cortisol metabolites</strong> &mdash; showing total production even when free cortisol appears normal.</div>
+      <div class="lab-body">Must be ordered specifically &mdash; not a standard panel. Order directly through Precision Analytical or via functional medicine provider.</div>
+    </div>
+    <div class="lab-item">
+      <div>
+        <span class="lab-priority essential">Essential</span>
+        <div class="lab-name">DHEA-S (Serum)</div>
+        <div class="lab-target">Optimal: 150&ndash;350 &mu;g/dL &middot; Standard range too wide to be useful</div>
+      </div>
+      <div class="lab-body">The most stable adrenal marker in blood. Represents <strong>adrenal reserve</strong> and is the best surrogate blood marker for the pregnenolone steal. When DHEA-S is low relative to cortisol, the steal is active. Also the primary androgen precursor as ovarian output declines.</div>
+      <div class="lab-body">Low DHEA-S + Pattern 03 (inverted) = the most common combined presentation. Pattern-specific supplementation indicated.</div>
+    </div>
+    <div class="lab-item">
+      <div>
+        <span class="lab-priority essential">Essential</span>
+        <div class="lab-name">Free T3 + Reverse T3 + TPO Antibodies</div>
+        <div class="lab-target">Free T3: 3.2&ndash;4.2 &middot; rT3: &lt;15 ng/dL &middot; FT3:rT3 ratio &gt;20 &middot; TPO Ab: &lt;35</div>
+      </div>
+      <div class="lab-body"><strong>Free T3</strong> is the active thyroid hormone. <strong>Reverse T3</strong> is produced when cortisol is chronically elevated &mdash; blocks T3 receptors without activating them, creating functional hypothyroidism with normal TSH. <strong>TPO antibodies</strong> catch Hashimoto&rsquo;s, profoundly underdiagnosed in perimenopausal women.</div>
+      <div class="lab-body">Must be requested explicitly. Standard thyroid panels include TSH only. Reverse T3 is almost never ordered without specific request.</div>
+    </div>
+    <div class="lab-item">
+      <div>
+        <span class="lab-priority important">Important</span>
+        <div class="lab-name">SHBG</div>
+        <div class="lab-target">30&ndash;90 nmol/L &middot; Above 130 suggests significant cortisol-driven elevation</div>
+      </div>
+      <div class="lab-body">Cortisol drives hepatic SHBG overproduction. A woman can have normal total hormone levels with very low free (active) fractions &mdash; SHBG is binding them all. <strong>Hormone panels without SHBG are diagnostically incomplete.</strong> Always calculate free estradiol and free testosterone when SHBG is available.</div>
+      <div class="lab-body">High SHBG with normal totals = functional hormone deficiency. This is why HRT &ldquo;doesn&rsquo;t work.&rdquo;</div>
+    </div>
+    <div class="lab-item">
+      <div>
+        <span class="lab-priority important">Important</span>
+        <div class="lab-name">Fasting Insulin + HOMA-IR</div>
+        <div class="lab-target">Fasting insulin &lt;7 &mu;IU/mL &middot; HOMA-IR &lt;1.0 &middot; Glucose &lt;90 mg/dL</div>
+      </div>
+      <div class="lab-body">Cortisol is profoundly pro-diabetogenic. <strong>Insulin resistance and HPA dysregulation form a bidirectional loop</strong> &mdash; cortisol worsens insulin resistance, which elevates cortisol further. If HOMA-IR is above 1.5, insulin resistance is actively feeding the cortisol dysregulation you&rsquo;re trying to correct.</div>
+      <div class="lab-body">Bridges directly to Pillar 4 &mdash; metabolic rehabilitation cannot succeed in an unaddressed cortisol environment.</div>
+    </div>
+  </div>
+
+  <div class="callout gold reveal">
+    <div class="callout-label">What to Say at Your Appointment</div>
+    <p>&ldquo;I&rsquo;m experiencing symptoms consistent with HPA axis dysregulation. I&rsquo;d like to evaluate this systematically before we adjust any hormone therapy. <strong>Can we run a DHEA-S, SHBG, Free T3, Reverse T3, and TPO antibodies alongside my standard panel?</strong> I&rsquo;m also planning DUTCH Complete testing to get a full diurnal cortisol picture &mdash; I understand that&rsquo;s not captured in standard blood work.&rdquo;</p>
+  </div>
+</section>
+
+<!-- S7: PROTOCOL -->
+<section class="reveal" id="protocol">
+  <div class="eyebrow">Your Action Plan</div>
+  <h2 class="sh">The Pillar 2<br><em>HPA Reset Protocol.</em></h2>
+  <p class="lead">This is not a generic stress reduction plan. Every intervention is selected for its specific mechanism within the HPA axis, and sequenced to match the pattern you identified in Section 3. <strong>Identify your pattern first. Then implement.</strong></p>
+
+  <div class="callout reveal">
+    <div class="callout-label">Adaptogens Are Pattern-Specific</div>
+    <p>Adaptogens are HPA axis modulators &mdash; they help the axis self-regulate whether cortisol is too high or too low. <strong>An adaptogen that helps a Pattern 01 woman can worsen a Pattern 02 woman.</strong> Identify your pattern before selecting your adaptogen stack.</p>
+  </div>
+
+  <div style="background:var(--charcoal);padding:36px 40px;margin:32px 0;position:relative;overflow:hidden;">
+    <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--berry),transparent)"></div>
+    <div style="font-family:'Jost',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--berry-glow);margin-bottom:10px;">The Supplement Explained</div>
+    <div style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:600;color:#FAF7F2;margin-bottom:12px;line-height:1.2;">Root &middot; Still &mdash; <em style="font-style:italic;font-weight:400;color:var(--berry-glow);">the Pillar 2 supplement.</em></div>
+    <div style="font-family:'Lora',serif;font-size:0.9rem;color:rgba(245,240,232,0.6);line-height:1.82;max-width:680px;margin-bottom:20px;">Root &middot; Still was formulated specifically around the HPA axis and sleep architecture pillars of Rebuilt Rebels. Two of its core ingredients &mdash; <strong style="color:#FAF7F2;">Ashwagandha KSM-66</strong> and <strong style="color:#FAF7F2;">Phosphatidylserine</strong> &mdash; are the primary adaptogenic interventions for Pattern 01 and Pattern 03 cortisol dysregulation. The full formula addresses both the cortisol side of Pillar 2 and the GABA and sleep architecture side of Pillar 1 simultaneously. Here is exactly why each Pillar 2 ingredient is in there.</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(245,240,232,0.06);">
+      <div style="background:rgba(245,240,232,0.04);padding:20px 16px;">
+        <div style="font-family:'Jost',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--berry-glow);margin-bottom:6px;">HPA Regulation</div>
+        <div style="font-family:'Playfair Display',serif;font-size:0.9rem;font-weight:600;color:#FAF7F2;margin-bottom:6px;">Ashwagandha KSM-66</div>
+        <div style="font-family:'Lora',serif;font-size:0.78rem;color:rgba(245,240,232,0.5);line-height:1.6;">22&ndash;30% cortisol reduction in RCT &middot; Pattern 01 and 03 primary intervention &middot; Improves sleep quality independently of cortisol lowering</div>
+      </div>
+      <div style="background:rgba(245,240,232,0.04);padding:20px 16px;">
+        <div style="font-family:'Jost',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--berry-glow);margin-bottom:6px;">Cortisol Blunting</div>
+        <div style="font-family:'Playfair Display',serif;font-size:0.9rem;font-weight:600;color:#FAF7F2;margin-bottom:6px;">Phosphatidylserine</div>
+        <div style="font-family:'Lora',serif;font-size:0.78rem;color:rgba(245,240,232,0.5);line-height:1.6;">Direct HPA feedback sensitization &middot; Blunts the cortisol response at the hypothalamic-pituitary level &middot; Nocturnal cortisol target</div>
+      </div>
+      <div style="background:rgba(245,240,232,0.04);padding:20px 16px;">
+        <div style="font-family:'Jost',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--berry-glow);margin-bottom:6px;">GABA + Sleep</div>
+        <div style="font-family:'Playfair Display',serif;font-size:0.9rem;font-weight:600;color:#FAF7F2;margin-bottom:6px;">Magnesium Glycinate + Apigenin</div>
+        <div style="font-family:'Lora',serif;font-size:0.78rem;color:rgba(245,240,232,0.5);line-height:1.6;">Bridges Pillar 1 and Pillar 2 &middot; GABA-A receptor support &middot; N3 sleep architecture &middot; Cortisol recovery overnight</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="adaptogen-grid reveal">
+    <div class="adapt-card">
+      <div class="adapt-name">Ashwagandha KSM-66</div>
+      <div class="adapt-dose">300&ndash;600mg &middot; 5% withanolides</div>
+      <div class="adapt-body">The most clinically validated adaptogen for cortisol reduction. KSM-66 has RCT evidence showing <strong>22&ndash;30% reduction in serum cortisol</strong> in stressed adults, improved sleep quality, and reduced perceived stress. Best for Pattern 01 and mixed patterns.</div>
+      <div class="adapt-timing">Morning with food &middot; OR evening if Pattern 03</div>
+      <div class="adapt-caution">Use cautiously in Pattern 02 at high doses &mdash; can further suppress depleted output</div>
+    </div>
+    <div class="adapt-card">
+      <div class="adapt-name">Rhodiola Rosea</div>
+      <div class="adapt-dose">200&ndash;400mg &middot; 3% rosavins, 1% salidroside</div>
+      <div class="adapt-body">A stimulating adaptogen &mdash; <strong>well-suited for Pattern 02 and 03.</strong> Rhodiola activates the HPA axis and supports the blunted Cortisol Awakening Response. Morning-only rule is non-negotiable &mdash; its activating effect worsens sleep if taken after noon.</div>
+      <div class="adapt-timing">Morning only &mdash; never after noon</div>
+      <div class="adapt-caution">Can worsen anxiety in Pattern 01 &mdash; use Ashwagandha instead</div>
+    </div>
+    <div class="adapt-card">
+      <div class="adapt-name">Phosphatidylserine</div>
+      <div class="adapt-dose">200&ndash;400mg &middot; Sharp-PS Green preferred</div>
+      <div class="adapt-body">The most targeted cortisol-lowering supplement available without a prescription. Clinical trials show <strong>direct blunting of the HPA cortisol response</strong> through improved hypothalamic-pituitary feedback sensitivity. Effective for Pattern 01 and the nocturnal component of Pattern 03.</div>
+      <div class="adapt-timing">With dinner for nocturnal cortisol &middot; Morning for daytime pattern</div>
+    </div>
+    <div class="adapt-card">
+      <div class="adapt-name">Eleuthero (Siberian Ginseng)</div>
+      <div class="adapt-dose">200&ndash;400mg &middot; 0.8% eleutherosides</div>
+      <div class="adapt-body">A milder adaptogen appropriate for all three patterns. Supports adrenal reserve without the stimulating effect of Rhodiola or the cortisol-suppressing effect of Ashwagandha. <strong>Particularly useful when pattern is mixed or unclear.</strong> Also supports immune function compromised in both high and low cortisol states.</div>
+      <div class="adapt-timing">Morning with food</div>
+    </div>
+    <div class="adapt-card">
+      <div class="adapt-name">Vitamin C (Buffered)</div>
+      <div class="adapt-dose">1,000&ndash;2,000mg in divided doses</div>
+      <div class="adapt-body">The adrenal glands have the <strong>highest Vitamin C concentration of any tissue in the body</strong> &mdash; they consume it rapidly during cortisol production. In chronic HPA activation, Vitamin C depletion directly impairs adrenal function. Buffered form preferred for GI tolerance.</div>
+      <div class="adapt-timing">500mg AM &middot; 500mg PM with food</div>
+    </div>
+    <div class="adapt-card">
+      <div class="adapt-name">B5 (Pantothenic Acid)</div>
+      <div class="adapt-dose">500&ndash;1,000mg</div>
+      <div class="adapt-body">A critical cofactor in adrenal steroidogenesis &mdash; <strong>cortisol production requires B5 at multiple enzymatic steps.</strong> In Pattern 02 (depleted) women, B5 deficiency is a common limiting factor in adrenal recovery. Not adequately dosed in standard B-complex.</div>
+      <div class="adapt-timing">Morning with food &middot; Critical for Pattern 02</div>
+    </div>
+  </div>
+
+  <div class="eyebrow" style="margin-top:52px;">Lifestyle Rhythm</div>
+  <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:600;color:var(--ink);margin-bottom:14px;">The HPA axis is reset through behavioral rhythm as much as supplementation.</h3>
+
+  <div class="lifestyle-list reveal">
+    <div class="lifestyle-item">
+      <div class="lifestyle-time">6&ndash;8 AM</div>
+      <div>
+        <div class="lifestyle-name">Cold-to-Warm Contrast Shower</div>
+        <div class="lifestyle-body">30&ndash;60 seconds of cold water at end of shower, followed by warm. Cold exposure activates the sympathetic nervous system and triggers a sharp, self-limiting cortisol and norepinephrine response &mdash; <strong>training the HPA axis to fire appropriately rather than staying chronically elevated.</strong> This is a controlled HPA training stimulus, not a wellness practice.</div>
+        <span class="lifestyle-tag">Pattern 02 and 03 especially</span>
+      </div>
+    </div>
+    <div class="lifestyle-item">
+      <div class="lifestyle-time">Within 60 min</div>
+      <div>
+        <div class="lifestyle-name">Protein + Fat Breakfast &mdash; No Fasting</div>
+        <div class="lifestyle-body"><strong>Do not fast if you have HPA dysregulation.</strong> Intermittent fasting is a cortisol-activating stressor. For Pattern 01 and 03 women, skipping breakfast extends the overnight cortisol elevation. A high-protein, moderate-fat breakfast stabilizes blood glucose and prevents the cortisol-glucose feedback loop from activating.</div>
+        <span class="lifestyle-tag">Glucose stability &middot; Cortisol transition support</span>
+      </div>
+    </div>
+    <div class="lifestyle-item">
+      <div class="lifestyle-time">12&ndash;2 PM</div>
+      <div>
+        <div class="lifestyle-name">The Non-Negotiable Parasympathetic Pause</div>
+        <div class="lifestyle-body">10&ndash;15 minutes of true parasympathetic activation. Not scrolling. Not lunch at your desk. The ventral vagal system requires a genuine cue of safety to activate &mdash; no screen, no task, no demand. <strong>For Pattern 01 women, this midday pause is the single most impactful daily intervention.</strong></div>
+        <span class="lifestyle-tag">Pattern 01 critical &middot; Cortisol descent support</span>
+      </div>
+    </div>
+    <div class="lifestyle-item">
+      <div class="lifestyle-time">3&ndash;5 PM</div>
+      <div>
+        <div class="lifestyle-name">Zone 2 Movement &mdash; Specifically Timed and Dosed</div>
+        <div class="lifestyle-body">Zone 2 cardio or moderate resistance training &mdash; NOT high-intensity after 3 PM. Exercise is a cortisol stimulus. In Pattern 01 women, high-intensity afternoon exercise extends the cortisol elevation curve and prevents the evening descent. <strong>Zone 2 at this window supports &mdash; not opposes &mdash; the cortisol decline.</strong> Save HIIT for morning.</div>
+        <span class="lifestyle-tag">Cortisol-appropriate timing &middot; Metabolic support</span>
+      </div>
+    </div>
+    <div class="lifestyle-item">
+      <div class="lifestyle-time">7&ndash;9 PM</div>
+      <div>
+        <div class="lifestyle-name">Consistent Evening Ritual &mdash; Same Actions, Same Order</div>
+        <div class="lifestyle-body">3&ndash;4 actions, in the same sequence, every night. <strong>The HPA axis responds to pattern recognition.</strong> A consistent ritual trains the hypothalamus to begin the cortisol descent at a predictable time. This is behavioral chronotherapy. The Pillar 1 sleep ritual is the foundation &mdash; Pillar 2 adds the understanding of exactly why it works.</div>
+        <span class="lifestyle-tag">Circadian cortisol anchoring &middot; HPA downregulation</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="eyebrow" style="margin-top:52px;">Stress Load</div>
+  <div class="stop-start-grid reveal">
+    <div class="ss-card">
+      <span class="ss-badge stop">Stop These &mdash; Unnecessary Cortisol Activators</span>
+      <div class="ss-list">
+        <div class="ss-item stop">Checking email or social media within 30 minutes of waking &mdash; activates threat-detection before the CAR has properly peaked</div>
+        <div class="ss-item stop">High-intensity exercise after 5 PM &mdash; cortisol elevation persists 4&ndash;6 hours and prevents the evening descent</div>
+        <div class="ss-item stop">Alcohol as stress management &mdash; metabolized into acetaldehyde, a potent HPA activator that elevates nocturnal cortisol for hours</div>
+        <div class="ss-item stop">Intermittent fasting, particularly 16:8 &mdash; extended fasting is a physiological cortisol stimulus, counterproductive for HPA dysregulation in women</div>
+        <div class="ss-item stop">News consumption in the first and last hour of your day &mdash; threat-detection does not distinguish psychological threat from physical threat</div>
+        <div class="ss-item stop">Saying yes to obligations with no meaningful return &mdash; unchosen cognitive load maintains persistent low-level HPA activation</div>
+      </div>
+    </div>
+    <div class="ss-card">
+      <span class="ss-badge start">Start These &mdash; Evidence-Based Cortisol Regulators</span>
+      <div class="ss-list">
+        <div class="ss-item start">Physiological sighing: double inhale through nose, long exhale through mouth &mdash; the fastest autonomic downregulation identified in controlled trials</div>
+        <div class="ss-item start">Social connection with safe people &mdash; oxytocin directly suppresses cortisol &middot; 20 minutes has measurable cortisol effects in studies</div>
+        <div class="ss-item start">Time in natural environments &mdash; even 20 minutes outdoors reduces cortisol measurably in clinical studies</div>
+        <div class="ss-item start">Deliberate temperature tools: morning light, warm evening showers &mdash; direct hypothalamic-cortisol axis modulation</div>
+        <div class="ss-item start">Cognitive offloading via writing &mdash; 10 minutes writing concerns onto paper reduces cognitive load and releases prefrontal vigilance signal</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="eyebrow" style="margin-top:52px;">Pattern-Specific Protocols</div>
+  <div class="pp-grid reveal">
+    <div class="pp-card">
+      <span class="pp-badge high">Pattern 01 &mdash; High Cortisol</span>
+      <div class="pp-name">Your Priority Protocol</div>
+      <div class="pp-list">
+        <div class="pp-item">Ashwagandha KSM-66 + Phosphatidylserine &mdash; priority supplements</div>
+        <div class="pp-item">Zone 2 only after 3 PM &mdash; no HIIT after noon</div>
+        <div class="pp-item">Midday parasympathetic pause &mdash; non-negotiable daily</div>
+        <div class="pp-item">Avoid Rhodiola &mdash; will worsen cortisol elevation</div>
+        <div class="pp-item">No fasting &middot; Anti-inflammatory nutrition priority</div>
+        <div class="pp-item">Magnesium glycinate + PS from Pillar 1 protocol at evening</div>
+      </div>
+      <div class="pp-timeline">3&ndash;6 weeks consistent protocol &middot; DUTCH repeat at 90 days</div>
+    </div>
+    <div class="pp-card">
+      <span class="pp-badge low">Pattern 02 &mdash; Low Cortisol</span>
+      <div class="pp-name">Your Priority Protocol</div>
+      <div class="pp-list">
+        <div class="pp-item">Rhodiola AM + B5 + Vitamin C &mdash; priority supplements</div>
+        <div class="pp-item">Morning exercise &mdash; moderate intensity only</div>
+        <div class="pp-item">Morning light + protein within 30 min of waking &mdash; non-negotiable</div>
+        <div class="pp-item">Avoid high-dose Ashwagandha &mdash; can further suppress depleted axis</div>
+        <div class="pp-item">Salt to taste &middot; Frequent small meals</div>
+        <div class="pp-item">Rule out Addison&rsquo;s disease with your clinician</div>
+      </div>
+      <div class="pp-timeline">6&ndash;12 weeks &middot; Adrenal recovery is slow &middot; Patience is part of the protocol</div>
+    </div>
+    <div class="pp-card">
+      <span class="pp-badge inv">Pattern 03 &mdash; Inverted Cortisol</span>
+      <div class="pp-name">Your Priority Protocol</div>
+      <div class="pp-list">
+        <div class="pp-item">Rhodiola AM + Ashwagandha PM + PS at bedtime</div>
+        <div class="pp-item">Morning exercise only &mdash; this is circadian anchoring, not preference</div>
+        <div class="pp-item">Fixed wake time regardless of sleep quality &mdash; non-negotiable</div>
+        <div class="pp-item">10,000 lux bright light therapy immediately on waking (20 min)</div>
+        <div class="pp-item">Complete darkness by 9 PM &middot; Full Pillar 1 protocol</div>
+        <div class="pp-item">Fixing this pattern resolves the Pillar 1 2&ndash;4 AM waking simultaneously</div>
+      </div>
+      <div class="pp-timeline">4&ndash;6 weeks for rhythm shift &middot; Consistent timing IS the treatment</div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKBOOK -->
+<section class="workbook reveal" id="workbook">
+  <div class="eyebrow">Pillar 2 Workbook</div>
+  <h2 class="sh">Your clinical notes.</h2>
+  <div class="wb-grid">
+    <div class="wb-block">
+      <div class="wb-title">My Cortisol Pattern</div>
+      <div class="wb-prompt">Based on the Section 3 assessment, record your dominant pattern and the specific symptoms that identified it.</div>
+      <div class="wb-lines">
+        <div class="wbl"><div class="wbll">My dominant pattern (High / Low / Inverted / Mixed)</div></div>
+        <div class="wbl"></div>
+        <div class="wbl"><div class="wbll">My 3 most identifying symptoms</div></div>
+        <div class="wbl"></div>
+        <div class="wbl"></div>
+        <div class="wbl"><div class="wbll">Connection to my Pillar 1 sleep issues</div></div>
+        <div class="wbl"></div>
+        <div class="wbl"><div class="wbll">Hormone I suspect most depleted from the steal</div></div>
+        <div class="wbl"></div>
+      </div>
+    </div>
+    <div class="wb-block">
+      <div class="wb-title">Labs I&rsquo;m Ordering</div>
+      <div class="wb-prompt">Track your tests, results, and optimal ranges.</div>
+      <table class="wb-tbl">
+        <thead><tr><th>Test</th><th>Ordered?</th><th>My Result</th><th>Optimal</th></tr></thead>
+        <tbody>
+          <tr><td>DUTCH Complete</td><td><span class="wb-e"></span></td><td><span class="wb-e"></span></td><td>Full report</td></tr>
+          <tr><td>DHEA-S</td><td><span class="wb-e"></span></td><td><span class="wb-e"></span></td><td>150&ndash;350</td></tr>
+          <tr><td>Free T3</td><td><span class="wb-e"></span></td><td><span class="wb-e"></span></td><td>3.2&ndash;4.2</td></tr>
+          <tr><td>Reverse T3</td><td><span class="wb-e"></span></td><td><span class="wb-e"></span></td><td>&lt;15 ng/dL</td></tr>
+          <tr><td>SHBG</td><td><span class="wb-e"></span></td><td><span class="wb-e"></span></td><td>30&ndash;90</td></tr>
+          <tr><td>hs-CRP</td><td><span class="wb-e"></span></td><td><span class="wb-e"></span></td><td>&lt;1.0</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="wb-block">
+      <div class="wb-title">My Week 1 HPA Protocol</div>
+      <div class="wb-prompt">Based on your pattern, write your specific daily commitments.</div>
+      <div class="wb-lines">
+        <div class="wbl"><div class="wbll">My pattern-specific adaptogen + dose + timing</div></div>
+        <div class="wbl"></div>
+        <div class="wbl"><div class="wbll">My exercise timing commitment</div></div>
+        <div class="wbl"></div>
+        <div class="wbl"><div class="wbll">My midday parasympathetic pause plan</div></div>
+        <div class="wbl"></div>
+        <div class="wbl"><div class="wbll">One cortisol activator I am removing this week</div></div>
+        <div class="wbl"></div>
+        <div class="wbl"><div class="wbll">My fixed wake time (carried from Pillar 1)</div></div>
+        <div class="wbl"></div>
+      </div>
+    </div>
+    <div class="wb-block">
+      <div class="wb-title">HRT Response Reflection</div>
+      <div class="wb-prompt">If you&rsquo;re currently on HRT, use this to connect the mechanisms to your experience.</div>
+      <div class="wb-lines">
+        <div class="wbl"><div class="wbll">Current HRT &mdash; type, dose, route</div></div>
+        <div class="wbl"></div>
+        <div class="wbl"><div class="wbll">My response so far (good / partial / not working)</div></div>
+        <div class="wbl"></div>
+        <div class="wbl"><div class="wbll">Which mechanism do I think is blocking it?</div></div>
+        <div class="wbl"></div>
+        <div class="wbl"><div class="wbll">Has my SHBG been tested? (yes / no)</div></div>
+        <div class="wbl"></div>
+        <div class="wbl"><div class="wbll">My hypothesis for the path forward</div></div>
+        <div class="wbl"></div>
+      </div>
+    </div>
+  </div>
+  <div class="callout reveal" style="margin-top:36px;">
+    <div class="callout-label">The Pillar 2 Commitment</div>
+    <p>The HPA axis has a longer reset timeline than sleep architecture. Expect <strong>4&ndash;8 weeks</strong> of consistent protocol before cortisol markers shift measurably. What you&rsquo;ll notice sooner &mdash; often within 2 weeks &mdash; is reduced anxiety, improved morning energy, and stabilizing of the 2&ndash;4 AM waking that Pillar 1 began to address. <strong>These early signals confirm the protocol is working. Stay with it.</strong></p>
+  </div>
+</section>
+
+<!-- COMPLETION -->
+<div class="completion reveal">
+  <div class="comp-ghost">3</div>
+  <div class="comp-eyebrow">Pillar Two Complete</div>
+  <div class="comp-title">The axis is visible.<br><em>The steal is named.</em></div>
+  <p class="comp-sub">Most women who reach this point understand for the first time why their HRT never worked. The broken feedback loop. The pregnenolone diversion. The three patterns that determine everything about the protocol. Now you know exactly why &mdash; and exactly what to do about it. Pillar 3 is where the metabolism layer comes in.</p>
+  <a href="https://stan.store/thebuiltmovement" class="comp-btn">Continue to Pillar 3 &mdash; Hormone Metabolism &rarr;</a>
+  <div class="comp-next" style="display:none">Next: Your gut estrobolome &middot; COMT genetics &middot; Liver detox pathways &middot; Why how your body processes estrogen matters as much as how much you have</div>
+</div>
+
+<footer style="background:#3A3530;border-top:1px solid rgba(245,240,232,0.06);padding:28px 52px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
+  <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:0.95rem;color:rgba(245,240,232,0.4);"><span style="color:#B04070;font-style:normal;">Rebuilt Rebels</span> &middot; The Hormone Reset</div>
+  <div style="font-family:'Jost',sans-serif;font-size:0.6rem;color:rgba(245,240,232,0.2);letter-spacing:0.08em;text-align:right;">Candace, PA-C &middot; Educational content &middot; Not a substitute for medical care &middot; <a href="glossary.html" style="color:#B04070;text-decoration:none;">Glossary &rarr;</a></div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{
+  const st=document.documentElement.scrollTop;
+  const dh=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+  document.getElementById('pbar').style.width=(st/dh*100)+'%';
+});
+const ro=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
+},{threshold:0.05});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+</script>
+</body>
+</html>

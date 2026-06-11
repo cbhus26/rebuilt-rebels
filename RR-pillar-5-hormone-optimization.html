@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pillar 5: Hormone Optimization — Rebuilt Rebels</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#FAF7F2;--ecru:#F5F0E8;--parchment:#EDE8DE;
+  --taupe:#C4B9A8;--greige:#A89C8C;--ash:#7A7068;--charcoal:#3A3530;--ink:#252018;
+  --berry:#7A2040;--berry-lt:#9A3058;--berry-glow:#B04070;
+  --berry-dim:#5A1530;--berry-mist:#F8EFF3;
+  --gold:#8A6A20;--gold-lt:#B08A30;
+  --b:rgba(58,53,48,0.08);--bmd:rgba(58,53,48,0.14);
+}
+html{scroll-behavior:smooth}
+body{background:#FAF7F2;color:#252018;font-family:'Lora',serif;font-weight:400;line-height:1.82;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:999;opacity:0.025;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23n)'/%3E%3C/svg%3E")}
+@keyframes rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+@keyframes breathe{0%,100%{opacity:0.04}50%{opacity:0.07}}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity 0.9s ease,transform 0.9s ease}
+.reveal.visible{opacity:1;transform:none}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 52px;background:rgba(250,247,242,0.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--b)}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1rem;font-style:italic;color:var(--charcoal);text-decoration:none}
+.nav-logo span{font-style:normal;color:var(--berry);font-weight:600}
+.nav-links{display:flex}
+.nav-link{font-family:'Jost',sans-serif;font-size:0.62rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--greige);text-decoration:none;padding:4px 10px;transition:color 0.2s}
+.nav-link:hover{color:var(--berry)}
+.pbar{position:fixed;top:58px;left:0;height:2px;background:linear-gradient(90deg,var(--berry-dim),var(--berry),var(--berry-glow));z-index:201;width:0%;transition:width 0.1s}
+.hero{min-height:100vh;padding-top:58px;position:relative;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr auto;background:var(--ecru)}
+.hero-texture{position:absolute;inset:0;background-image:linear-gradient(var(--b) 1px,transparent 1px),linear-gradient(90deg,var(--b) 1px,transparent 1px);background-size:60px 60px;opacity:0.6}
+.hero-glow{position:absolute;inset:0;background:radial-gradient(ellipse 55% 50% at 30% 50%,rgba(122,32,64,0.06) 0%,transparent 65%)}
+.hero-ghost{position:absolute;right:-40px;bottom:-20px;font-family:'Playfair Display',serif;font-size:clamp(5rem,12vw,12rem);font-weight:700;line-height:0.85;color:rgba(122,32,64,0.04);user-select:none;animation:breathe 8s ease-in-out infinite}
+.hero-left{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;padding:80px 56px 80px 72px}
+.hero-eyebrow{font-family:'Jost',sans-serif;font-size:0.62rem;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:var(--berry);margin-bottom:24px;display:flex;align-items:center;gap:14px;animation:rise 0.8s ease both}
+.hero-eyebrow::before{content:'';width:24px;height:1px;background:var(--berry)}
+h1.hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,6vw,5.5rem);font-weight:700;line-height:0.92;color:var(--ink);margin-bottom:8px;animation:rise 0.8s 0.1s ease both}
+h1.hero-title em{font-style:italic;font-weight:400;color:var(--berry)}
+.hero-sub{font-family:'Lora',serif;font-style:italic;font-size:clamp(0.95rem,1.6vw,1.15rem);color:var(--ash);margin-bottom:32px;animation:rise 0.8s 0.2s ease both}
+.hero-desc{font-family:'Lora',serif;font-size:0.97rem;color:var(--ash);max-width:420px;line-height:1.88;margin-bottom:40px;animation:rise 0.8s 0.3s ease both}
+.hero-desc strong{color:var(--charcoal);font-weight:600}
+.hero-chips{display:flex;flex-wrap:wrap;gap:8px;animation:rise 0.8s 0.4s ease both}
+.chip{border:1px solid var(--bmd);padding:7px 16px;font-family:'Jost',sans-serif;font-size:0.62rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--greige);text-decoration:none;background:rgba(250,247,242,0.7);transition:all 0.25s}
+.chip:hover{border-color:var(--berry);color:var(--berry);background:var(--berry-mist)}
+.hero-right{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;padding:80px 56px}
+.pillar-seal{width:240px;height:240px;border-radius:50%;background:var(--charcoal);border:2px solid var(--taupe);display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 0 0 8px var(--ecru),0 0 0 9px var(--taupe),0 20px 60px rgba(58,53,48,0.15);animation:rise 0.8s 0.5s ease both}
+.seal-inner{width:200px;height:200px;border-radius:50%;border:1px solid rgba(245,240,232,0.15);display:flex;flex-direction:column;align-items:center;justify-content:center}
+.seal-series{font-family:'Jost',sans-serif;font-size:0.5rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:rgba(245,240,232,0.4);margin-bottom:8px}
+.seal-num{font-family:'Playfair Display',serif;font-size:5.5rem;font-weight:700;color:#FAF7F2;line-height:1;margin-bottom:4px}
+.seal-title{font-family:'Lora',serif;font-style:italic;font-size:0.72rem;color:var(--berry-glow);text-align:center;padding:0 20px;line-height:1.4}
+.seal-rule{width:40px;height:1px;background:rgba(245,240,232,0.2);margin:10px auto}
+.seal-sub{font-family:'Jost',sans-serif;font-size:0.5rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,240,232,0.3)}
+.hero-foot{grid-column:1/-1;padding:14px 28px;border-top:1px solid var(--b);display:flex;justify-content:center;text-align:center;font-family:'Jost',sans-serif;font-size:0.58rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--taupe)}
+section{padding:88px 72px;background:#FAF7F2}
+section.alt{background:var(--ecru)}
+.eyebrow{font-family:'Jost',sans-serif;font-size:0.6rem;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:var(--berry);margin-bottom:16px;display:flex;align-items:center;gap:14px}
+.eyebrow::after{content:'';width:32px;height:1px;background:var(--berry)}
+h2.sh{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:600;line-height:1.15;color:var(--ink);margin-bottom:14px}
+h2.sh em{font-style:italic;font-weight:400;color:var(--berry)}
+.lead{font-family:'Lora',serif;font-size:1rem;color:#3A3530;max-width:620px;line-height:1.88;margin-bottom:52px}
+.lead strong{color:var(--ink);font-weight:600}
+
+/* WHI STATS */
+.whi-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--bmd);margin:44px 0}
+.whi-stat{background:#FAF7F2;padding:26px 22px;text-align:center}
+.whi-num{font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:700;color:var(--berry);line-height:1;margin-bottom:6px}
+.whi-label{font-family:'Jost',sans-serif;font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--charcoal);margin-bottom:6px}
+.whi-body{font-family:'Lora',serif;font-size:0.82rem;color:#3A3530;line-height:1.6}
+
+/* WHI COMPARE */
+.whi-compare{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--bmd);margin:44px 0}
+.whi-col{background:#FAF7F2;padding:30px 26px}
+.whi-badge{font-family:'Jost',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;padding:4px 10px;display:inline-block;margin-bottom:12px}
+.whi-badge.studied{background:rgba(122,32,64,0.1);color:var(--berry)}
+.whi-badge.corrected{background:rgba(138,106,32,0.1);color:var(--gold)}
+.whi-col-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:600;color:var(--ink);margin-bottom:10px}
+.whi-list{display:flex;flex-direction:column;gap:6px}
+.whi-item{font-family:'Lora',serif;font-size:0.83rem;color:#3A3530;padding-left:18px;position:relative;line-height:1.6}
+.whi-item::before{position:absolute;left:0;font-weight:700}
+.whi-item.bad::before{content:'✗';color:var(--berry)}
+.whi-item.good::before{content:'✓';color:var(--gold)}
+
+/* TIMING WINDOW */
+.timing-grid{display:flex;flex-direction:column;gap:2px;background:var(--bmd);margin:44px 0}
+.timing-row{background:#FAF7F2;padding:22px 28px;display:grid;grid-template-columns:200px 1fr 120px;gap:20px;align-items:center;border-left:3px solid transparent;transition:border-color 0.25s}
+.timing-row:hover{border-left-color:var(--berry)}
+.timing-window{font-family:'Jost',sans-serif;font-size:0.62rem;font-weight:700;color:var(--charcoal);line-height:1.4}
+.timing-body{font-family:'Lora',serif;font-size:0.84rem;color:#3A3530;line-height:1.65}
+.timing-body strong{color:var(--ink);font-weight:600}
+.timing-badge{font-family:'Jost',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:5px 10px;text-align:center;line-height:1.4}
+.timing-badge.optimal{background:rgba(138,106,32,0.1);color:var(--gold)}
+.timing-badge.assess{background:rgba(58,53,48,0.06);color:var(--charcoal)}
+.timing-badge.caution{background:rgba(122,32,64,0.1);color:var(--berry)}
+.timing-badge.target{background:rgba(122,32,64,0.15);color:var(--berry)}
+
+/* ESTROGEN ROUTES */
+.route-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--bmd);margin:44px 0}
+.route-card{background:#FAF7F2;padding:28px 22px}
+.route-badge{font-family:'Jost',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;padding:4px 10px;display:inline-block;margin-bottom:10px}
+.route-badge.preferred{background:rgba(138,106,32,0.1);color:var(--gold)}
+.route-badge.caution{background:rgba(122,32,64,0.1);color:var(--berry)}
+.route-badge.local{background:rgba(58,53,48,0.06);color:var(--charcoal)}
+.route-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:6px;line-height:1.2}
+.route-body{font-family:'Lora',serif;font-size:0.84rem;color:#3A3530;line-height:1.72}
+.route-body strong{color:var(--ink);font-weight:600}
+.route-list{display:flex;flex-direction:column;gap:5px;margin-top:10px}
+.route-item{font-family:'Lora',serif;font-size:0.8rem;color:#3A3530;padding-left:16px;position:relative;line-height:1.5}
+.route-item::before{position:absolute;left:0;font-weight:700}
+.route-item.good::before{content:'✓';color:var(--gold)}
+.route-item.bad::before{content:'✗';color:var(--berry)}
+
+/* ESTROGEN FORMS */
+.forms-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--bmd);margin:44px 0}
+.form-card{background:#FAF7F2;padding:24px 22px}
+.form-badge{font-family:'Jost',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;padding:4px 10px;display:inline-block;margin-bottom:8px}
+.form-badge.bio{background:rgba(138,106,32,0.1);color:var(--gold)}
+.form-badge.weak{background:rgba(58,53,48,0.06);color:var(--charcoal)}
+.form-badge.nonbio{background:rgba(122,32,64,0.1);color:var(--berry)}
+.form-badge.endo{background:rgba(58,53,48,0.08);color:var(--charcoal)}
+.form-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:4px}
+.form-body{font-family:'Lora',serif;font-size:0.83rem;color:#3A3530;line-height:1.68}
+.form-body strong{color:var(--ink);font-weight:600}
+
+/* PROGESTERONE COMPARE */
+.prog-compare{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--bmd);margin:44px 0}
+.prog-col{background:#FAF7F2;padding:30px 26px}
+.prog-badge{font-family:'Jost',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;padding:4px 10px;display:inline-block;margin-bottom:12px}
+.prog-badge.bio{background:rgba(138,106,32,0.1);color:var(--gold)}
+.prog-badge.syn{background:rgba(122,32,64,0.1);color:var(--berry)}
+.prog-col-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:600;color:var(--ink);margin-bottom:10px}
+.prog-list{display:flex;flex-direction:column;gap:6px}
+.prog-item{font-family:'Lora',serif;font-size:0.83rem;color:#3A3530;padding-left:18px;position:relative;line-height:1.6}
+.prog-item::before{position:absolute;left:0;font-weight:700}
+.prog-item.good::before{content:'✓';color:var(--gold)}
+.prog-item.bad::before{content:'✗';color:var(--berry)}
+
+/* PROG EFFECTS */
+.prog-effects{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--bmd);margin:44px 0}
+.pe-card{background:#FAF7F2;padding:24px 22px}
+.pe-icon{font-size:1.2rem;margin-bottom:8px;display:block;color:var(--berry)}
+.pe-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:6px}
+.pe-body{font-family:'Lora',serif;font-size:0.84rem;color:#3A3530;line-height:1.72}
+.pe-body strong{color:var(--ink);font-weight:600}
+.pe-clinical{margin-top:8px;font-family:'Jost',sans-serif;font-size:0.6rem;color:var(--berry);border-top:1px solid var(--b);padding-top:6px;font-style:italic;line-height:1.5}
+
+/* TESTOSTERONE BENEFITS */
+.t-benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--bmd);margin:44px 0}
+.t-card{background:#FAF7F2;padding:24px 20px}
+.t-icon{font-size:1.1rem;margin-bottom:8px;display:block;color:var(--berry)}
+.t-name{font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:600;color:var(--ink);margin-bottom:6px;line-height:1.2}
+.t-body{font-family:'Lora',serif;font-size:0.82rem;color:#3A3530;line-height:1.68}
+.t-body strong{color:var(--ink);font-weight:600}
+.t-note{margin-top:6px;font-family:'Jost',sans-serif;font-size:0.58rem;color:var(--berry);border-top:1px solid var(--b);padding-top:5px;font-style:italic;line-height:1.45}
+
+/* T DELIVERY */
+.t-delivery{display:flex;flex-direction:column;gap:2px;background:var(--bmd);margin:44px 0}
+.td-item{background:#FAF7F2;padding:20px 26px;display:grid;grid-template-columns:160px 1fr;gap:16px;align-items:start;border-left:2px solid transparent;transition:border-color 0.25s}
+.td-item:hover{border-left-color:var(--berry)}
+.td-name{font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:600;color:var(--ink);margin-bottom:4px}
+.td-status{font-family:'Jost',sans-serif;font-size:0.58rem;color:var(--berry);font-weight:600;letter-spacing:0.06em}
+.td-body{font-family:'Lora',serif;font-size:0.84rem;color:#3A3530;line-height:1.65}
+.td-body strong{color:var(--ink);font-weight:600}
+.td-pros{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px}
+.td-pro{font-family:'Jost',sans-serif;font-size:0.55rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:3px 8px;background:rgba(138,106,32,0.08);color:var(--gold)}
+.td-con{font-family:'Jost',sans-serif;font-size:0.55rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:3px 8px;background:rgba(122,32,64,0.06);color:var(--berry-lt)}
+
+/* SEQUENCE PILLARS */
+.sequence-pillars{display:flex;flex-direction:column;gap:2px;background:var(--bmd);margin:44px 0}
+.seq-pillar{background:#FAF7F2;padding:24px 28px;display:grid;grid-template-columns:60px 1fr 120px;gap:16px;align-items:start;border-left:2px solid transparent;transition:border-color 0.25s}
+.seq-pillar:hover{border-left-color:var(--berry)}
+.seq-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:rgba(122,32,64,0.2);line-height:1}
+.seq-name{font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:600;color:var(--ink);margin-bottom:4px}
+.seq-body{font-family:'Lora',serif;font-size:0.84rem;color:#3A3530;line-height:1.65}
+.seq-body strong{color:var(--ink);font-weight:600}
+.seq-label{font-family:'Jost',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:5px 10px;text-align:center;line-height:1.4}
+.seq-label.foundation{background:rgba(58,53,48,0.06);color:var(--charcoal)}
+.seq-label.capstone{background:rgba(122,32,64,0.1);color:var(--berry)}
+
+/* INDIVIDUALIZATION */
+.indiv-list{display:flex;flex-direction:column;gap:2px;background:var(--bmd);margin:44px 0}
+.indiv-item{background:#FAF7F2;padding:20px 26px;display:grid;grid-template-columns:200px 1fr;gap:16px;align-items:start;border-left:2px solid transparent;transition:border-color 0.25s}
+.indiv-item:hover{border-left-color:var(--berry)}
+.indiv-finding{font-family:'Jost',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--berry);margin-bottom:4px}
+.indiv-source{font-family:'Jost',sans-serif;font-size:0.55rem;color:var(--greige);letter-spacing:0.06em;margin-bottom:0}
+.indiv-body{font-family:'Lora',serif;font-size:0.84rem;color:#3A3530;line-height:1.65}
+.indiv-body strong{color:var(--ink);font-weight:600}
+
+/* LAB LIST */
+.lab-list{display:flex;flex-direction:column;gap:2px;background:var(--bmd);margin:44px 0}
+.lab-item{background:#FAF7F2;padding:20px 26px;display:grid;grid-template-columns:140px 1fr 1fr;gap:14px;align-items:start;border-left:2px solid transparent;transition:border-color 0.25s}
+.lab-item:hover{border-left-color:var(--berry)}
+.lab-hormone{font-family:'Jost',sans-serif;font-size:0.56rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:3px 8px;display:inline-block;margin-bottom:6px}
+.lab-hormone.estrogen{background:rgba(122,32,64,0.1);color:var(--berry)}
+.lab-hormone.prog{background:rgba(138,106,32,0.1);color:var(--gold)}
+.lab-hormone.testosterone{background:rgba(58,53,48,0.08);color:var(--charcoal)}
+.lab-hormone.androgen{background:rgba(138,106,32,0.06);color:var(--gold-lt)}
+.lab-hormone.thyroid{background:rgba(122,32,64,0.06);color:var(--berry-lt)}
+.lab-hormone.safety{background:rgba(58,53,48,0.12);color:var(--charcoal)}
+.lab-hormone.metabolite{background:rgba(122,32,64,0.08);color:var(--berry)}
+.lab-name{font-family:'Playfair Display',serif;font-size:0.92rem;font-weight:600;color:var(--ink)}
+.lab-body{font-family:'Lora',serif;font-size:0.84rem;color:#3A3530;line-height:1.65}
+.lab-body strong{color:var(--ink);font-weight:600}
+.lab-target{font-family:'Jost',sans-serif;font-size:0.6rem;color:var(--berry);font-style:italic}
+
+/* PULL QUOTE */
+.pull-quote{background:var(--charcoal);padding:40px 48px;margin:40px 0;position:relative;overflow:hidden}
+.pull-quote::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--berry),transparent)}
+.pq-label{font-family:'Jost',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--berry-glow);margin-bottom:14px}
+.pull-quote p{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1.1rem,2vw,1.5rem);color:#FAF7F2;line-height:1.55;max-width:700px;font-weight:400}
+.pq-attr{margin-top:16px;font-family:'Jost',sans-serif;font-size:0.65rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:rgba(245,240,232,0.3)}
+
+/* CALLOUT */
+.callout{border-left:2px solid var(--berry);padding:18px 26px;background:var(--berry-mist);margin:28px 0}
+.callout-label{font-family:'Jost',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--berry);margin-bottom:8px}
+.callout p{font-family:'Lora',serif;font-size:0.95rem;color:var(--charcoal);line-height:1.78}
+.callout p strong{color:var(--berry);font-weight:600}
+.callout.gold{border-left-color:var(--gold);background:rgba(138,106,32,0.05)}
+.callout.gold .callout-label{color:var(--gold)}
+.callout.gold p strong{color:var(--gold)}
+
+/* WORKBOOK */
+.workbook{background:var(--parchment);border-top:2px solid var(--berry);padding:88px 72px}
+.wb-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:44px}
+.wb-block{background:#FAF7F2;border:1px solid var(--bmd);padding:28px}
+.wb-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:600;color:var(--ink);margin-bottom:5px}
+.wb-prompt{font-family:'Lora',serif;font-size:0.78rem;color:var(--greige);margin-bottom:16px;line-height:1.6}
+.wb-checks{display:flex;flex-direction:column;gap:10px}
+.wb-check{display:flex;align-items:flex-start;gap:12px}
+.wbc-box{width:18px;height:18px;border:1px solid var(--bmd);flex-shrink:0;margin-top:2px;background:white}
+.wbc-text{font-family:'Lora',serif;font-size:0.84rem;color:#3A3530;line-height:1.6}
+.wb-lines{display:flex;flex-direction:column}
+.wbl{border-bottom:1px solid var(--bmd);height:34px;position:relative}
+.wbll{position:absolute;left:0;bottom:5px;font-family:'Jost',sans-serif;font-size:0.53rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--taupe)}
+.wb-tbl{width:100%;border-collapse:collapse;margin-top:8px}
+.wb-tbl th{text-align:left;padding:8px 10px;font-family:'Jost',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--greige);border-bottom:1px solid var(--bmd);background:var(--ecru)}
+.wb-tbl td{padding:9px 10px;border-bottom:1px solid var(--b);font-family:'Lora',serif;font-size:0.8rem;color:#3A3530}
+.wb-e{display:block;width:100%;height:20px;border-bottom:1px dashed var(--bmd)}
+
+/* FINAL COMPLETION */
+.completion-final{background:var(--charcoal);padding:96px 72px;text-align:center;position:relative;overflow:hidden}
+.completion-final::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--berry),transparent)}
+.comp-ghost{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:clamp(5rem,12vw,12rem);font-weight:700;color:rgba(122,32,64,0.05);line-height:1;user-select:none;pointer-events:none;letter-spacing:-0.02em}
+.comp-eyebrow{font-family:'Jost',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--berry-glow);margin-bottom:16px;position:relative;z-index:1}
+.comp-title{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,4.5vw,3.8rem);font-weight:600;color:#FAF7F2;margin-bottom:14px;line-height:1.1;position:relative;z-index:1}
+.comp-title em{font-style:italic;font-weight:400;color:var(--berry-glow)}
+.comp-sub{font-family:'Lora',serif;font-size:0.97rem;color:rgba(245,240,232,0.5);max-width:580px;margin:0 auto 32px;line-height:1.85;position:relative;z-index:1}
+.comp-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
+.comp-btn{display:inline-block;background:var(--berry);color:#FAF7F2;padding:13px 36px;font-family:'Jost',sans-serif;font-size:0.72rem;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;text-decoration:none;transition:background 0.25s}
+.comp-btn:hover{background:var(--berry-lt)}
+.comp-btn-outline{display:inline-block;background:transparent;color:rgba(245,240,232,0.35);padding:13px 36px;font-family:'Jost',sans-serif;font-size:0.72rem;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;text-decoration:none;border:1px solid rgba(245,240,232,0.15);transition:all 0.25s}
+.comp-btn-outline:hover{border-color:var(--berry-glow);color:var(--berry-glow)}
+.comp-stamp{margin-top:28px;font-family:'Jost',sans-serif;font-size:0.58rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(245,240,232,0.15);position:relative;z-index:1}
+
+@media(max-width:900px){
+  nav{padding:0 20px}.nav-links{display:none}
+  .hero{grid-template-columns:1fr}.hero-right{display:none}.hero-left{padding:72px 28px 56px}
+  section,.workbook,.completion-final{padding:64px 28px}
+  .whi-stats{grid-template-columns:1fr}
+  .whi-compare,.prog-compare,.forms-grid,.wb-grid{grid-template-columns:1fr}
+  .route-grid,.t-benefits,.prog-effects{grid-template-columns:1fr}
+  .timing-row,.seq-pillar,.indiv-item,.lab-item,.td-item{grid-template-columns:1fr}
+  footer{padding:24px 28px;flex-direction:column;gap:10px;text-align:center}
+}
+</style>
+</head>
+<body>
+<div class="pbar" id="pbar"></div>
+<nav>
+  <a href="https://stan.store/thebuiltmovement" class="nav-logo"><span>Rebuilt Rebels</span> &middot; <em style="font-style:italic;">Pillar 5</em></a>
+  <div class="nav-links">
+    <a href="#whi" class="nav-link">The WHI</a>
+    <a href="#timing" class="nav-link">Timing</a>
+    <a href="#estrogen" class="nav-link">Estrogen</a>
+    <a href="#progesterone" class="nav-link">Progesterone</a>
+    <a href="#testosterone" class="nav-link">Testosterone</a>
+    <a href="#dhea" class="nav-link">DHEA &amp; Thyroid</a>
+    <a href="#sequence" class="nav-link">Sequence</a>
+    <a href="#labs" class="nav-link">Labs</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-texture"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-ghost">OPTIMIZE</div>
+  
+  <div class="hero-left">
+    <div class="hero-eyebrow">Rebuilt Rebels &middot; Pillar Five of Five &middot; The Capstone</div>
+    <h1 class="hero-title">Hormone<br><em>Optimization.</em></h1>
+    <p class="hero-sub">Not the starting point. The destination &mdash; arrived at on a rebuilt foundation.</p>
+    <p class="hero-desc">Everything in Pillars 1 through 4 was preparation for this conversation. Sleep restored. Cortisol regulated. Estrogen metabolized cleanly. Insulin resistance addressed. Muscle rebuilt. <strong>Now &mdash; and only now &mdash; can hormone optimization do what it was always capable of. HRT is not a patch on a broken system. On a rebuilt one, it is the capstone that completes everything.</strong></p>
+    <div class="hero-chips">
+      <a href="#whi" class="chip">01 &mdash; The WHI Reckoning</a>
+      <a href="#timing" class="chip">02 &mdash; The Timing Hypothesis</a>
+      <a href="#estrogen" class="chip">03 &mdash; Estrogen</a>
+      <a href="#progesterone" class="chip">04 &mdash; Progesterone vs. Progestins</a>
+      <a href="#testosterone" class="chip">05 &mdash; Testosterone</a>
+      <a href="#dhea" class="chip">06 &mdash; DHEA &amp; Thyroid</a>
+      <a href="#sequence" class="chip">07 &mdash; The Sequencing Framework</a>
+      <a href="#labs" class="chip">08 &mdash; Labs &amp; Workbook</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="pillar-seal">
+      <div class="seal-inner">
+        <div class="seal-series">Rebuilt Rebels</div>
+        <div class="seal-num">5</div>
+        <div class="seal-title">Hormone Optimization</div>
+        <div class="seal-rule"></div>
+        <div class="seal-sub">The Capstone &middot; Pillar Five of Five</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-foot">
+    <span>Candace, PA-C &middot; Rebuilt Rebels &middot; Educational content &middot; Not a substitute for medical care</span>
+  </div>
+</section>
+
+<!-- S1: THE WHI -->
+<section class="reveal" id="whi">
+  <div class="eyebrow">The Study That Cost Women Twenty Years</div>
+  <h2 class="sh">The WHI reckoning &mdash;<br><em>what the science actually shows.</em></h2>
+  <p class="lead">In 2002, the Women&rsquo;s Health Initiative published results that sent a generation of women off hormone therapy overnight. What followed was two decades of undertreated menopause, avoidable suffering, and preventable disease. <strong>The science has since been corrected. The narrative has not fully caught up. This section corrects it.</strong></p>
+
+  <div class="whi-stats reveal">
+    <div class="whi-stat">
+      <div class="whi-num">~50%</div>
+      <div class="whi-label">Drop in HRT prescriptions within 2 years of the 2002 publication</div>
+      <div class="whi-body">Millions of women stopped effective treatment based on findings that did not apply to them.</div>
+    </div>
+    <div class="whi-stat">
+      <div class="whi-num">63</div>
+      <div class="whi-label">Average age of women studied in WHI</div>
+      <div class="whi-body">Far past the critical initiation window. Not the target population for perimenopausal HRT.</div>
+    </div>
+    <div class="whi-stat">
+      <div class="whi-num">20+</div>
+      <div class="whi-label">Years of undertreatment before the scientific consensus began correcting the record</div>
+      <div class="whi-body">A generation of women were denied effective treatment during their most symptomatic years.</div>
+    </div>
+  </div>
+
+  <div class="whi-compare reveal">
+    <div class="whi-col">
+      <span class="whi-badge studied">What the WHI Actually Studied</span>
+      <div class="whi-col-title">The Population, Formulation, and Route That Don&rsquo;t Apply to You</div>
+      <div class="whi-list">
+        <div class="whi-item bad">Older postmenopausal women &mdash; average age 63, mean 12 years past menopause</div>
+        <div class="whi-item bad">Conjugated equine estrogen (CEE) + medroxyprogesterone acetate (MPA) &mdash; not bioidentical hormones</div>
+        <div class="whi-item bad">Oral route &mdash; dramatically different risk profile than transdermal</div>
+        <div class="whi-item bad">Purpose was cardiovascular disease prevention &mdash; not menopause management</div>
+        <div class="whi-item bad">Results applied universally to all women, all ages, all formulations</div>
+        <div class="whi-item bad">Relative risk increase reported without absolute risk context</div>
+      </div>
+    </div>
+    <div class="whi-col">
+      <span class="whi-badge corrected">What the Corrected Science Shows</span>
+      <div class="whi-col-title">What We Know Now That Changes the Entire Conversation</div>
+      <div class="whi-list">
+        <div class="whi-item good">Timing of initiation is the dominant variable in risk-benefit calculation &mdash; not HRT itself</div>
+        <div class="whi-item good">Transdermal estradiol has no increased clotting or stroke risk</div>
+        <div class="whi-item good">Micronized progesterone does not share MPA&rsquo;s breast cancer signal</div>
+        <div class="whi-item good">Women who initiate HRT within the critical window gain cardiovascular protection</div>
+        <div class="whi-item good">The absolute risk increase in WHI was statistically small &mdash; misrepresented as catastrophic</div>
+        <div class="whi-item good">Modern HRT for symptomatic perimenopausal women is supported by overwhelming evidence</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pull-quote reveal">
+    <div class="pq-label">The Rebel Reframe</div>
+    <p>The WHI studied the wrong women, with the wrong formulation, at the wrong time, for the wrong purpose &mdash; and the findings were communicated to the public and the medical community in a way that caused direct, measurable harm to an entire generation. Acknowledging that is not anti-science. It is what science is supposed to do when the evidence changes.</p>
+    <div class="pq-attr">&mdash; Candace, PA-C &middot; Rebuilt Rebels</div>
+  </div>
+</section>
+
+<!-- S2: TIMING -->
+<section class="alt reveal" id="timing">
+  <div class="eyebrow">The Single Most Important Variable</div>
+  <h2 class="sh">When you start HRT<br><em>changes everything.</em></h2>
+  <p class="lead">The single most important predictor of HRT&rsquo;s risk-benefit profile is not the formulation, not the dose, and not family history. <strong>It is when she starts &mdash; relative to the onset of menopause and her age at initiation.</strong> The timing hypothesis is now supported by multiple lines of evidence and has fundamentally reshaped how modern hormone medicine is practiced.</p>
+
+  <div class="timing-grid reveal">
+    <div class="timing-row">
+      <div class="timing-window">Within 10 Years of Menopause &middot; Under Age 60</div>
+      <div class="timing-body">The cardiovascular, cognitive, and bone-protective benefits of HRT are most pronounced. Estrogen maintains its protective effects on the vascular endothelium. <strong>Cardiovascular disease risk is reduced compared to untreated controls.</strong> Brain estrogen receptors are still responsive. This is the optimal initiation window.</div>
+      <span class="timing-badge optimal">Maximum Benefit</span>
+    </div>
+    <div class="timing-row">
+      <div class="timing-window">10&ndash;20 Years Post-Menopause &middot; Age 60&ndash;70</div>
+      <div class="timing-body">Benefits for symptom management remain. Cardiovascular neutrality &mdash; neither significantly protective nor harmful in most women. Bone protection continues. Cognitive benefit less certain after prolonged estrogen deprivation. <strong>Initiation in this window requires individualized risk assessment but is not contraindicated.</strong></div>
+      <span class="timing-badge assess">Assess Individually</span>
+    </div>
+    <div class="timing-row">
+      <div class="timing-window">More Than 20 Years Post-Menopause &middot; Over Age 70</div>
+      <div class="timing-body">This is the population closest to what the WHI actually studied. Cardiovascular risk may increase in women with established subclinical atherosclerosis. <strong>Symptomatic benefit still exists but late initiation requires careful cardiac risk stratification and specialist involvement.</strong></div>
+      <span class="timing-badge caution">Specialist Involvement</span>
+    </div>
+    <div class="timing-row">
+      <div class="timing-window">Perimenopausal &middot; The Rebuilt Rebels Target</div>
+      <div class="timing-body">Starting HRT during perimenopause &mdash; before the final menstrual period, during the hormonal transition &mdash; represents the earliest possible entry into the critical window. <strong>Combined with the foundation of Pillars 1&ndash;4, this is the most favorable clinical scenario for long-term health outcomes and quality of life.</strong></div>
+      <span class="timing-badge target">Optimal Entry</span>
+    </div>
+  </div>
+
+  <div class="callout reveal">
+    <div class="callout-label">The Clinical Implication</div>
+    <p>Every year of symptomatic perimenopause without HRT &mdash; in a woman who is a candidate &mdash; is a year of missed cardiovascular, cognitive, and bone protection that <strong>cannot be fully recovered by late initiation.</strong> The &ldquo;lowest dose for the shortest possible time&rdquo; guidance from the post-WHI era is not evidence-based for perimenopausal women. It is a relic of a misapplied study.</p>
+  </div>
+</section>
+
+<!-- S3: ESTROGEN -->
+<section class="reveal" id="estrogen">
+  <div class="eyebrow">Route, Form, and Dose</div>
+  <h2 class="sh">Not all estrogen<br><em>is created equal.</em></h2>
+  <p class="lead">The form of estrogen, the route of delivery, and the dose are three distinct clinical decisions &mdash; and getting any one of them wrong produces a fundamentally different risk-benefit profile. <strong>This is where individualization begins.</strong></p>
+
+  <div class="route-grid reveal">
+    <div class="route-card">
+      <span class="route-badge preferred">Preferred &mdash; First Line</span>
+      <div class="route-name">Transdermal Estradiol</div>
+      <div class="route-body">Gel, patch, or spray delivering bioidentical estradiol through the skin &mdash; bypassing first-pass liver metabolism entirely. <strong>This is the most important route distinction in modern HRT.</strong> Transdermal estradiol does not increase clotting factor production, does not elevate triglycerides, and does not increase the risk of VTE or stroke &mdash; the risks associated with oral estrogen.</div>
+      <div class="route-list">
+        <div class="route-item good">No first-pass liver metabolism &mdash; avoids clotting factor increase</div>
+        <div class="route-item good">No increased VTE or stroke risk &mdash; unlike oral estrogen</div>
+        <div class="route-item good">Stable, physiological estradiol levels without oral peaks</div>
+        <div class="route-item good">Gel and spray avoid adhesive allergy &mdash; multiple options</div>
+      </div>
+    </div>
+    <div class="route-card">
+      <span class="route-badge caution">Use With Caution</span>
+      <div class="route-name">Oral Estradiol / CEE</div>
+      <div class="route-body">Oral estrogen undergoes first-pass liver metabolism, stimulating clotting factors, CRP, SHBG, and triglycerides. <strong>Associated with 2&ndash;4x increased risk of VTE and modestly increased stroke risk</strong> compared to transdermal. For women with MTHFR, elevated homocysteine, prior clotting history, or cardiovascular risk &mdash; oral estrogen is contraindicated. The WHI used oral CEE &mdash; a critically important detail.</div>
+      <div class="route-list">
+        <div class="route-item bad">First-pass liver metabolism increases clotting factor production</div>
+        <div class="route-item bad">2&ndash;4x increased VTE risk vs. transdermal</div>
+        <div class="route-item bad">Increases SHBG &mdash; binds testosterone, reduces free levels</div>
+      </div>
+    </div>
+    <div class="route-card">
+      <span class="route-badge local">Systemic-Free</span>
+      <div class="route-name">Vaginal / Local Estrogen</div>
+      <div class="route-body">Topical vaginal estrogen &mdash; cream, ring, or tablet &mdash; delivers estrogen locally to urogenital tissue with minimal systemic absorption at low doses. Used for genitourinary syndrome of menopause (GSM): vaginal dryness, recurrent UTIs, painful intercourse, urinary urgency. <strong>Can be used in women who cannot or choose not to use systemic HRT.</strong></div>
+      <div class="route-list">
+        <div class="route-item good">Minimal systemic absorption at therapeutic doses</div>
+        <div class="route-item good">Safe in most women who cannot use systemic HRT</div>
+        <div class="route-item good">Dramatically effective for GSM symptoms</div>
+        <div class="route-item bad">Does not address hot flashes, sleep, cognition</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout reveal">
+    <div class="callout-label">The Adhesive Allergy Solution</div>
+    <p>For women with adhesive allergies who cannot use patch formulations, <strong>transdermal gel or spray is the correct alternative &mdash; not oral estrogen.</strong> Estrogel, Divigel, and Evamist spray all deliver bioidentical transdermal estradiol without an adhesive. The route benefit is preserved entirely. Adhesive allergy should never be a reason to prescribe oral estrogen when transdermal alternatives exist.</p>
+  </div>
+
+  <div class="forms-grid reveal">
+    <div class="form-card">
+      <span class="form-badge bio">Bioidentical &middot; Preferred</span>
+      <div class="form-name">Estradiol (E2)</div>
+      <div class="form-body">The primary estrogen produced by the ovaries &mdash; identical in molecular structure to what the human body makes. Available as transdermal gel (Estrogel, Divigel), patch (Vivelle-Dot, Climara), spray (Evamist), and oral tablet. <strong>Estradiol is the standard of care in modern HRT</strong> &mdash; bioidentical, titratable, and with the most favorable evidence base of any estrogen formulation. Gel: 0.5&ndash;2 pumps/day &middot; Patch: 0.025&ndash;0.1mg/day.</div>
+    </div>
+    <div class="form-card">
+      <span class="form-badge weak">Bioidentical &middot; Weak</span>
+      <div class="form-name">Estriol (E3) / BiEst</div>
+      <div class="form-body">The weakest of the three major estrogens &mdash; produced primarily during pregnancy. Available in compounded formulations. <strong>Estriol is predominantly used locally for GSM</strong> &mdash; it has adequate local potency but insufficient systemic activity for vasomotor and cognitive symptom management. BiEst formulations that replace E2 with high-ratio E3 are often underdosing the active component. BiEst ratio should favor E2 for systemic effect.</div>
+    </div>
+    <div class="form-card">
+      <span class="form-badge nonbio">Non-Bioidentical &middot; The WHI Formulation</span>
+      <div class="form-name">CEE (Conjugated Equine Estrogen)</div>
+      <div class="form-body">Premarin &mdash; derived from pregnant mare urine. Contains a mixture of estrogens not found in human physiology. <strong>This is the estrogen used in the WHI.</strong> Its findings cannot be directly applied to estradiol. Still prescribed in some practices but not the modern standard of care. Preferentially replaced by bioidentical estradiol in evidence-based hormone medicine.</div>
+    </div>
+    <div class="form-card">
+      <span class="form-badge endo">Endogenous &middot; Not Prescribed</span>
+      <div class="form-name">Estrone (E1)</div>
+      <div class="form-body">The primary estrogen in postmenopausal women &mdash; produced predominantly in adipose tissue from androgen precursors. Less potent than estradiol and more proliferative &mdash; which is part of why central adiposity is associated with estrogen-driven cancer risk in postmenopausal women. <strong>Not prescribed &mdash; measured on DUTCH panel.</strong> Elevated E1 metabolites from adipose conversion are the clinical target for estrobolome and metabolism support from Pillar 3.</div>
+    </div>
+  </div>
+</section>
+
+<!-- S4: PROGESTERONE -->
+<section class="alt reveal" id="progesterone">
+  <div class="eyebrow">The Most Important Distinction in HRT</div>
+  <h2 class="sh">Progesterone vs. progestins &mdash;<br><em>they are not the same hormone.</em></h2>
+  <p class="lead">Most women on HRT are on the wrong form of progesterone. Most clinicians use the terms interchangeably. They are not the same molecule, they do not bind the same receptors, they do not produce the same effects, and they do not carry the same risks. <strong>This is one of the most consequential distinctions in all of hormone medicine.</strong></p>
+
+  <div class="prog-compare reveal">
+    <div class="prog-col">
+      <span class="prog-badge bio">Micronized Progesterone (Bioidentical)</span>
+      <div class="prog-col-title">Prometrium / Compounded Progesterone</div>
+      <div class="prog-list">
+        <div class="prog-item good">Chemically identical to the progesterone produced by the corpus luteum and adrenal glands</div>
+        <div class="prog-item good">Binds progesterone receptors exclusively &mdash; no androgenic or glucocorticoid activity</div>
+        <div class="prog-item good">Promotes sleep through allopregnanolone GABA-A modulation</div>
+        <div class="prog-item good">Stabilizes mast cells &mdash; reduces histamine release (Pillar 3 connection)</div>
+        <div class="prog-item good">No breast cancer signal in re-analysis data</div>
+        <div class="prog-item good">Anxiolytic &mdash; neurosteroid effects on GABA system</div>
+        <div class="prog-item good">Raises DAO activity &mdash; improves histamine intolerance</div>
+      </div>
+    </div>
+    <div class="prog-col">
+      <span class="prog-badge syn">Synthetic Progestins (MPA, Norethindrone, Levonorgestrel)</span>
+      <div class="prog-col-title">Provera / Synthetic Progestin Formulations</div>
+      <div class="prog-list">
+        <div class="prog-item bad">Binds androgen and glucocorticoid receptors &mdash; off-target effects</div>
+        <div class="prog-item bad">Associated with increased breast cancer risk in WHI and other studies</div>
+        <div class="prog-item bad">Androgenic side effects &mdash; acne, hair thinning, negative HDL effect</div>
+        <div class="prog-item bad">Does not provide sleep benefit &mdash; no GABA modulation</div>
+        <div class="prog-item bad">Does not stabilize mast cells &mdash; may worsen histamine reactivity</div>
+        <div class="prog-item bad">Negative cardiovascular effects &mdash; opposes estrogen&rsquo;s lipid benefits</div>
+        <div class="prog-item bad">The breast cancer risk attributed to &ldquo;HRT&rdquo; was a progestin risk &mdash; not a progesterone risk</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="prog-effects reveal">
+    <div class="pe-card">
+      <span class="pe-icon">&#10022;</span>
+      <div class="pe-name">Sleep Promotion</div>
+      <div class="pe-body">Progesterone is metabolized to allopregnanolone &mdash; a potent positive allosteric modulator of GABA-A receptors. The same receptor complex targeted by benzodiazepines. Micronized progesterone taken at bedtime produces measurable improvements in sleep latency, sleep maintenance, and slow-wave sleep. <strong>This is a mechanistic sleep intervention, not a coincidental effect &mdash; and it connects Pillar 1 directly to Pillar 5.</strong></div>
+      <div class="pe-clinical">Prometrium 100&ndash;200mg at bedtime &middot; Vaginal progesterone has less sedating effect &mdash; sleep benefit comes from hepatic conversion to allopregnanolone</div>
+    </div>
+    <div class="pe-card">
+      <span class="pe-icon">&#10022;</span>
+      <div class="pe-name">Uterine Protection</div>
+      <div class="pe-body">The primary clinical reason progesterone is prescribed alongside estrogen in women with a uterus. Unopposed estrogen stimulates endometrial proliferation &mdash; progesterone provides the secretory phase counterbalance, preventing hyperplasia and endometrial cancer risk. <strong>Women who have had a hysterectomy do not require progesterone for uterine protection</strong> &mdash; though many still benefit from its other effects.</div>
+      <div class="pe-clinical">Continuous low-dose (100mg daily) or cyclical (200mg days 1&ndash;12 monthly) in women with a uterus on systemic estrogen</div>
+    </div>
+    <div class="pe-card">
+      <span class="pe-icon">&#10022;</span>
+      <div class="pe-name">Neuroprotection &amp; Mood</div>
+      <div class="pe-body">Allopregnanolone has anxiolytic, anticonvulsant, and neuroprotective properties. Women with low progesterone frequently experience anxiety, irritability, and mood instability. <strong>Progesterone restoration targets the neurological root of perimenopausal mood disruption through GABA modulation</strong> rather than serotonin &mdash; the target of antidepressants frequently prescribed instead.</div>
+      <div class="pe-clinical">Women prescribed SSRIs for perimenopausal &ldquo;anxiety&rdquo; often need progesterone &mdash; not serotonin modulation</div>
+    </div>
+    <div class="pe-card">
+      <span class="pe-icon">&#10022;</span>
+      <div class="pe-name">Mast Cell Stabilization</div>
+      <div class="pe-body">Progesterone directly stabilizes mast cells &mdash; reducing the degranulation threshold and histamine release that worsens in perimenopause as progesterone declines. Women with MCAS or histamine intolerance (Pillar 3) often experience dramatic symptom improvement with bioidentical progesterone restoration. <strong>This is a critical distinction from synthetic progestins</strong> &mdash; MPA does not share this effect and may worsen mast cell reactivity.</div>
+      <div class="pe-clinical">Dose-dependent benefit &mdash; ensure adequate dosing (100&ndash;200mg) before concluding progesterone is not helping</div>
+    </div>
+  </div>
+</section>
+
+<!-- S5: TESTOSTERONE -->
+<section class="reveal" id="testosterone">
+  <div class="eyebrow">The Most Underprescribed Hormone in Women&rsquo;s Health</div>
+  <h2 class="sh">Testosterone &mdash;<br><em>the hormone no one is giving her.</em></h2>
+  <p class="lead">Women produce testosterone. It declines with age &mdash; beginning in the 20s and dropping significantly through perimenopause. It is the hormone most responsible for libido, energy, lean muscle mass, cognitive sharpness, and motivation. <strong>It is almost universally underdiagnosed, undertreated, and under-discussed in women&rsquo;s hormone care. This ends here.</strong></p>
+
+  <div class="t-benefits reveal">
+    <div class="t-card">
+      <span class="t-icon">&#10022;</span>
+      <div class="t-name">Libido &amp; Sexual Function</div>
+      <div class="t-body">Testosterone is the primary driver of sexual desire in women &mdash; not estrogen. Low testosterone is the most common identifiable cause of hypoactive sexual desire disorder (HSDD) in perimenopausal women. <strong>Estrogen supports vaginal tissue health &mdash; but desire requires testosterone.</strong> Women whose libido has &ldquo;just disappeared&rdquo; are not experiencing normal aging. It is a treatable androgen deficiency.</div>
+      <div class="t-note">Highest level of evidence for female sexual dysfunction</div>
+    </div>
+    <div class="t-card">
+      <span class="t-icon">&#10022;</span>
+      <div class="t-name">Lean Muscle Mass &amp; Body Composition</div>
+      <div class="t-body">Testosterone is anabolic &mdash; it stimulates muscle protein synthesis, supports recovery from resistance training, and opposes cortisol&rsquo;s catabolic effects on muscle. <strong>The Pillar 4 resistance training protocol is substantially more effective in the context of adequate testosterone.</strong> These two interventions are synergistic, not merely additive.</div>
+      <div class="t-note">Synergistic with resistance training &middot; Not optional in body composition work</div>
+    </div>
+    <div class="t-card">
+      <span class="t-icon">&#10022;</span>
+      <div class="t-name">Cognitive Function &amp; Energy</div>
+      <div class="t-body">Testosterone has direct effects on cognitive function &mdash; particularly executive function, verbal memory, and processing speed. Testosterone receptors are abundant in the hippocampus and prefrontal cortex. <strong>Women on adequate testosterone therapy frequently report feeling &ldquo;like themselves again&rdquo;</strong> in ways they could not achieve with estrogen and progesterone alone.</div>
+      <div class="t-note">Cognitive and mitochondrial energy &mdash; not fully addressed by estrogen alone</div>
+    </div>
+    <div class="t-card">
+      <span class="t-icon">&#10022;</span>
+      <div class="t-name">Bone Density</div>
+      <div class="t-body">Testosterone contributes independently to bone density maintenance &mdash; separate from its aromatization to estrogen. Androgen receptors on osteoblasts directly stimulate bone formation. <strong>Women on testosterone therapy show improvements in bone mineral density beyond what estrogen alone produces.</strong> Particularly relevant for women who have been estrogen-deficient before initiating HRT.</div>
+      <div class="t-note">Additive bone benefit beyond estrogen&rsquo;s anti-resorptive effect</div>
+    </div>
+    <div class="t-card">
+      <span class="t-icon">&#10022;</span>
+      <div class="t-name">Mood &amp; Motivation</div>
+      <div class="t-body">Testosterone&rsquo;s contribution to mood is mediated through dopamine system modulation, serotonin receptor sensitivity, BDNF upregulation, and direct neurosteroid effects. <strong>Low testosterone is associated with depression, flat affect, lack of motivation, and emotional blunting</strong> &mdash; symptoms frequently attributed to &ldquo;just menopause&rdquo; or treated with antidepressants when the underlying androgen deficiency goes untreated.</div>
+      <div class="t-note">Dopaminergic and serotonergic effects &mdash; distinct from estrogen&rsquo;s mood action</div>
+    </div>
+    <div class="t-card">
+      <span class="t-icon">&#10022;</span>
+      <div class="t-name">Cardiovascular Health</div>
+      <div class="t-body">Emerging evidence suggests testosterone has favorable cardiovascular effects in women &mdash; including improved cardiac muscle function, vasodilation, and favorable effects on inflammatory markers. <strong>Women with higher androgen levels in postmenopause show lower rates of cardiovascular disease in some observational studies.</strong> The cardiovascular data is less mature than the sexual function evidence &mdash; but the direction is favorable.</div>
+      <div class="t-note">Emerging cardiovascular evidence &mdash; favorable direction</div>
+    </div>
+  </div>
+
+  <div class="t-delivery reveal">
+    <div class="td-item">
+      <div>
+        <div class="td-name">Testosterone Pellets</div>
+        <div class="td-status">Widely Used in HRT Clinics</div>
+      </div>
+      <div class="td-body">Subcutaneous pellets inserted every 3&ndash;6 months providing sustained testosterone release without daily application. Delivers consistent levels depending on dose inserted. <strong>The primary limitation is that dosing cannot be adjusted once inserted</strong> &mdash; if side effects occur (acne, hair thinning, erythrocytosis), the patient must wait for the pellet to exhaust. Monitor hematocrit and free testosterone at each insertion cycle.
+        <div class="td-pros">
+          <span class="td-pro">Consistent delivery</span>
+          <span class="td-pro">No daily application</span>
+          <span class="td-pro">High compliance</span>
+          <span class="td-con">Cannot adjust dose once inserted</span>
+          <span class="td-con">Side effects managed expectantly</span>
+        </div>
+      </div>
+    </div>
+    <div class="td-item">
+      <div>
+        <div class="td-name">Compounded Topical Cream or Gel</div>
+        <div class="td-status">Highly Titratable &middot; Excellent Option</div>
+      </div>
+      <div class="td-body">Compounded testosterone in cream or gel applied daily to inner thigh, forearm, or labial tissue. <strong>Highly titratable &mdash; dose can be adjusted immediately based on labs and symptom response.</strong> Labial application has better absorption than forearm. Avoids the dose-adjustment limitation of pellets. Requires patient compliance with daily application and careful skin contact management.
+        <div class="td-pros">
+          <span class="td-pro">Immediately adjustable</span>
+          <span class="td-pro">No procedure required</span>
+          <span class="td-pro">Labial absorption highly effective</span>
+          <span class="td-con">Daily application required</span>
+          <span class="td-con">Transfer risk if not dry</span>
+        </div>
+      </div>
+    </div>
+    <div class="td-item">
+      <div>
+        <div class="td-name">Testosterone Injection (Cypionate)</div>
+        <div class="td-status">Off-Label &middot; Effective &middot; Requires Monitoring</div>
+      </div>
+      <div class="td-body">Weekly or biweekly subcutaneous testosterone cypionate injections &mdash; adapted from male hypogonadism protocols at women&rsquo;s physiological doses (typically 5&ndash;20mg per week). Extremely titratable, cost-effective, and produces consistent levels without pellet insertion. <strong>Growing in use as practitioners become more comfortable with the approach.</strong> Requires patient comfort with self-injection. All use in women is off-label.
+        <div class="td-pros">
+          <span class="td-pro">Highly titratable</span>
+          <span class="td-pro">Cost-effective</span>
+          <span class="td-pro">No transfer risk</span>
+          <span class="td-con">Off-label &middot; Document rationale</span>
+          <span class="td-con">Requires self-injection comfort</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S6: DHEA AND THYROID -->
+<section class="alt reveal" id="dhea">
+  <div class="eyebrow">The Overlooked Completers</div>
+  <h2 class="sh">DHEA &amp; thyroid &mdash;<br><em>optimization is not complete without them.</em></h2>
+  <p class="lead">Sex hormone optimization in perimenopause is not complete without addressing DHEA as both a systemic androgen precursor and a local vaginal intervention &mdash; and without ensuring the thyroid is not the silent saboteur of everything else in the protocol.</p>
+
+  <div class="callout reveal">
+    <div class="callout-label">DHEA &mdash; The Forgotten Androgen Precursor</div>
+    <p>DHEA is the most abundant steroid in circulation and the primary precursor for both testosterone and estrogen production in peripheral tissues. It declines approximately 2% per year after its peak in the mid-20s &mdash; a woman at 50 has roughly half the DHEA she had at 25. <strong>This decline contributes to androgen insufficiency, reduced energy, impaired immune function, and genitourinary atrophy.</strong></p>
+  </div>
+
+  <div class="callout gold reveal">
+    <div class="callout-label">DHEA and the Pregnenolone Steal Connection</div>
+    <p>The HPA dysregulation covered in Pillar 2 directly depletes DHEA &mdash; the pregnenolone steal diverts the precursor pool away from DHEA production. <strong>Women with chronic cortisol dysregulation have the lowest DHEA levels.</strong> This is why Pillar 2 (HPA axis regulation) must precede or accompany Pillar 5 &mdash; you cannot fully restore DHEA in an actively stolen pregnenolone environment.</p>
+  </div>
+
+  <div class="callout reveal">
+    <div class="callout-label">Vaginal DHEA (Prasterone / Intrarosa) &mdash; The Non-Estrogen GSM Option</div>
+    <p>FDA-approved intravaginal DHEA (prasterone 6.5mg/0.5mL insert nightly) converts locally to estradiol and testosterone in vaginal tissue, improving genitourinary syndrome without significant systemic absorption. <strong>The most evidence-based non-estrogen option for genitourinary syndrome &mdash; dramatically more effective than lubricants alone</strong> for painful intercourse and vaginal atrophy. Appropriate for women who cannot use systemic estrogen.</p>
+  </div>
+
+  <div class="callout gold reveal">
+    <div class="callout-label">Thyroid &mdash; The Silent Saboteur</div>
+    <p>A woman whose TSH is 3.5 and whose Free T3 is in the lower quartile of normal is not functioning optimally &mdash; and her estrogen, progesterone, and testosterone will not perform as expected until thyroid function is addressed. <strong>Women are frequently started on HRT for symptoms that are primarily thyroid-driven</strong> &mdash; and then labeled as HRT non-responders when the underlying thyroid issue goes untreated. Full thyroid panel is non-negotiable before or alongside hormone optimization.</p>
+  </div>
+
+  <div class="callout reveal">
+    <div class="callout-label">Hashimoto&rsquo;s and Perimenopause</div>
+    <p>Hashimoto&rsquo;s thyroiditis is the most common autoimmune disease in women &mdash; and its activity increases during perimenopause due to immune system changes driven by estrogen fluctuation. <strong>Positive TPO or thyroglobulin antibodies in a perimenopausal woman require proactive monitoring and often treatment even before TSH becomes abnormal.</strong> Gluten elimination has evidence for reducing TPO antibody titers in Hashimoto&rsquo;s &mdash; an accessible dietary intervention with meaningful clinical impact.</p>
+  </div>
+</section>
+
+<!-- S7: THE SEQUENCING FRAMEWORK -->
+<section class="reveal" id="sequence">
+  <div class="eyebrow">Why the Sequence Is the Intervention</div>
+  <h2 class="sh">The Rebuilt Rebels framework &mdash;<br><em>what makes it different.</em></h2>
+  <p class="lead">This is what makes Rebuilt Rebels fundamentally different from every other hormone health program. It is not a collection of good information &mdash; it is a clinical sequence. <strong>Each pillar creates the conditions the next pillar requires.</strong> Arriving at Pillar 5 on a rebuilt foundation is not the same as arriving at hormone optimization without having done the work. The outcomes are categorically different.</p>
+
+  <div class="sequence-pillars reveal">
+    <div class="seq-pillar">
+      <div class="seq-num">1</div>
+      <div>
+        <div class="seq-name">Sleep Restoration</div>
+        <div class="seq-body">Sleep is the prerequisite for everything &mdash; without it, cortisol regulation is impossible, insulin sensitivity degrades overnight, and growth hormone release is impaired. <strong>HRT improves sleep. But poor sleep also impairs HRT response.</strong> Starting here is not optional. Sleep restoration enables cortisol normalization &rarr;</div>
+      </div>
+      <span class="seq-label foundation">Foundation</span>
+    </div>
+    <div class="seq-pillar">
+      <div class="seq-num">2</div>
+      <div>
+        <div class="seq-name">HPA Axis &amp; Cortisol Regulation</div>
+        <div class="seq-body">Chronic cortisol elevation drives pregnenolone steal &mdash; diverting the hormone precursor pool away from sex hormone production. <strong>HRT prescribed on top of an unregulated HPA axis will underperform</strong> &mdash; the pregnenolone competition means the delivered hormones are working against a system that is simultaneously consuming their precursors. Regulated cortisol enables estrogen metabolism to function cleanly &rarr;</div>
+      </div>
+      <span class="seq-label foundation">Foundation</span>
+    </div>
+    <div class="seq-pillar">
+      <div class="seq-num">3</div>
+      <div>
+        <div class="seq-name">Hormone Metabolism</div>
+        <div class="seq-body">Estrogen that is not metabolized cleanly &mdash; through impaired liver Phase 1 and 2, a dysbiotic estrobolome, or slow COMT variants &mdash; recirculates as genotoxic or proliferative metabolites. <strong>Prescribing more estrogen into a system that cannot metabolize it safely amplifies the risk, not the benefit.</strong> Clean metabolism enables the metabolic platform to be built &rarr;</div>
+      </div>
+      <span class="seq-label foundation">Foundation</span>
+    </div>
+    <div class="seq-pillar">
+      <div class="seq-num">4</div>
+      <div>
+        <div class="seq-name">Metabolic Rehabilitation</div>
+        <div class="seq-body">Insulin resistance impairs hormone receptor sensitivity &mdash; cells with dysfunctional insulin signaling also have impaired steroid hormone receptor function. <strong>A woman with significant insulin resistance will have a blunted response to hormone therapy</strong> &mdash; not because the hormones are insufficient, but because the metabolic environment cannot receive the signal properly. Rebuilt metabolic foundation enables hormone optimization to perform at its peak &rarr;</div>
+      </div>
+      <span class="seq-label foundation">Foundation</span>
+    </div>
+    <div class="seq-pillar">
+      <div class="seq-num">5</div>
+      <div>
+        <div class="seq-name">Hormone Optimization &mdash; The Capstone</div>
+        <div class="seq-body">Bioidentical estradiol, micronized progesterone, testosterone, and DHEA &mdash; individualized by route, form, dose, COMT and MTHFR status, metabolite profile, and clinical response. <strong>On a foundation of restored sleep, regulated cortisol, clean hormone metabolism, and rebuilt metabolic health, HRT performs as the evidence says it should.</strong> This is hormone optimization &mdash; not hormone replacement. The difference is the foundation.</div>
+      </div>
+      <span class="seq-label capstone">The Capstone</span>
+    </div>
+  </div>
+
+  <div class="eyebrow" style="margin-top:52px;">The Individualization Matrix</div>
+  <h3 style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:600;color:var(--ink);margin-bottom:14px;">How the previous four pillars directly inform Pillar 5 clinical decisions.</h3>
+  <div class="indiv-list reveal">
+    <div class="indiv-item">
+      <div>
+        <div class="indiv-finding">Pregnenolone Steal Pattern</div>
+        <div class="indiv-source">Pillar 2 Finding</div>
+      </div>
+      <div class="indiv-body">Address HPA axis first with adaptogens and lifestyle before titrating up HRT. Consider DHEA supplementation to restore the stolen precursor pool. <strong>Start HRT at lower doses &mdash; the steal pattern means receptor competition is active.</strong> Monitor for improved HRT response as cortisol normalizes.</div>
+    </div>
+    <div class="indiv-item">
+      <div>
+        <div class="indiv-finding">Slow COMT + Elevated 4-OHE1</div>
+        <div class="indiv-source">Pillar 3 Finding</div>
+      </div>
+      <div class="indiv-body">Aggressive methylation support must precede or accompany estrogen titration. DIM at 100&ndash;150mg max (not full dose) to avoid overwhelming the slow COMT pathway. Calcium D-glucarate non-optional. <strong>Lower estrogen doses with DUTCH metabolite monitoring every 90 days.</strong></div>
+    </div>
+    <div class="indiv-item">
+      <div>
+        <div class="indiv-finding">MTHFR Positive + Elevated Homocysteine</div>
+        <div class="indiv-source">Pillar 3 Finding</div>
+      </div>
+      <div class="indiv-body"><strong>Transdermal estrogen only &mdash; oral is contraindicated with elevated homocysteine.</strong> Methylfolate and methyl-B12 must be in place before escalating estrogen dose. Target homocysteine below 8 &mu;mol/L before optimizing estrogen. Monitor homocysteine and metabolites at each dose adjustment.</div>
+    </div>
+    <div class="indiv-item">
+      <div>
+        <div class="indiv-finding">Significant Insulin Resistance (HOMA-IR &gt;2.5)</div>
+        <div class="indiv-source">Pillar 4 Finding</div>
+      </div>
+      <div class="indiv-body">Testosterone optimization takes on heightened importance &mdash; directly improves insulin sensitivity. Estrogen restoration supports GLUT4 expression &mdash; synergistic with resistance training. <strong>Monitor HbA1c and HOMA-IR with HRT initiation &mdash; expect improvement.</strong> Ensure Pillar 4 interventions are active before expecting full HRT benefit.</div>
+    </div>
+    <div class="indiv-item">
+      <div>
+        <div class="indiv-finding">MCAS or Histamine Intolerance</div>
+        <div class="indiv-source">Pillar 3 Finding</div>
+      </div>
+      <div class="indiv-body">Stabilize mast cells with H1/H2 blockers and quercetin before initiating HRT. <strong>Micronized progesterone first &mdash; it stabilizes mast cells while adding hormone benefit.</strong> Introduce transdermal estrogen at the lowest dose and titrate slowly. Avoid oral estrogen &mdash; higher peak levels trigger mast cell activation more readily.</div>
+    </div>
+    <div class="indiv-item">
+      <div>
+        <div class="indiv-finding">Persistent Sleep Fragmentation</div>
+        <div class="indiv-source">Pillar 1 Finding</div>
+      </div>
+      <div class="indiv-body"><strong>Progesterone at bedtime (100&ndash;200mg) &mdash; the allopregnanolone sleep benefit is first-line.</strong> Estrogen restoration reduces nighttime cortisol and supports sleep architecture. Assess for nocturnal cortisol pattern &mdash; may require Pillar 2 adjustment alongside HRT. Sleep improvement is often the first measurable HRT response &mdash; track it as a clinical marker.</div>
+    </div>
+  </div>
+</section>
+
+<!-- S8: LABS -->
+<section class="alt reveal" id="labs">
+  <div class="eyebrow">The Complete Hormone Optimization Panel</div>
+  <h2 class="sh">Labs that reflect optimization &mdash;<br><em>not just the absence of disease.</em></h2>
+  <p class="lead">These are the labs that paint a complete hormonal picture. Track these at baseline and at 8&ndash;12 weeks after any protocol change. <strong>Optimization is a moving target &mdash; not a one-time draw.</strong></p>
+
+  <div class="lab-list reveal">
+    <div class="lab-item">
+      <div>
+        <span class="lab-hormone estrogen">Estrogen</span>
+        <div class="lab-name">Estradiol (E2) &mdash; Serum</div>
+        <div class="lab-target">80&ndash;150 pg/mL on therapy &middot; Trough timing for consistency &middot; Symptom resolution is the primary guide</div>
+      </div>
+      <div class="lab-body">The primary circulating estrogen &mdash; the target of transdermal estradiol therapy. Draw at trough (before next gel application or patch change) for consistent results. <strong>Note: serum estradiol does not reflect tissue levels</strong> &mdash; DUTCH metabolites are required for the complete metabolism picture. Symptom resolution guides dosing, not a serum number alone.</div>
+      <div class="lab-body">Do not chase a number. Chase symptom resolution and metabolite safety.</div>
+    </div>
+    <div class="lab-item">
+      <div>
+        <span class="lab-hormone prog">Progesterone</span>
+        <div class="lab-name">Progesterone &mdash; Serum</div>
+        <div class="lab-target">Serum less informative on oral Prometrium &middot; DUTCH metabolites more useful &middot; Symptom and sleep response guides dosing</div>
+      </div>
+      <div class="lab-body">Serum progesterone on micronized progesterone therapy is often lower than expected &mdash; because oral micronized progesterone is extensively metabolized to allopregnanolone before reaching serum. <strong>A &ldquo;low&rdquo; serum progesterone on Prometrium does not indicate inadequate dosing</strong> &mdash; the therapeutic effect is mediated through the metabolite. Vaginal progesterone produces higher serum levels than oral at equivalent doses.</div>
+      <div class="lab-body">DUTCH urine metabolites provide a more complete progesterone metabolism picture than serum.</div>
+    </div>
+    <div class="lab-item">
+      <div>
+        <span class="lab-hormone testosterone">Testosterone</span>
+        <div class="lab-name">Free Testosterone + Total Testosterone + SHBG</div>
+        <div class="lab-target">Free T: upper quartile female range &middot; Total T: 50&ndash;100 ng/dL on therapy &middot; SHBG: below 80 nmol/L</div>
+      </div>
+      <div class="lab-body">Total testosterone alone is inadequate &mdash; <strong>SHBG determines how much testosterone is biologically available.</strong> High SHBG (from oral estrogen, thyroid disease, or genetic tendency) can bind most of the total testosterone, leaving free testosterone dramatically low. Free testosterone is the clinically meaningful number. Oral estrogen significantly raises SHBG &mdash; another reason to avoid oral estrogen in women with low testosterone.</div>
+      <div class="lab-body">High SHBG = low free T despite normal total T. Order both &mdash; interpret together.</div>
+    </div>
+    <div class="lab-item">
+      <div>
+        <span class="lab-hormone androgen">Androgens</span>
+        <div class="lab-name">DHEA-S</div>
+        <div class="lab-target">Upper third of age-adjusted range &middot; Not just &ldquo;normal&rdquo; &middot; Retest at 8 weeks on supplementation</div>
+      </div>
+      <div class="lab-body">DHEA sulfate &mdash; the stable, serum-measurable form of DHEA. Declines ~2% per year from peak. Low DHEA-S in a perimenopausal woman indicates adrenal androgen insufficiency that contributes to fatigue, low libido, poor immune function, and inadequate precursor substrate for sex hormone production. <strong>Target the upper third of the age-adjusted reference range</strong> &mdash; not just &ldquo;within normal limits.&rdquo;</div>
+      <div class="lab-body">Low DHEA-S = consider supplementation &middot; Also check cortisol pattern from Pillar 2</div>
+    </div>
+    <div class="lab-item">
+      <div>
+        <span class="lab-hormone thyroid">Thyroid</span>
+        <div class="lab-name">Full Thyroid Panel</div>
+        <div class="lab-target">TSH: 1.0&ndash;2.0 &middot; Free T3: upper half of range &middot; RT3: low &middot; TPO/TgAb: negative</div>
+      </div>
+      <div class="lab-body">TSH, Free T4, Free T3, Reverse T3, TPO antibodies, Thyroglobulin antibodies. <strong>TSH alone is inadequate &mdash; it can be &ldquo;normal&rdquo; while Free T3 is low (conversion problem) or Reverse T3 is elevated (functional hypothyroidism from chronic stress).</strong> Cannot optimize sex hormones on a broken thyroid &mdash; this panel is non-negotiable in every perimenopausal woman.</div>
+      <div class="lab-body">The Pillar 2 cortisol-thyroid connection means HPA dysregulation impairs T4-to-T3 conversion &mdash; making thyroid and cortisol management inseparable interventions.</div>
+    </div>
+    <div class="lab-item">
+      <div>
+        <span class="lab-hormone safety">Safety</span>
+        <div class="lab-name">Hematocrit + CBC</div>
+        <div class="lab-target">Hematocrit below 48&ndash;50% &middot; Check every pellet cycle or every 6 months on other routes</div>
+      </div>
+      <div class="lab-body">Testosterone therapy &mdash; particularly pellets &mdash; can stimulate red blood cell production (erythrocytosis). Elevated hematocrit increases blood viscosity and clotting risk. <strong>This is the primary safety monitoring parameter for testosterone therapy in women</strong> &mdash; not liver enzymes or lipids. If elevated: dose reduction or therapeutic phlebotomy may be required.</div>
+      <div class="lab-body">Monitor at every pellet insertion cycle and at 6-week intervals on injectable or topical testosterone.</div>
+    </div>
+    <div class="lab-item">
+      <div>
+        <span class="lab-hormone metabolite">Metabolites</span>
+        <div class="lab-name">DUTCH Complete with Metabolites</div>
+        <div class="lab-target">Baseline + 8&ndash;12 weeks after protocol change &middot; The definitive HRT monitoring tool</div>
+      </div>
+      <div class="lab-body">The complete hormone metabolism picture &mdash; covering all five pillars in a single test. On HRT, repeat DUTCH at 8&ndash;12 weeks after any significant protocol change. <strong>Watch for: 4-OHE1 increasing with estrogen dose escalation (COMT saturation), 2-MeOE1 dropping (methylation support inadequate), cortisol pattern shift, testosterone metabolites confirming appropriate delivery.</strong></div>
+      <div class="lab-body">The most information-dense single diagnostic available for a woman on HRT &mdash; essential for precision dosing adjustments.</div>
+    </div>
+  </div>
+
+  <div class="callout gold reveal">
+    <div class="callout-label">What to Say at Your Appointment</div>
+    <p>&ldquo;I&rsquo;d like to discuss hormone optimization &mdash; not just replacement. Before we adjust any doses, I want a complete picture: estradiol, free and total testosterone, SHBG, DHEA-S, full thyroid panel including Free T3 and Reverse T3, and I&rsquo;d like to order a DUTCH Complete to assess my estrogen metabolites. <strong>I want to optimize on a foundation of clean metabolism &mdash; not just add hormones to a system we haven&rsquo;t fully evaluated.&rdquo;</strong></p>
+  </div>
+</section>
+
+<!-- WORKBOOK -->
+<section class="workbook reveal" id="workbook">
+  <div class="eyebrow">Pillar 5 Workbook &middot; The Capstone</div>
+  <h2 class="sh">Your hormone optimization picture.</h2>
+  <div class="wb-grid">
+    <div class="wb-block">
+      <div class="wb-title">My Hormone Baseline</div>
+      <div class="wb-prompt">Record pre-treatment labs and re-test at 8&ndash;12 weeks after each protocol change. Optimization is a moving target.</div>
+      <table class="wb-tbl">
+        <thead><tr><th>Marker</th><th>Baseline</th><th>8&ndash;12 Wk</th><th>Target</th></tr></thead>
+        <tbody>
+          <tr><td>Estradiol (E2)</td><td><span class="wb-e"></span></td><td><span class="wb-e"></span></td><td>80&ndash;150 pg/mL</td></tr>
+          <tr><td>Free Testosterone</td><td><span class="wb-e"></span></td><td><span class="wb-e"></span></td><td>Upper quartile</td></tr>
+          <tr><td>SHBG</td><td><span class="wb-e"></span></td><td><span class="wb-e"></span></td><td>Below 80 nmol/L</td></tr>
+          <tr><td>DHEA-S</td><td><span class="wb-e"></span></td><td><span class="wb-e"></span></td><td>Upper third age-adj</td></tr>
+          <tr><td>TSH</td><td><span class="wb-e"></span></td><td><span class="wb-e"></span></td><td>1.0&ndash;2.0</td></tr>
+          <tr><td>Free T3</td><td><span class="wb-e"></span></td><td><span class="wb-e"></span></td><td>Upper half of range</td></tr>
+          <tr><td>Hematocrit</td><td><span class="wb-e"></span></td><td><span class="wb-e"></span></td><td>Below 48&ndash;50%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="wb-block">
+      <div class="wb-title">My HRT Protocol</div>
+      <div class="wb-prompt">Document your current protocol. This is a living document &mdash; update it with every dose adjustment and note the clinical response that prompted each change.</div>
+      <div class="wb-lines">
+        <div class="wbl"><div class="wbll">Estradiol &mdash; form, dose, and route</div></div>
+        <div class="wbl"></div>
+        <div class="wbl"><div class="wbll">Progesterone &mdash; dose and timing</div></div>
+        <div class="wbl"></div>
+        <div class="wbl"><div class="wbll">Testosterone &mdash; form, dose, and frequency</div></div>
+        <div class="wbl"></div>
+        <div class="wbl"><div class="wbll">DHEA &mdash; dose if supplementing</div></div>
+        <div class="wbl"></div>
+        <div class="wbl"><div class="wbll">Thyroid &mdash; medication or monitoring plan</div></div>
+        <div class="wbl"></div>
+        <div class="wbl"><div class="wbll">Next labs &mdash; date and markers to recheck</div></div>
+        <div class="wbl"></div>
+      </div>
+    </div>
+    <div class="wb-block">
+      <div class="wb-title">My WHI Risk Reframe</div>
+      <div class="wb-prompt">The WHI finding does not apply to you if you meet these criteria. Check each one and use it in your conversation with your provider.</div>
+      <div class="wb-checks">
+        <div class="wb-check"><div class="wbc-box"></div><div class="wbc-text">I am initiating HRT within 10 years of menopause onset</div></div>
+        <div class="wb-check"><div class="wbc-box"></div><div class="wbc-text">I will use transdermal estradiol &mdash; not oral CEE</div></div>
+        <div class="wb-check"><div class="wbc-box"></div><div class="wbc-text">I will use micronized progesterone &mdash; not MPA or synthetic progestins</div></div>
+        <div class="wb-check"><div class="wbc-box"></div><div class="wbc-text">My MTHFR and COMT status will inform my protocol</div></div>
+        <div class="wb-check"><div class="wbc-box"></div><div class="wbc-text">My estrogen metabolism will be monitored on DUTCH</div></div>
+        <div class="wb-check"><div class="wbc-box"></div><div class="wbc-text">I understand the difference between progestins and progesterone</div></div>
+      </div>
+    </div>
+    <div class="wb-block">
+      <div class="wb-title">My Five-Pillar Foundation Status</div>
+      <div class="wb-prompt">Hormone optimization performs best on a complete foundation. Assess each pillar &mdash; are you ready for the capstone to work at its full potential?</div>
+      <table class="wb-tbl">
+        <thead><tr><th>Pillar</th><th>Status</th><th>Priority Action</th></tr></thead>
+        <tbody>
+          <tr><td>1 &mdash; Sleep</td><td><span class="wb-e"></span></td><td>7+ hrs consistent?</td></tr>
+          <tr><td>2 &mdash; HPA Axis</td><td><span class="wb-e"></span></td><td>Cortisol pattern addressed?</td></tr>
+          <tr><td>3 &mdash; Metabolism</td><td><span class="wb-e"></span></td><td>DUTCH ordered?</td></tr>
+          <tr><td>4 &mdash; Metabolic Rehab</td><td><span class="wb-e"></span></td><td>Resistance training active?</td></tr>
+          <tr><td>5 &mdash; HRT</td><td><span class="wb-e"></span></td><td>Protocol individualized?</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- COURSE COMPLETE -->
+<div class="completion-final reveal">
+  <div class="comp-ghost">REBUILT</div>
+  <div class="comp-eyebrow">Rebuilt Rebels &middot; Five Pillars &middot; Complete</div>
+  <div class="comp-title">The rebuild<br><em>is complete.</em></div>
+  <p class="comp-sub">Five pillars. A complete clinical framework for what perimenopause actually is and what to do about it &mdash; in the right sequence, for the right reasons, built on evidence and clinical reality rather than the reductionist narrative that has failed women for generations. You did not come here for information. You came here to be rebuilt. That work is done.</p>
+  <div class="comp-btns">
+    <a href="https://stan.store/thebuiltmovement" class="comp-btn">Return to Rebuilt Rebels &rarr;</a>
+    <a href="https://stan.store/thebuiltmovement" class="comp-btn-outline">Return to Pillar 1 &rarr;</a>
+  </div>
+  <div class="comp-stamp">Sleep &middot; Cortisol &middot; Metabolism &middot; Muscle &middot; Hormones &middot; In that order &middot; For good reason &middot; Rebuilt Rebels &middot; Candace, PA-C</div>
+</div>
+
+<footer style="background:#3A3530;border-top:1px solid rgba(245,240,232,0.06);padding:28px 52px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
+  <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:0.95rem;color:rgba(245,240,232,0.4);"><span style="color:#B04070;font-style:normal;">Rebuilt Rebels</span> &middot; The Hormone Reset &middot; Complete</div>
+  <div style="font-family:'Jost',sans-serif;font-size:0.6rem;color:rgba(245,240,232,0.2);letter-spacing:0.08em;text-align:right;">Candace, PA-C &middot; Educational content &middot; Not a substitute for medical care &middot; <a href="glossary.html" style="color:#B04070;text-decoration:none;">Glossary &rarr;</a></div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{
+  const st=document.documentElement.scrollTop;
+  const dh=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+  document.getElementById('pbar').style.width=(st/dh*100)+'%';
+});
+const ro=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
+},{threshold:0.05});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+</script>
+</body>
+</html>

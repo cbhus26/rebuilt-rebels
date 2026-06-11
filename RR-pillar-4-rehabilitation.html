@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pillar 4: Metabolic Rehabilitation — Rebuilt Rebels</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#FAF7F2;--ecru:#F5F0E8;--parchment:#EDE8DE;
+  --taupe:#C4B9A8;--greige:#A89C8C;--ash:#7A7068;--charcoal:#3A3530;--ink:#252018;
+  --berry:#7A2040;--berry-lt:#9A3058;--berry-glow:#B04070;
+  --berry-dim:#5A1530;--berry-mist:#F8EFF3;
+  --gold:#8A6A20;--gold-lt:#B08A30;
+  --b:rgba(58,53,48,0.08);--bmd:rgba(58,53,48,0.14);
+}
+html{scroll-behavior:smooth}
+body{background:#FAF7F2;color:#252018;font-family:'Lora',serif;font-weight:400;line-height:1.82;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:999;opacity:0.025;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23n)'/%3E%3C/svg%3E")}
+@keyframes rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+@keyframes breathe{0%,100%{opacity:0.04}50%{opacity:0.07}}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity 0.9s ease,transform 0.9s ease}
+.reveal.visible{opacity:1;transform:none}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 52px;background:rgba(250,247,242,0.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--b)}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1rem;font-style:italic;color:var(--charcoal);text-decoration:none}
+.nav-logo span{font-style:normal;color:var(--berry);font-weight:600}
+.nav-links{display:flex}
+.nav-link{font-family:'Jost',sans-serif;font-size:0.62rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--greige);text-decoration:none;padding:4px 10px;transition:color 0.2s}
+.nav-link:hover{color:var(--berry)}
+.pbar{position:fixed;top:58px;left:0;height:2px;background:linear-gradient(90deg,var(--berry-dim),var(--berry),var(--berry-glow));z-index:201;width:0%;transition:width 0.1s}
+.hero{min-height:100vh;padding-top:58px;position:relative;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr auto;background:var(--ecru)}
+.hero-texture{position:absolute;inset:0;background-image:linear-gradient(var(--b) 1px,transparent 1px),linear-gradient(90deg,var(--b) 1px,transparent 1px);background-size:60px 60px;opacity:0.6}
+.hero-glow{position:absolute;inset:0;background:radial-gradient(ellipse 55% 50% at 30% 50%,rgba(122,32,64,0.06) 0%,transparent 65%)}
+.hero-ghost{position:absolute;right:-40px;bottom:-20px;font-family:'Playfair Display',serif;font-size:clamp(5rem,12vw,12rem);font-weight:700;line-height:0.85;color:rgba(122,32,64,0.04);user-select:none;animation:breathe 8s ease-in-out infinite}
+.hero-left{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;padding:80px 56px 80px 72px}
+.hero-eyebrow{font-family:'Jost',sans-serif;font-size:0.62rem;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:var(--berry);margin-bottom:24px;display:flex;align-items:center;gap:14px;animation:rise 0.8s ease both}
+.hero-eyebrow::before{content:'';width:24px;height:1px;background:var(--berry)}
+h1.hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,6vw,5.5rem);font-weight:700;line-height:0.92;color:var(--ink);margin-bottom:8px;animation:rise 0.8s 0.1s ease both}
+h1.hero-title em{font-style:italic;font-weight:400;color:var(--berry)}
+.hero-sub{font-family:'Lora',serif;font-style:italic;font-size:clamp(0.95rem,1.6vw,1.15rem);color:var(--ash);margin-bottom:32px;animation:rise 0.8s 0.2s ease both}
+.hero-desc{font-family:'Lora',serif;font-size:0.97rem;color:var(--ash);max-width:420px;line-height:1.88;margin-bottom:40px;animation:rise 0.8s 0.3s ease both}
+.hero-desc strong{color:var(--charcoal);font-weight:600}
+.hero-chips{display:flex;flex-wrap:wrap;gap:8px;animation:rise 0.8s 0.4s ease both}
+.chip{border:1px solid var(--bmd);padding:7px 16px;font-family:'Jost',sans-serif;font-size:0.62rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--greige);text-decoration:none;background:rgba(250,247,242,0.7);transition:all 0.25s}
+.chip:hover{border-color:var(--berry);color:var(--berry);background:var(--berry-mist)}
+.hero-right{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;padding:80px 56px}
+.pillar-seal{width:240px;height:240px;border-radius:50%;background:var(--charcoal);border:2px solid var(--taupe);display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 0 0 8px var(--ecru),0 0 0 9px var(--taupe),0 20px 60px rgba(58,53,48,0.15);animation:rise 0.8s 0.5s ease both}
+.seal-inner{width:200px;height:200px;border-radius:50%;border:1px solid rgba(245,240,232,0.15);display:flex;flex-direction:column;align-items:center;justify-content:center}
+.seal-series{font-family:'Jost',sans-serif;font-size:0.5rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:rgba(245,240,232,0.4);margin-bottom:8px}
+.seal-num{font-family:'Playfair Display',serif;font-size:5.5rem;font-weight:700;color:#FAF7F2;line-height:1;margin-bottom:4px}
+.seal-title{font-family:'Lora',serif;font-style:italic;font-size:0.72rem;color:var(--berry-glow);text-align:center;padding:0 20px;line-height:1.4}
+.seal-rule{width:40px;height:1px;background:rgba(245,240,232,0.2);margin:10px auto}
+.seal-sub{font-family:'Jost',sans-serif;font-size:0.5rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,240,232,0.3)}
+.hero-foot{grid-column:1/-1;padding:14px 28px;border-top:1px solid var(--b);display:flex;justify-content:center;text-align:center;font-family:'Jost',sans-serif;font-size:0.58rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--taupe)}
+section{padding:88px 72px;background:#FAF7F2}
+section.alt{background:var(--ecru)}
+.eyebrow{font-family:'Jost',sans-serif;font-size:0.6rem;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:var(--berry);margin-bottom:16px;display:flex;align-items:center;gap:14px}
+.eyebrow::after{content:'';width:32px;height:1px;background:var(--berry)}
+h2.sh{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:600;line-height:1.15;color:var(--ink);margin-bottom:14px}
+h2.sh em{font-style:italic;font-weight:400;color:var(--berry)}
+.lead{font-family:'Lora',serif;font-size:1rem;color:#3A3530;max-width:620px;line-height:1.88;margin-bottom:52px}
+.lead strong{color:var(--ink);font-weight:600}
+
+/* NARRATIVE COMPARE */
+.narrative-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--bmd);margin:44px 0}
+.narrative-card{background:#FAF7F2;padding:30px 26px}
+.narrative-badge{font-family:'Jost',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;padding:4px 10px;display:inline-block;margin-bottom:12px}
+.narrative-badge.wrong{background:rgba(122,32,64,0.1);color:var(--berry)}
+.narrative-badge.right{background:rgba(138,106,32,0.1);color:var(--gold)}
+.narrative-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:600;color:var(--ink);margin-bottom:10px;line-height:1.2}
+.narrative-body{font-family:'Lora',serif;font-size:0.87rem;color:#3A3530;line-height:1.78}
+.narrative-body strong{color:var(--ink);font-weight:600}
+.narrative-list{display:flex;flex-direction:column;gap:6px;margin-top:12px}
+.narrative-item{font-family:'Lora',serif;font-size:0.83rem;color:#3A3530;padding-left:18px;position:relative;line-height:1.6}
+.narrative-item::before{position:absolute;left:0;font-weight:700}
+.narrative-item.bad::before{content:'✗';color:var(--berry)}
+.narrative-item.good::before{content:'✓';color:var(--gold)}
+
+/* TIMELINE */
+.timeline{display:flex;flex-direction:column;gap:2px;background:var(--bmd);margin:44px 0}
+.timeline-item{background:#FAF7F2;padding:22px 28px;display:grid;grid-template-columns:100px 1fr;gap:20px;align-items:start;border-left:2px solid transparent;transition:border-color 0.25s}
+.timeline-item:hover{border-left-color:var(--berry)}
+.timeline-era{font-family:'Jost',sans-serif;font-size:0.62rem;font-weight:700;color:var(--berry);letter-spacing:0.08em;line-height:1.4}
+.timeline-name{font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:600;color:var(--ink);margin-bottom:4px}
+.timeline-body{font-family:'Lora',serif;font-size:0.84rem;color:#3A3530;line-height:1.65}
+.timeline-body strong{color:var(--ink);font-weight:600}
+
+/* STORM CARDS */
+.storm-grid{display:flex;flex-direction:column;gap:2px;background:var(--bmd);margin:44px 0}
+.storm-card{background:#FAF7F2;padding:28px 32px;border-left:3px solid transparent;transition:border-color 0.25s}
+.storm-card:hover{border-left-color:var(--berry)}
+.storm-num{font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:700;color:rgba(122,32,64,0.15);line-height:1;margin-bottom:6px}
+.storm-name{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;color:var(--ink);margin-bottom:4px}
+.storm-sub{font-family:'Lora',serif;font-style:italic;font-size:0.9rem;color:var(--berry);margin-bottom:12px}
+.storm-body{font-family:'Lora',serif;font-size:0.87rem;color:#3A3530;line-height:1.78;max-width:700px}
+.storm-body strong{color:var(--ink);font-weight:600}
+.storm-list{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.storm-tag{font-family:'Jost',sans-serif;font-size:0.6rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;padding:3px 10px;background:rgba(122,32,64,0.08);color:var(--berry)}
+
+/* MUSCLE STATS */
+.muscle-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--bmd);margin:44px 0}
+.muscle-stat{background:#FAF7F2;padding:26px 20px;text-align:center}
+.muscle-num{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:var(--berry);line-height:1;margin-bottom:6px}
+.muscle-label{font-family:'Jost',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--charcoal);margin-bottom:6px}
+.muscle-body{font-family:'Lora',serif;font-size:0.8rem;color:#3A3530;line-height:1.6}
+
+/* MUSCLE BENEFITS */
+.muscle-benefits{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--bmd);margin:44px 0}
+.muscle-benefit{background:#FAF7F2;padding:28px 24px}
+.mb-icon{font-size:1.2rem;margin-bottom:8px;display:block;color:var(--berry)}
+.mb-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:6px;line-height:1.2}
+.mb-body{font-family:'Lora',serif;font-size:0.84rem;color:#3A3530;line-height:1.72}
+.mb-body strong{color:var(--ink);font-weight:600}
+
+/* GLUT4 COMPARE */
+.glut4-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--bmd);margin:44px 0}
+.glut4-card{background:#FAF7F2;padding:28px 24px}
+.glut4-badge{font-family:'Jost',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;padding:4px 10px;display:inline-block;margin-bottom:12px}
+.glut4-badge.without{background:rgba(122,32,64,0.1);color:var(--berry)}
+.glut4-badge.with{background:rgba(138,106,32,0.1);color:var(--gold)}
+.glut4-title{font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:10px}
+.glut4-list{display:flex;flex-direction:column;gap:6px}
+.glut4-item{font-family:'Lora',serif;font-size:0.83rem;color:#3A3530;padding-left:18px;position:relative;line-height:1.6}
+.glut4-item::before{position:absolute;left:0;font-weight:700}
+.glut4-item.bad::before{content:'✗';color:var(--berry)}
+.glut4-item.good::before{content:'✓';color:var(--gold)}
+
+/* TRAINING PRINCIPLES */
+.training-principles{display:flex;flex-direction:column;gap:2px;background:var(--bmd);margin:44px 0}
+.tp-item{background:#FAF7F2;padding:22px 28px;display:grid;grid-template-columns:60px 1fr;gap:18px;align-items:start;border-left:2px solid transparent;transition:border-color 0.25s}
+.tp-item:hover{border-left-color:var(--berry)}
+.tp-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:rgba(122,32,64,0.2);line-height:1}
+.tp-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:5px}
+.tp-body{font-family:'Lora',serif;font-size:0.84rem;color:#3A3530;line-height:1.65}
+.tp-body strong{color:var(--ink);font-weight:600}
+.tp-target{display:inline-block;margin-top:8px;font-family:'Jost',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:3px 10px;background:rgba(122,32,64,0.08);color:var(--berry)}
+
+/* PPL SPLIT */
+.ppl-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--bmd);margin:44px 0}
+.ppl-card{background:#FAF7F2;padding:24px 20px}
+.ppl-day{font-family:'Jost',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--berry);margin-bottom:4px}
+.ppl-type{font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:6px}
+.ppl-muscles{font-family:'Jost',sans-serif;font-size:0.62rem;color:var(--greige);margin-bottom:8px;letter-spacing:0.06em}
+.ppl-moves{font-family:'Lora',serif;font-size:0.82rem;color:#3A3530;line-height:1.65}
+
+/* PROTEIN TIMING */
+.protein-timing{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--bmd);margin:44px 0}
+.pt-card{background:#FAF7F2;padding:22px 18px;text-align:center}
+.pt-time{font-family:'Jost',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--berry);margin-bottom:6px}
+.pt-name{font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:600;color:var(--ink);margin-bottom:6px;line-height:1.2}
+.pt-amount{font-family:'Jost',sans-serif;font-size:0.7rem;font-weight:700;color:var(--gold);margin-bottom:8px;letter-spacing:0.06em}
+.pt-body{font-family:'Lora',serif;font-size:0.78rem;color:#3A3530;line-height:1.6}
+
+/* LAB TABLE */
+.lab-list{display:flex;flex-direction:column;gap:2px;background:var(--bmd);margin:44px 0}
+.lab-item{background:#FAF7F2;padding:20px 26px;display:grid;grid-template-columns:160px 1fr 1fr;gap:14px;align-items:start;border-left:2px solid transparent;transition:border-color 0.25s}
+.lab-item:hover{border-left-color:var(--berry)}
+.lab-priority{font-family:'Jost',sans-serif;font-size:0.56rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:3px 8px;display:inline-block;margin-bottom:6px}
+.lab-priority.core{background:rgba(122,32,64,0.1);color:var(--berry)}
+.lab-priority.lipid{background:rgba(138,106,32,0.1);color:var(--gold)}
+.lab-priority.advanced{background:rgba(58,53,48,0.06);color:var(--charcoal)}
+.lab-priority.body{background:rgba(58,53,48,0.1);color:var(--charcoal)}
+.lab-name{font-family:'Playfair Display',serif;font-size:0.92rem;font-weight:600;color:var(--ink)}
+.lab-body{font-family:'Lora',serif;font-size:0.84rem;color:#3A3530;line-height:1.65}
+.lab-body strong{color:var(--ink);font-weight:600}
+.lab-target{font-family:'Jost',sans-serif;font-size:0.6rem;color:var(--berry);font-style:italic}
+
+/* SUPPLEMENT TIERS */
+.supp-tier{margin:44px 0}
+.supp-tier-label{font-family:'Jost',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--berry);margin-bottom:4px}
+.supp-tier-title{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:600;color:var(--ink);margin-bottom:12px}
+.supp-cards{display:grid;gap:2px;background:var(--bmd)}
+.supp-cards.three{grid-template-columns:repeat(3,1fr)}
+.supp-cards.two{grid-template-columns:repeat(2,1fr)}
+.supp-card{background:#FAF7F2;padding:24px 20px}
+.supp-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:3px}
+.supp-dose{font-family:'Jost',sans-serif;font-size:0.6rem;color:var(--berry);margin-bottom:10px;font-weight:600;letter-spacing:0.06em}
+.supp-body{font-family:'Lora',serif;font-size:0.82rem;color:#3A3530;line-height:1.72}
+.supp-body strong{color:var(--ink);font-weight:600}
+.supp-timing{margin-top:8px;font-family:'Jost',sans-serif;font-size:0.6rem;color:var(--gold);border-top:1px solid var(--b);padding-top:6px;font-style:italic;line-height:1.5}
+.supp-caution{font-family:'Jost',sans-serif;font-size:0.6rem;color:var(--berry);font-style:italic;line-height:1.5}
+
+/* PULL QUOTE */
+.pull-quote{background:var(--charcoal);padding:40px 48px;margin:40px 0;position:relative;overflow:hidden}
+.pull-quote::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--berry),transparent)}
+.pq-label{font-family:'Jost',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--berry-glow);margin-bottom:14px}
+.pull-quote p{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1.1rem,2vw,1.5rem);color:#FAF7F2;line-height:1.55;max-width:700px;font-weight:400}
+.pq-attr{margin-top:16px;font-family:'Jost',sans-serif;font-size:0.65rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:rgba(245,240,232,0.3)}
+
+/* CALLOUT */
+.callout{border-left:2px solid var(--berry);padding:18px 26px;background:var(--berry-mist);margin:28px 0}
+.callout-label{font-family:'Jost',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--berry);margin-bottom:8px}
+.callout p{font-family:'Lora',serif;font-size:0.95rem;color:var(--charcoal);line-height:1.78}
+.callout p strong{color:var(--berry);font-weight:600}
+.callout.gold{border-left-color:var(--gold);background:rgba(138,106,32,0.05)}
+.callout.gold .callout-label{color:var(--gold)}
+.callout.gold p strong{color:var(--gold)}
+
+/* WORKBOOK */
+.workbook{background:var(--parchment);border-top:2px solid var(--berry);padding:88px 72px}
+.wb-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:44px}
+.wb-block{background:#FAF7F2;border:1px solid var(--bmd);padding:28px}
+.wb-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:600;color:var(--ink);margin-bottom:5px}
+.wb-prompt{font-family:'Lora',serif;font-size:0.78rem;color:var(--greige);margin-bottom:16px;line-height:1.6}
+.wb-lines{display:flex;flex-direction:column}
+.wbl{border-bottom:1px solid var(--bmd);height:34px;position:relative}
+.wbll{position:absolute;left:0;bottom:5px;font-family:'Jost',sans-serif;font-size:0.53rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--taupe)}
+.wb-tbl{width:100%;border-collapse:collapse;margin-top:8px}
+.wb-tbl th{text-align:left;padding:8px 10px;font-family:'Jost',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--greige);border-bottom:1px solid var(--bmd);background:var(--ecru)}
+.wb-tbl td{padding:9px 10px;border-bottom:1px solid var(--b);font-family:'Lora',serif;font-size:0.8rem;color:#3A3530}
+.wb-e{display:block;width:100%;height:20px;border-bottom:1px dashed var(--bmd)}
+
+/* COMPLETION */
+.completion{background:var(--charcoal);padding:96px 72px;text-align:center;position:relative;overflow:hidden}
+.completion::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--berry),transparent)}
+.comp-ghost{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:clamp(12rem,22vw,22rem);font-weight:700;color:rgba(122,32,64,0.06);line-height:1;user-select:none;pointer-events:none}
+.comp-eyebrow{font-family:'Jost',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--berry-glow);margin-bottom:16px;position:relative;z-index:1}
+.comp-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:600;color:#FAF7F2;margin-bottom:10px;line-height:1.15;position:relative;z-index:1}
+.comp-title em{font-style:italic;font-weight:400;color:var(--berry-glow)}
+.comp-sub{font-family:'Lora',serif;font-size:0.97rem;color:rgba(245,240,232,0.5);max-width:560px;margin:0 auto 32px;line-height:1.85;position:relative;z-index:1}
+.comp-btn{display:inline-block;background:var(--berry);color:#FAF7F2;padding:13px 36px;font-family:'Jost',sans-serif;font-size:0.72rem;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;text-decoration:none;transition:background 0.25s;position:relative;z-index:1}
+.comp-btn:hover{background:var(--berry-lt)}
+.comp-next{margin-top:16px;font-family:'Jost',sans-serif;font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(245,240,232,0.2);position:relative;z-index:1}
+
+@media(max-width:900px){
+  nav{padding:0 20px}.nav-links{display:none}
+  .hero{grid-template-columns:1fr}.hero-right{display:none}.hero-left{padding:72px 28px 56px}
+  section,.workbook,.completion{padding:64px 28px}
+  .narrative-grid,.glut4-grid,.muscle-benefits,.wb-grid{grid-template-columns:1fr}
+  .muscle-stats,.protein-timing{grid-template-columns:1fr 1fr}
+  .ppl-grid,.supp-cards.three{grid-template-columns:1fr}
+  .supp-cards.two{grid-template-columns:1fr}
+  .lab-item,.timeline-item,.tp-item{grid-template-columns:1fr}
+  footer{padding:24px 28px;flex-direction:column;gap:10px;text-align:center}
+}
+</style>
+</head>
+<body>
+<div class="pbar" id="pbar"></div>
+<nav>
+  <a href="rebuilt-rebels-index.html" class="nav-logo"><span>Rebuilt Rebels</span> &middot; <em style="font-style:italic;">Pillar 4</em></a>
+  <div class="nav-links">
+    <a href="#realstory" class="nav-link">The Real Story</a>
+    <a href="#storm" class="nav-link">The Storm</a>
+    <a href="#muscle" class="nav-link">Muscle</a>
+    <a href="#training" class="nav-link">Training</a>
+    <a href="#nutrition" class="nav-link">Nutrition</a>
+    <a href="#labs" class="nav-link">Labs</a>
+    <a href="#protocol" class="nav-link">Protocol</a>
+    <a href="#workbook" class="nav-link">Workbook</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-texture"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-ghost">REBUILD</div>
+  
+  <div class="hero-left">
+    <div class="hero-eyebrow">Rebuilt Rebels &middot; Pillar Four of Five &middot; The Hormone Reset</div>
+    <h1 class="hero-title">Metabolic<br><em>Rehabilitation.</em></h1>
+    <p class="hero-sub">The problem isn&rsquo;t that estrogen left. The problem is what was already broken underneath.</p>
+    <p class="hero-desc">You&rsquo;ve been told the weight gain is because your hormones changed. That&rsquo;s not wrong &mdash; but it&rsquo;s not the whole story. <strong>Estrogen didn&rsquo;t cause your insulin resistance. It was compensating for it.</strong> And now it&rsquo;s time to fix what estrogen was covering up.</p>
+    <div class="hero-chips">
+      <a href="#realstory" class="chip">01 &mdash; The Real Story</a>
+      <a href="#storm" class="chip">02 &mdash; The Perfect Storm</a>
+      <a href="#muscle" class="chip">03 &mdash; Muscle as Medicine</a>
+      <a href="#training" class="chip">04 &mdash; The Training Case</a>
+      <a href="#nutrition" class="chip">05 &mdash; Nutrition Protocol</a>
+      <a href="#labs" class="chip">06 &mdash; Labs</a>
+      <a href="#protocol" class="chip">07 &mdash; Supplement Stack</a>
+      <a href="#workbook" class="chip">08 &mdash; Workbook</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="pillar-seal">
+      <div class="seal-inner">
+        <div class="seal-series">Rebuilt Rebels</div>
+        <div class="seal-num">4</div>
+        <div class="seal-title">Metabolic Rehabilitation</div>
+        <div class="seal-rule"></div>
+        <div class="seal-sub">Pillar Four of Five</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-foot">
+    <span>Candace, PA-C &middot; Rebuilt Rebels &middot; Educational content &middot; Not a substitute for medical care</span>
+  </div>
+</section>
+
+<!-- S1: THE REAL STORY -->
+<section class="reveal" id="realstory">
+  <div class="eyebrow">The Foundational Reframe</div>
+  <h2 class="sh">Estrogen didn&rsquo;t cause<br><em>your insulin resistance.</em></h2>
+  <p class="lead">This is the reframe that changes everything. The standard narrative gets cause and effect almost entirely backwards. <strong>Estrogen was a metabolic buffer. It didn&rsquo;t build a healthy metabolism. It compensated for an unhealthy one.</strong> And when perimenopause pulled that buffer away, what was already broken became visible.</p>
+
+  <div class="narrative-grid reveal">
+    <div class="narrative-card">
+      <span class="narrative-badge wrong">What You&rsquo;ve Been Told</span>
+      <div class="narrative-title">Estrogen Decline Caused the Problem</div>
+      <div class="narrative-body">The conventional narrative: your estrogen dropped, your metabolism slowed, weight appeared around your middle, your energy tanked, and your body composition changed. The implication: replace the estrogen and the metabolism fixes itself. <strong>This is why women go on HRT expecting the weight to come off and nothing changes.</strong> Because that wasn&rsquo;t the real mechanism.</div>
+      <div class="narrative-list">
+        <div class="narrative-item bad">Blames estrogen decline for a problem that preceded it</div>
+        <div class="narrative-item bad">Implies HRT alone is the metabolic intervention</div>
+        <div class="narrative-item bad">Ignores the decade of insulin resistance building before menopause</div>
+        <div class="narrative-item bad">Removes agency &mdash; &ldquo;your hormones changed&rdquo; implies nothing can be done</div>
+      </div>
+    </div>
+    <div class="narrative-card">
+      <span class="narrative-badge right">What&rsquo;s Actually Happening</span>
+      <div class="narrative-title">Estrogen Was Compensating for the Real Problem</div>
+      <div class="narrative-body">Estrogen directly supports insulin sensitivity through GLUT4 expression in skeletal muscle, pancreatic beta cell protection, and fat distribution regulation. When a woman has subclinical insulin resistance building from her 30s and 40s, estrogen is partially masking it. <strong>The diagnosis comes at 47. The problem started at 37.</strong></div>
+      <div class="narrative-list">
+        <div class="narrative-item good">Estrogen was buffering metabolic dysfunction that was already developing</div>
+        <div class="narrative-item good">The perimenopause transition reveals the problem &mdash; it didn&rsquo;t create it</div>
+        <div class="narrative-item good">Insulin resistance is the primary driver &mdash; and it is directly addressable</div>
+        <div class="narrative-item good">This framework gives women a path forward, not just a diagnosis</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="timeline reveal">
+    <div class="timeline-item">
+      <div class="timeline-era">30s</div>
+      <div>
+        <div class="timeline-name">Subclinical Insulin Resistance Begins</div>
+        <div class="timeline-body">Chronic stress, poor sleep, low muscle mass, underfueling, processed food load &mdash; all begin driving insulin resistance at the cellular level. Estrogen is still robust and partially compensating. <strong>Fasting glucose looks normal. Fasting insulin is creeping up but rarely tested.</strong> The woman feels &ldquo;not quite right&rdquo; but standard labs are unremarkable.</div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-era">40s</div>
+      <div>
+        <div class="timeline-name">The Buffer Starts Thinning</div>
+        <div class="timeline-body">Perimenopause begins &mdash; estrogen starts fluctuating. The metabolic compensation is less reliable. Central adiposity begins to appear. Energy is inconsistent. Recovery from exercise takes longer. <strong>The woman is frequently told &ldquo;your labs are normal&rdquo; because no one is checking fasting insulin or HOMA-IR.</strong> Cardio increases. Calories cut. Things get worse.</div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-era">47&ndash;52</div>
+      <div>
+        <div class="timeline-name">The Buffer Disappears &mdash; The Problem Becomes Visible</div>
+        <div class="timeline-body">Estrogen drops significantly. The metabolic dysfunction that was building for 10&ndash;15 years is now fully expressed. Central weight gain accelerates. <strong>She may be told she&rsquo;s &ldquo;prediabetic&rdquo; for the first time.</strong> The cause is attributed to menopause. The real cause &mdash; a decade of progressive metabolic dysfunction &mdash; goes unaddressed. HRT is started. The metabolic problem remains.</div>
+      </div>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-era">Now</div>
+      <div>
+        <div class="timeline-name">The Rebuilt Rebels Intervention Point</div>
+        <div class="timeline-body">HRT optimizes the hormonal environment. But Pillar 4 addresses what HRT cannot: the insulin resistance, the muscle deficit, the cortisol-driven fat storage, the underfueling cycle. <strong>This is where the work of metabolic rehabilitation actually happens &mdash; and it is completely, directly actionable.</strong> Not a slow decline managed with prescriptions. A rebuilding project.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pull-quote reveal">
+    <div class="pq-label">The Rebel Reframe</div>
+    <p>The diagnosis came at 47. The problem started at 37. What changed at 47 was not the creation of a new disease &mdash; it was the removal of the hormonal compensation that was partially masking one that was already building. Estrogen was not the foundation. It was the scaffolding. And when it came down, we got to see what the structure underneath actually looked like. Now we build the foundation.</p>
+    <div class="pq-attr">&mdash; Candace, PA-C &middot; Rebuilt Rebels</div>
+  </div>
+</section>
+
+<!-- S2: THE PERFECT STORM -->
+<section class="alt reveal" id="storm">
+  <div class="eyebrow">The Three-Way Wreckage</div>
+  <h2 class="sh">Three things making<br><em>everything worse simultaneously.</em></h2>
+  <p class="lead">Most perimenopausal women arrive at metabolic dysfunction through the same three-way wreckage &mdash; and they are all reinforcing each other. <strong>Breaking the cycle requires addressing all three simultaneously, not one at a time.</strong></p>
+
+  <div class="storm-grid reveal">
+    <div class="storm-card">
+      <div class="storm-num">1</div>
+      <div class="storm-name">Underfueling</div>
+      <div class="storm-sub">Eating Less Is Making It Worse</div>
+      <div class="storm-body">The instinctive response to unexplained weight gain is to eat less. This is one of the most metabolically destructive things a perimenopausal woman can do. Chronic underfueling &mdash; particularly inadequate protein &mdash; signals the body to preserve fat and catabolize muscle. The metabolism down-regulates. Thyroid output drops. Cortisol rises. The weight remains or increases. <strong>The strategy is working exactly as biology designed it to &mdash; just not in the direction she wanted.</strong></div>
+      <div class="storm-list">
+        <span class="storm-tag">Muscle catabolism</span>
+        <span class="storm-tag">Cortisol elevation</span>
+        <span class="storm-tag">Thyroid suppression</span>
+        <span class="storm-tag">Leptin drops</span>
+        <span class="storm-tag">Blood sugar instability</span>
+      </div>
+    </div>
+    <div class="storm-card">
+      <div class="storm-num">2</div>
+      <div class="storm-name">Chronic Cardio</div>
+      <div class="storm-sub">More Cardio Is Making It Worse</div>
+      <div class="storm-body">For perimenopausal women &mdash; already cortisol-dysregulated from Pillar 2 &mdash; chronic steady-state cardio is a cortisol amplifier. High-volume cardio without adequate fuel and recovery is a catabolic stimulus that eats muscle, drives cortisol, and <strong>worsens the insulin resistance it&rsquo;s supposed to address.</strong> Many women who exercise intensely and consistently are not improving because this is their primary training modality.</div>
+      <div class="storm-list">
+        <span class="storm-tag">Cortisol elevation</span>
+        <span class="storm-tag">Muscle breakdown</span>
+        <span class="storm-tag">Metabolic adaptation</span>
+        <span class="storm-tag">Increased hunger</span>
+        <span class="storm-tag">Recovery impairment</span>
+      </div>
+    </div>
+    <div class="storm-card">
+      <div class="storm-num">3</div>
+      <div class="storm-name">Cortisol Dysregulation</div>
+      <div class="storm-sub">Chronic Stress Is Storing Your Fat</div>
+      <div class="storm-body">Cortisol is a glucocorticoid &mdash; its primary metabolic function is mobilizing glucose and promoting energy storage. Chronically elevated cortisol drives visceral fat deposition, directly worsens insulin resistance, breaks down muscle tissue, and suppresses thyroid function. <strong>The HPA dysregulation covered in Pillar 2 is not just a stress and sleep problem. It is a metabolic problem.</strong> Every Pillar 2 intervention is simultaneously a Pillar 4 intervention.</div>
+      <div class="storm-list">
+        <span class="storm-tag">Visceral fat deposition</span>
+        <span class="storm-tag">Insulin resistance</span>
+        <span class="storm-tag">Muscle catabolism</span>
+        <span class="storm-tag">Thyroid suppression</span>
+        <span class="storm-tag">Appetite dysregulation</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout reveal">
+    <div class="callout-label">The Exit Ramp</div>
+    <p>The exit from this cycle requires a counterintuitive intervention: <strong>eat more protein, lift heavy, do less chronic cardio, and prioritize sleep and cortisol management.</strong> Every one of these recommendations will feel wrong at first to a woman who has been operating in the conventional framework. They are correct. The evidence is unambiguous.</p>
+  </div>
+</section>
+
+<!-- S3: MUSCLE AS MEDICINE -->
+<section class="reveal" id="muscle">
+  <div class="eyebrow">The Primary Intervention</div>
+  <h2 class="sh">Muscle is not aesthetic.<br><em>It&rsquo;s medicine.</em></h2>
+  <p class="lead">Every woman has been told to build muscle so she looks better. That framing has done enormous harm &mdash; because it makes muscle building sound optional, vanity-driven, and deferrable. <strong>Muscle is the primary insulin-sensitive tissue in the human body. It is an endocrine organ. It is the most powerful metabolic intervention available to a perimenopausal woman &mdash; and it costs nothing but effort and consistency.</strong></p>
+
+  <div class="muscle-stats reveal">
+    <div class="muscle-stat">
+      <div class="muscle-num">~80%</div>
+      <div class="muscle-label">Glucose Disposal in Muscle</div>
+      <div class="muscle-body">Skeletal muscle accounts for approximately 80% of insulin-stimulated glucose uptake. Every pound of muscle is additional metabolic infrastructure.</div>
+    </div>
+    <div class="muscle-stat">
+      <div class="muscle-num">3&ndash;8%</div>
+      <div class="muscle-label">Muscle Loss Per Decade After 30</div>
+      <div class="muscle-body">Sarcopenia begins in the 30s and accelerates through the 50s and 60s in women who do not resistance train. Not inevitable. Addressable.</div>
+    </div>
+    <div class="muscle-stat">
+      <div class="muscle-num">10&ndash;15%</div>
+      <div class="muscle-label">HOMA-IR Improvement from Resistance Training</div>
+      <div class="muscle-body">Meta-analyses show consistent improvements in insulin resistance from resistance training programs &mdash; independent of weight loss.</div>
+    </div>
+    <div class="muscle-stat">
+      <div class="muscle-num">2&times;</div>
+      <div class="muscle-label">GLUT4 Density Increase from Progressive Training</div>
+      <div class="muscle-body">Progressive resistance training can double GLUT4 transporter density in skeletal muscle over 8&ndash;12 weeks. A measurable, molecular-level improvement no pharmaceutical achieves as cleanly.</div>
+    </div>
+  </div>
+
+  <div class="muscle-benefits reveal">
+    <div class="muscle-benefit">
+      <span class="mb-icon">&#10022;</span>
+      <div class="mb-name">The Primary Glucose Disposal Site</div>
+      <div class="mb-body">Skeletal muscle is responsible for approximately 80% of insulin-stimulated glucose uptake in the body. Every pound of muscle you build is additional metabolic infrastructure for clearing glucose from your blood. Women with more muscle mass have <strong>dramatically better insulin sensitivity independent of any other variable including weight.</strong></div>
+    </div>
+    <div class="muscle-benefit">
+      <span class="mb-icon">&#10022;</span>
+      <div class="mb-name">The Resting Metabolic Engine</div>
+      <div class="mb-body">Muscle tissue is metabolically active at rest &mdash; burning approximately 6&ndash;10 calories per pound per day just to maintain itself. Fat tissue burns approximately 2 calories per pound per day. <strong>This is why body composition &mdash; not body weight &mdash; is the metabolic variable that matters.</strong> Two women at the same weight with different muscle mass have fundamentally different metabolisms.</div>
+    </div>
+    <div class="muscle-benefit">
+      <span class="mb-icon">&#10022;</span>
+      <div class="mb-name">The Endocrine Organ You&rsquo;re Not Using</div>
+      <div class="mb-body">Muscle is an endocrine organ &mdash; during contraction it releases myokines including irisin, IL-6, and BDNF that have system-wide anti-inflammatory effects, support cognitive function, protect against depression, and directly improve insulin sensitivity. <strong>Irisin specifically promotes the browning of white adipose tissue</strong> &mdash; converting metabolically inert fat into fat that burns calories. This is a drug-level effect available through resistance training.</div>
+    </div>
+    <div class="muscle-benefit">
+      <span class="mb-icon">&#10022;</span>
+      <div class="mb-name">The Bone Protection Infrastructure</div>
+      <div class="mb-body">Mechanical loading through resistance training is the primary stimulus for bone density maintenance. In perimenopausal women losing estrogen&rsquo;s bone-protective effects, <strong>progressive resistance training is the most evidence-based intervention for preventing osteoporosis</strong> available outside of bisphosphonate therapy. HRT supports bone density. Resistance training builds it. Together they are the most powerful combination available.</div>
+    </div>
+  </div>
+
+  <div class="callout gold reveal">
+    <div class="callout-label">The GLUT4 Mechanism &mdash; Why This Bypasses Broken Insulin Signaling</div>
+    <p>GLUT4 translocation during muscle contraction is <strong>insulin-independent</strong> &mdash; meaning resistance training moves glucose into muscle cells even when insulin signaling is impaired. This is why resistance training is effective even in the presence of established insulin resistance. <strong>It bypasses the broken signaling pathway entirely and uses the mechanical contraction pathway instead.</strong></p>
+  </div>
+
+  <div class="glut4-grid reveal">
+    <div class="glut4-card">
+      <span class="glut4-badge without">Without Adequate Muscle &amp; GLUT4</span>
+      <div class="glut4-title">The Insulin Resistance Loop</div>
+      <div class="glut4-list">
+        <div class="glut4-item bad">Insulin signals at receptor &mdash; but GLUT4 transporters are sparse</div>
+        <div class="glut4-item bad">Glucose cannot efficiently enter muscle cells</div>
+        <div class="glut4-item bad">Blood glucose remains elevated &mdash; insulin secretion increases</div>
+        <div class="glut4-item bad">Chronically elevated insulin drives fat storage and inflammation</div>
+        <div class="glut4-item bad">Pancreatic beta cells eventually exhaust from overwork</div>
+        <div class="glut4-item bad">The metabolic trajectory of insulin resistance continues</div>
+      </div>
+    </div>
+    <div class="glut4-card">
+      <span class="glut4-badge with">With Progressive Resistance Training</span>
+      <div class="glut4-title">The Metabolic Rehabilitation</div>
+      <div class="glut4-list">
+        <div class="glut4-item good">GLUT4 transporter density in muscle increases 2&ndash;3x with training</div>
+        <div class="glut4-item good">Both insulin AND muscle contraction trigger GLUT4 translocation</div>
+        <div class="glut4-item good">Glucose enters muscle cells efficiently &mdash; blood glucose normalizes</div>
+        <div class="glut4-item good">Lower insulin required for the same glucose disposal</div>
+        <div class="glut4-item good">Fat storage signals reduce &mdash; body composition improves</div>
+        <div class="glut4-item good">Effect is cumulative &mdash; each week of training builds on the last</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S4: TRAINING -->
+<section class="alt reveal" id="training">
+  <div class="eyebrow">The Training Case</div>
+  <h2 class="sh">The case for<br><em>lifting heavy.</em></h2>
+  <p class="lead">Not walking more. Not adding a spin class. Not &ldquo;toning.&rdquo; Progressive resistance training &mdash; with adequate load, progressive overload, and sufficient volume &mdash; is the primary exercise intervention for perimenopausal metabolic rehabilitation. <strong>Everything else is secondary.</strong></p>
+
+  <div class="training-principles reveal">
+    <div class="tp-item">
+      <div class="tp-num">01</div>
+      <div>
+        <div class="tp-name">Progressive Overload &mdash; The Non-Negotiable</div>
+        <div class="tp-body">The metabolic benefits of resistance training come from the progressive challenge to muscle tissue &mdash; not from moving weight around. Progressive overload means systematically increasing the demand on the muscle over time: adding weight, adding reps, reducing rest time, or increasing range of motion. <strong>Without progressive overload, the body adapts to the stimulus and stops building.</strong> The same 10-pound dumbbell circuit you&rsquo;ve done for two years is not a progressive resistance training program.</div>
+        <span class="tp-target">Add weight when all reps complete with good form &middot; Track your lifts &middot; Progress every 2&ndash;3 weeks</span>
+      </div>
+    </div>
+    <div class="tp-item">
+      <div class="tp-num">02</div>
+      <div>
+        <div class="tp-name">Load &mdash; Heavy Enough to Matter</div>
+        <div class="tp-body">For muscle hypertrophy and the associated metabolic benefits, load must be sufficient to challenge the muscle to near-failure within a working rep range. Research consistently shows that sets taken to near-failure (leaving 1&ndash;3 reps in the tank) in the 6&ndash;15 rep range drive muscle growth regardless of exact load. <strong>If you could do 20 more reps, the weight is too light to drive meaningful adaptation.</strong> Uncomfortable is the point.</div>
+        <span class="tp-target">3&ndash;4 sets of 6&ndash;12 reps &middot; Last 2&ndash;3 reps should be genuinely hard &middot; Rest 2&ndash;3 min between compound sets</span>
+      </div>
+    </div>
+    <div class="tp-item">
+      <div class="tp-num">03</div>
+      <div>
+        <div class="tp-name">Frequency and Recovery</div>
+        <div class="tp-body">Each muscle group needs to be trained 2x per week for optimal hypertrophy stimulus. Recovery is when the adaptation happens &mdash; training is just the stimulus. In perimenopausal women, recovery capacity is often reduced due to cortisol dysregulation and poor sleep. <strong>3&ndash;4 resistance sessions per week with adequate rest between sessions outperforms 6 sessions of reduced quality.</strong> The goal is quality stimulus with complete recovery &mdash; not volume for its own sake.</div>
+        <span class="tp-target">3&ndash;4 sessions per week &middot; Each muscle group 2x per week &middot; 48 hrs minimum between same muscle groups</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="eyebrow" style="margin-top:52px;">Sample Training Structure</div>
+  <h3 style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:600;color:var(--ink);margin-bottom:14px;">PPL Split &mdash; Each muscle group twice per week in 3&ndash;4 sessions.</h3>
+  <div class="ppl-grid reveal">
+    <div class="ppl-card">
+      <div class="ppl-day">Day 1</div>
+      <div class="ppl-type">Push</div>
+      <div class="ppl-muscles">Chest &middot; Shoulders &middot; Triceps</div>
+      <div class="ppl-moves">Bench press, overhead press, dips, lateral raises. Heavy compounds first. Progress weekly on the big lifts.</div>
+    </div>
+    <div class="ppl-card">
+      <div class="ppl-day">Day 2</div>
+      <div class="ppl-type">Pull</div>
+      <div class="ppl-muscles">Back &middot; Rear Delts &middot; Biceps</div>
+      <div class="ppl-moves">Barbell row, pulldown, face pull, curl. Focus on scapular health and full range of motion.</div>
+    </div>
+    <div class="ppl-card">
+      <div class="ppl-day">Day 3</div>
+      <div class="ppl-type">Legs</div>
+      <div class="ppl-muscles">Quads &middot; Hamstrings &middot; Glutes</div>
+      <div class="ppl-moves">Squat, Romanian deadlift, hip thrust. The largest GLUT4 reservoir in the body. Priority training day.</div>
+    </div>
+    <div class="ppl-card">
+      <div class="ppl-day">Day 4</div>
+      <div class="ppl-type">Rest / Zone 2</div>
+      <div class="ppl-muscles">Active recovery</div>
+      <div class="ppl-moves">30&ndash;45 min walking or cycling at conversational pace. Cortisol recovery day. Not a hard training day.</div>
+    </div>
+    <div class="ppl-card">
+      <div class="ppl-day">Day 5</div>
+      <div class="ppl-type">Push</div>
+      <div class="ppl-muscles">Incline &middot; Lateral Raises &middot; Higher Reps</div>
+      <div class="ppl-moves">Incline press, lateral raises, tricep isolation. Higher rep ranges. Hypertrophy focus on the second push day.</div>
+    </div>
+    <div class="ppl-card">
+      <div class="ppl-day">Day 6</div>
+      <div class="ppl-type">Pull + Legs</div>
+      <div class="ppl-muscles">Full Posterior Chain</div>
+      <div class="ppl-moves">Deadlift variation, pull movements, glute work. Full posterior chain day. The most metabolically demanding session of the week.</div>
+    </div>
+  </div>
+
+  <div class="callout gold reveal" style="margin-top:32px;">
+    <div class="callout-label">What About Cardio?</div>
+    <p>Zone 2 cardio (conversational pace, 30&ndash;45 min, 2&ndash;3x per week) is metabolically beneficial &mdash; it improves mitochondrial density and fat oxidation without the cortisol burden of high-intensity steady-state work. <strong>HIIT has its place &mdash; but not until the HPA axis is regulated, sleep is restored, and fueling is adequate.</strong> Cardio is a tool. Resistance training is the foundation.</p>
+  </div>
+</section>
+
+<!-- S5: NUTRITION -->
+<section class="reveal" id="nutrition">
+  <div class="eyebrow">Fuel the Rebuild</div>
+  <h2 class="sh">Stop restricting.<br><em>Start rebuilding.</em></h2>
+  <p class="lead">Nutrition for metabolic rehabilitation in perimenopause is not a caloric restriction protocol. It is a fueling and rebuilding protocol. <strong>The primary variable is protein &mdash; adequate protein is non-negotiable for muscle protein synthesis, metabolic rate, and satiety.</strong> Everything else is built around that anchor.</p>
+
+  <div class="callout reveal">
+    <div class="callout-label">The Clinical Evidence</div>
+    <p>Women consuming <strong>1.6&ndash;2.2g protein per kg body weight preserve lean mass during caloric restriction.</strong> Those consuming 0.8g/kg (the standard RDA) lose substantially more muscle. For a 70kg (154 lb) woman, the target is 112&ndash;154g of protein daily &mdash; dramatically more than the 50&ndash;60g most women are currently eating.</p>
+  </div>
+
+  <div class="protein-timing reveal">
+    <div class="pt-card">
+      <div class="pt-time">Daily Target</div>
+      <div class="pt-name">Protein Anchor</div>
+      <div class="pt-amount">1.6&ndash;2.2g per kg body weight</div>
+      <div class="pt-body">The rate-limiting nutrient for muscle protein synthesis. Cannot be replaced by other macronutrients. Distribute across 3&ndash;4 meals at 30g+ each to activate the mTOR pathway optimally.</div>
+    </div>
+    <div class="pt-card">
+      <div class="pt-time">Post-Training</div>
+      <div class="pt-name">Anabolic Window</div>
+      <div class="pt-amount">30&ndash;40g within 60&ndash;90 min</div>
+      <div class="pt-body">Muscle protein synthesis elevated for 24&ndash;48 hours post-training. Whey, eggs, or whole food protein. Leucine content is the key driver &mdash; target 2.5&ndash;3g leucine per serving to activate MPS.</div>
+    </div>
+    <div class="pt-card">
+      <div class="pt-time">Pre-Sleep</div>
+      <div class="pt-name">Overnight Synthesis</div>
+      <div class="pt-amount">30&ndash;40g casein or cottage cheese</div>
+      <div class="pt-body">Muscle protein synthesis occurs during sleep &mdash; driven by growth hormone release. Studies show 10&ndash;15% improvements in overnight MPS with pre-sleep protein. Also supports sleep quality through serotonin precursors.</div>
+    </div>
+    <div class="pt-card">
+      <div class="pt-time">Pre-Training</div>
+      <div class="pt-name">Training Fuel</div>
+      <div class="pt-amount">20&ndash;30g protein + 25&ndash;50g carbs</div>
+      <div class="pt-body">Provides training fuel, reduces cortisol response, and protects muscle from catabolism during the session. Oats, banana, or sweet potato with a protein source. 60&ndash;90 minutes before training.</div>
+    </div>
+  </div>
+
+  <div class="callout gold reveal">
+    <div class="callout-label">Carbohydrate Timing &mdash; Strategic, Not Restricted</div>
+    <p>Carbohydrates are not the enemy. <strong>Post-training is the highest-priority carbohydrate timing window</strong> &mdash; GLUT4 translocation is at maximum, glucose disposal is most efficient, and insulin response is blunted. 30&ndash;50g fast carbs with 30&ndash;40g protein within 60 minutes post-training. Outside of training windows: fibrous vegetables, legumes, and modest starchy carbs. Avoid refined carbohydrates outside the post-training window.</p>
+  </div>
+</section>
+
+<!-- S6: LABS -->
+<section class="alt reveal" id="labs">
+  <div class="eyebrow">Clinical Testing</div>
+  <h2 class="sh">The labs that actually<br><em>tell you something.</em></h2>
+  <p class="lead">Standard metabolic panels miss the early and mid-stage insulin resistance driving most of what perimenopausal women are experiencing. <strong>These are the tests that matter &mdash; and the targets that conventional medicine consistently sets too low.</strong></p>
+
+  <div class="lab-list reveal">
+    <div class="lab-item">
+      <div>
+        <span class="lab-priority core">Core</span>
+        <div class="lab-name">Fasting Insulin</div>
+        <div class="lab-target">Under 7 &mu;IU/mL optimal &middot; Standard lab normal (&lt;25) is inadequate &middot; Above 10 = early IR</div>
+      </div>
+      <div class="lab-body">The single most important metabolic test that is almost never ordered. <strong>Fasting glucose can be normal while fasting insulin is elevated</strong> &mdash; this is the early insulin resistance window. This is the test that catches the problem 5&ndash;10 years before fasting glucose becomes abnormal. Insist on this test by name.</div>
+      <div class="lab-body">Must request by name &mdash; almost never included in standard metabolic panels.</div>
+    </div>
+    <div class="lab-item">
+      <div>
+        <span class="lab-priority core">Core</span>
+        <div class="lab-name">HOMA-IR (Calculated)</div>
+        <div class="lab-target">Under 1.5 optimal &middot; 1.5&ndash;2.5 = early IR &middot; Above 2.5 = significant IR &middot; Retest at 90 days</div>
+      </div>
+      <div class="lab-body">HOMA-IR = (fasting insulin &times; fasting glucose) &divide; 405. The most accessible quantitative measure of insulin resistance available. <strong>Calculate it yourself if your provider doesn&rsquo;t.</strong> Track it at 90-day intervals as your primary metabolic rehabilitation progress marker.</div>
+      <div class="lab-body">The primary number to track across the Pillar 4 protocol. Every 90-day repeat tells you exactly how the protocol is working.</div>
+    </div>
+    <div class="lab-item">
+      <div>
+        <span class="lab-priority core">Core</span>
+        <div class="lab-name">HbA1c</div>
+        <div class="lab-target">Under 5.4% optimal &middot; 5.4&ndash;5.6% = early signal &middot; 5.7%+ = prediabetes &middot; Trend matters as much as value</div>
+      </div>
+      <div class="lab-body">Reflects average blood glucose over the preceding 90 days. <strong>A value creeping from 5.2% to 5.5% over two years is a trend worth intercepting, not monitoring.</strong> The conventional &ldquo;normal&rdquo; cutoff of 5.7% is too permissive for perimenopausal women with metabolic risk factors.</div>
+      <div class="lab-body">Track trajectory, not just single values. Downward trend confirms the protocol is working.</div>
+    </div>
+    <div class="lab-item">
+      <div>
+        <span class="lab-priority lipid">Lipid</span>
+        <div class="lab-name">Triglyceride:HDL Ratio</div>
+        <div class="lab-target">Under 1.5 optimal &middot; 1.5&ndash;2.0 = caution &middot; Above 2.0 = insulin resistance signal</div>
+      </div>
+      <div class="lab-body">The TG:HDL ratio is a reliable surrogate marker for insulin resistance and small dense LDL particle predominance. <strong>Far more clinically useful than total cholesterol.</strong> Triglycerides above 100 combined with HDL below 50 in a perimenopausal woman is a metabolic signal that warrants intervention.</div>
+      <div class="lab-body">Ask for TG and HDL specifically &mdash; calculate the ratio yourself by dividing TG by HDL.</div>
+    </div>
+    <div class="lab-item">
+      <div>
+        <span class="lab-priority advanced">Advanced</span>
+        <div class="lab-name">ApoB (Apolipoprotein B)</div>
+        <div class="lab-target">Under 90 mg/dL optimal &middot; Under 80 for high-risk women &middot; Ask for by name &mdash; rarely ordered automatically</div>
+      </div>
+      <div class="lab-body">ApoB measures the total number of atherogenic lipoprotein particles. <strong>A dramatically better predictor of cardiovascular risk than LDL-C in insulin-resistant women</strong>, where LDL particle size shifts toward small dense atherogenic particles while LDL-C may appear normal. Now recommended by multiple major cardiovascular societies as the primary lipid risk marker.</div>
+      <div class="lab-body">Particularly important for women on HRT &mdash; estrogen shifts lipid profiles in ways that make total LDL an unreliable marker.</div>
+    </div>
+    <div class="lab-item">
+      <div>
+        <span class="lab-priority body">Body Comp</span>
+        <div class="lab-name">DEXA Scan or Body Composition Analysis</div>
+        <div class="lab-target">Muscle mass &middot; Visceral fat &middot; Bone density &middot; Fat % &middot; Every 6&ndash;12 months</div>
+      </div>
+      <div class="lab-body">Body weight on a scale is the least informative metabolic marker. DEXA provides muscle mass, fat mass, bone density, and visceral fat. <strong>A woman rebuilding body composition through resistance training may see body weight remain stable while losing visceral fat and gaining muscle</strong> &mdash; a dramatic health improvement completely invisible on a scale.</div>
+      <div class="lab-body">InBody or bioelectrical impedance as accessible alternatives. Waist circumference and waist-to-hip ratio are free, immediate proxies.</div>
+    </div>
+  </div>
+
+  <div class="callout gold reveal">
+    <div class="callout-label">What to Say at Your Appointment</div>
+    <p>&ldquo;I&rsquo;d like to assess my insulin sensitivity beyond a fasting glucose. Can we order a fasting insulin so we can calculate my HOMA-IR? I&rsquo;d also like a triglyceride-to-HDL ratio and, if possible, an ApoB. <strong>I want a metabolic picture, not just a glucose number &mdash; and I&rsquo;d like to track these at 90-day intervals as I work on my body composition.&rdquo;</strong></p>
+  </div>
+</section>
+
+<!-- S7: PROTOCOL -->
+<section class="reveal" id="protocol">
+  <div class="eyebrow">The Supplement Stack</div>
+  <h2 class="sh">Adjuncts to the primary<br><em>interventions &mdash; not replacements.</em></h2>
+  <p class="lead">These supplements directly support insulin sensitivity, reduce inflammation, support muscle protein synthesis, and improve metabolic function. <strong>They amplify a working protocol &mdash; they cannot replace one that is absent.</strong> Foundation first: adequate protein, progressive resistance training, and cortisol management from Pillar 2.</p>
+
+  <div class="supp-tier reveal">
+    <div class="supp-tier-label">Insulin Sensitivity</div>
+    <div class="supp-tier-title">The Core Metabolic Stack</div>
+    <div class="supp-cards three">
+      <div class="supp-card">
+        <div class="supp-name">Berberine</div>
+        <div class="supp-dose">500mg 2&ndash;3x daily with meals</div>
+        <div class="supp-body">Activates AMPK &mdash; mimics the metabolic effects of exercise at the molecular level. <strong>Multiple meta-analyses show berberine comparable to metformin in glucose-lowering efficacy.</strong> Improves GLUT4 expression, reduces hepatic glucose production, and has favorable effects on lipid profiles. Start at 500mg once daily and increase over 2 weeks.</div>
+        <div class="supp-timing">With meals &middot; 8&ndash;12 weeks to assess full effect &middot; Cycling (8 weeks on, 4 weeks off) may preserve efficacy</div>
+        <div class="supp-caution">Can interact with CYP3A4-metabolized medications &mdash; check with provider</div>
+      </div>
+      <div class="supp-card">
+        <div class="supp-name">Inositol (Myo + D-Chiro)</div>
+        <div class="supp-dose">2&ndash;4g Myo + 50&ndash;200mg D-chiro &middot; 40:1 ratio</div>
+        <div class="supp-body">A secondary messenger in insulin signaling &mdash; directly facilitates insulin receptor signal transduction. <strong>The 40:1 Myo:D-chiro ratio mirrors physiological tissue ratios.</strong> Also improves ovarian function in hyperandrogenic states and has anxiolytic effects &mdash; connecting Pillar 2 and Pillar 4.</div>
+        <div class="supp-timing">Split AM and PM &middot; Take with food &middot; Effect builds over 8&ndash;12 weeks</div>
+      </div>
+      <div class="supp-card">
+        <div class="supp-name">Magnesium Glycinate</div>
+        <div class="supp-dose">300&ndash;400mg elemental</div>
+        <div class="supp-body">Required cofactor for over 300 enzymatic reactions including all ATP-dependent processes and insulin receptor activation. Epidemiological data consistently shows magnesium deficiency associated with insulin resistance. <strong>Already in Pillars 2 and 3 &mdash; this is the supplement that spans all five pillars.</strong></div>
+        <div class="supp-timing">Evening preferred &middot; Supports sleep, COMT, and insulin sensitivity simultaneously</div>
+      </div>
+      <div class="supp-card">
+        <div class="supp-name">Alpha Lipoic Acid (R-ALA)</div>
+        <div class="supp-dose">300&ndash;600mg R-ALA daily &middot; R-form only</div>
+        <div class="supp-body">A potent antioxidant that regenerates glutathione and has direct insulin-sensitizing effects through GLUT4 translocation and AMPK activation. <strong>R-ALA is the biologically active form</strong> &mdash; racemic ALA contains only 50% of the active isomer. Particularly beneficial in oxidative stress-driven insulin resistance.</div>
+        <div class="supp-timing">Away from meals for best absorption</div>
+        <div class="supp-caution">Can cause reactive hypoglycemia if taken with high-carb meals</div>
+      </div>
+      <div class="supp-card">
+        <div class="supp-name">Berberine &amp; Chromium</div>
+        <div class="supp-dose">Chromium Picolinate 200&ndash;1,000mcg daily</div>
+        <div class="supp-body">Chromium potentiates insulin action by activating the insulin receptor signaling pathway &mdash; specifically as a cofactor for chromodulin, which amplifies insulin receptor kinase activity. <strong>Meta-analyses show modest but consistent improvements in fasting glucose and HbA1c.</strong> Most effective when chromium deficiency is present.</div>
+        <div class="supp-timing">With the largest carbohydrate-containing meal of the day</div>
+      </div>
+      <div class="supp-card">
+        <div class="supp-name">Ceylon Cinnamon Extract</div>
+        <div class="supp-dose">500&ndash;2,000mg Ceylon only &middot; Not Cassia</div>
+        <div class="supp-body">Contains compounds that mimic insulin&rsquo;s action at the receptor level and slow gastric emptying &mdash; reducing post-meal glucose spikes. Studies show reductions in fasting glucose of 10&ndash;29%. <strong>Cassia cinnamon contains coumarin &mdash; hepatotoxic at high doses. Always specify Ceylon.</strong></div>
+        <div class="supp-timing">With meals &middot; Or add ground Ceylon to coffee or oatmeal daily</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="supp-tier reveal">
+    <div class="supp-tier-label">Muscle Support</div>
+    <div class="supp-tier-title">Building the Metabolic Infrastructure</div>
+    <div class="supp-cards three">
+      <div class="supp-card">
+        <div class="supp-name">Creatine Monohydrate</div>
+        <div class="supp-dose">3&ndash;5g daily &middot; No loading required</div>
+        <div class="supp-body">The most evidence-based muscle building supplement available &mdash; and dramatically underused in women. Replenishes phosphocreatine stores, allowing more total work in high-intensity sets &mdash; directly driving progressive overload and muscle hypertrophy. <strong>In perimenopausal women, additional evidence for cognitive function, bone density, and mood.</strong> Take it consistently, forever.</div>
+        <div class="supp-timing">Any time &middot; Consistency matters more than timing</div>
+      </div>
+      <div class="supp-card">
+        <div class="supp-name">Whey Protein Isolate</div>
+        <div class="supp-dose">25&ndash;40g per serving &middot; To hit protein targets</div>
+        <div class="supp-body">The highest leucine content of any protein source &mdash; and leucine is the primary amino acid trigger for mTOR activation and muscle protein synthesis. <strong>Post-training whey isolate is one of the most effective muscle building interventions available.</strong> Pea protein isolate is the best plant-based alternative (ensure 2.5g+ leucine per serving).</div>
+        <div class="supp-timing">Post-training &middot; Or to supplement dietary protein gaps</div>
+        <div class="supp-caution">Use isolate not concentrate if any dairy sensitivity</div>
+      </div>
+      <div class="supp-card">
+        <div class="supp-name">HMB (Beta-Hydroxy Beta-Methylbutyrate)</div>
+        <div class="supp-dose">3g daily &middot; 1g with each meal</div>
+        <div class="supp-body">A metabolite of leucine that directly inhibits muscle protein breakdown &mdash; the catabolic side of the muscle balance equation. <strong>Particularly relevant for perimenopausal women where cortisol-driven catabolism is high.</strong> Meta-analyses show HMB reduces exercise-induced muscle damage, accelerates recovery, and preserves lean mass during caloric restriction.</div>
+        <div class="supp-timing">1g with each of 3 meals &middot; Consistent daily use &middot; Effects build over 3&ndash;4 weeks</div>
+      </div>
+      <div class="supp-card">
+        <div class="supp-name">Collagen Peptides + Vitamin C</div>
+        <div class="supp-dose">15&ndash;20g collagen + 200mg Vit C &middot; Pre-training</div>
+        <div class="supp-body">Collagen is the primary structural protein in connective tissue. As estrogen declines, connective tissue integrity decreases &mdash; a primary driver of injury risk in women who begin lifting heavier. <strong>Consuming collagen with vitamin C 30&ndash;60 minutes before training has evidence for improving tendon collagen synthesis.</strong> The joint protection protocol for building women.</div>
+        <div class="supp-timing">30&ndash;60 min pre-training with Vitamin C &middot; Timing matters &mdash; connective tissue blood flow is elevated post-exercise</div>
+      </div>
+      <div class="supp-card">
+        <div class="supp-name">Ashwagandha KSM-66</div>
+        <div class="supp-dose">300&ndash;600mg KSM-66 extract</div>
+        <div class="supp-body">Already introduced in Pillar 2 for cortisol management. Here for its specific anabolic benefits &mdash; KSM-66 has direct evidence for increasing muscle mass, improving muscle recovery, and modestly raising testosterone in women with HPA dysregulation. <strong>By reducing cortisol, it shifts the anabolic/catabolic balance toward muscle preservation.</strong> The same supplement, two mechanisms, both critical.</div>
+        <div class="supp-timing">Evening preferred for cortisol effect &middot; Can split AM/PM</div>
+      </div>
+      <div class="supp-card">
+        <div class="supp-name">Zinc + Copper</div>
+        <div class="supp-dose">25&ndash;30mg Zinc + 2mg Copper &middot; Always together</div>
+        <div class="supp-body">Zinc is required for testosterone synthesis, GH signaling, and protein synthesis pathways. <strong>Zinc deficiency is extremely common in women who train intensively and eat a high-fiber diet</strong> &mdash; phytates in whole grains reduce zinc absorption. Must always be paired with copper at a 15:1 ratio &mdash; zinc without copper causes copper deficiency over time.</div>
+        <div class="supp-timing">With meals &middot; Away from iron supplements &mdash; compete for absorption</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="supp-tier reveal">
+    <div class="supp-tier-label">Anti-Inflammatory</div>
+    <div class="supp-tier-title">Reducing the Inflammatory Load That Drives Insulin Resistance</div>
+    <div class="supp-cards three">
+      <div class="supp-card">
+        <div class="supp-name">Omega-3 (EPA + DHA)</div>
+        <div class="supp-dose">2&ndash;4g EPA+DHA daily &middot; Triglyceride form</div>
+        <div class="supp-body">At 2&ndash;4g EPA+DHA daily, omega-3s have measurable effects on insulin sensitivity, triglyceride reduction, and visceral fat. <strong>Also supports estrogen metabolism (Pillar 3) and HPA regulation (Pillar 2).</strong> Use a triglyceride-form fish oil for best absorption. Refrigerate to prevent oxidation.</div>
+        <div class="supp-timing">With fatty meals for absorption &middot; Triglyceride form preferred over ethyl ester</div>
+      </div>
+      <div class="supp-card">
+        <div class="supp-name">Curcumin (Theracurmin or Meriva)</div>
+        <div class="supp-dose">500&ndash;1,000mg highly bioavailable form only</div>
+        <div class="supp-body">A potent NF-&kappa;B inhibitor &mdash; NF-&kappa;B is the master regulator of the inflammatory cytokine cascade. Standard curcumin has poor bioavailability. <strong>Use Theracurmin, Meriva, or BCM-95 forms which have 20&ndash;30x better absorption.</strong> Anti-depressant effects through BDNF upregulation connect directly to mood symptoms in perimenopause.</div>
+        <div class="supp-timing">With fatty meal &middot; Bioavailable form is non-negotiable</div>
+      </div>
+      <div class="supp-card">
+        <div class="supp-name">Quercetin</div>
+        <div class="supp-dose">500&ndash;1,000mg daily</div>
+        <div class="supp-body">Anti-inflammatory, anti-histamine (Pillar 3 connection), and senolytic properties. Quercetin inhibits mast cell degranulation, reduces TNF-&alpha; and IL-6, and has direct insulin-sensitizing effects. <strong>Senescent cells secreting the inflammatory SASP phenotype accumulate with estrogen decline &mdash; quercetin has meaningful senolytic effects.</strong></div>
+        <div class="supp-timing">With meals &middot; Bromelain co-administration improves absorption</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="supp-tier reveal">
+    <div class="supp-tier-label">Metabolic Support</div>
+    <div class="supp-tier-title">Mitochondrial Function and Cellular Energy</div>
+    <div class="supp-cards two">
+      <div class="supp-card">
+        <div class="supp-name">CoQ10 (Ubiquinol Form)</div>
+        <div class="supp-dose">200&ndash;400mg Ubiquinol daily &middot; Not standard CoQ10</div>
+        <div class="supp-body">CoQ10 is the rate-limiting cofactor in the mitochondrial electron transport chain. Mitochondrial dysfunction is a core mechanism of insulin resistance. <strong>Ubiquinol is the reduced, bioactive form &mdash; significantly better absorbed than ubiquinone, particularly in women over 40.</strong> Statins deplete CoQ10 &mdash; essential for any woman on statin therapy.</div>
+        <div class="supp-timing">With fatty meal for absorption &middot; Ubiquinol specifically</div>
+      </div>
+      <div class="supp-card">
+        <div class="supp-name">Vitamin D3 + K2</div>
+        <div class="supp-dose">2,000&ndash;5,000 IU D3 + 100&ndash;200mcg K2 (MK-7)</div>
+        <div class="supp-body">Vitamin D is a steroid hormone with receptors in skeletal muscle, pancreatic beta cells, and adipose tissue. Deficiency is associated with insulin resistance, reduced muscle function, and increased inflammation. <strong>K2 (MK-7) ensures calcium goes into bone rather than arteries &mdash; essential when supplementing D3.</strong> Test and target 60&ndash;80 ng/mL.</div>
+        <div class="supp-timing">With fatty meal &middot; Test 25-OH Vitamin D first &middot; Adjust dose to reach 60&ndash;80 ng/mL</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout reveal" style="margin-top:32px;">
+    <div class="callout-label">The Metformin Conversation &mdash; Worth Having</div>
+    <p>Metformin is frequently undertilized in perimenopausal women with insulin resistance who are not yet diabetic. Activates AMPK, reduces hepatic glucose production, and has emerging longevity evidence independent of its glucose effects. <strong>The conversation with your provider: &ldquo;My HOMA-IR is above 2.5 and my HbA1c is trending up &mdash; I&rsquo;d like to discuss whether early metformin is appropriate alongside my lifestyle interventions.&rdquo;</strong> Prescription required. Depletes B12 long-term &mdash; supplement methylcobalamin if prescribed.</p>
+  </div>
+</section>
+
+<!-- WORKBOOK -->
+<section class="workbook reveal" id="workbook">
+  <div class="eyebrow">Pillar 4 Workbook</div>
+  <h2 class="sh">Your metabolic baseline.</h2>
+  <div class="wb-grid">
+    <div class="wb-block">
+      <div class="wb-title">My Metabolic Lab Baseline</div>
+      <div class="wb-prompt">Record your baseline values then repeat at 90 days. Progress is tracked in metabolic markers, not on a scale.</div>
+      <table class="wb-tbl">
+        <thead><tr><th>Marker</th><th>Baseline</th><th>90-Day</th><th>Target</th></tr></thead>
+        <tbody>
+          <tr><td>Fasting Insulin</td><td><span class="wb-e"></span></td><td><span class="wb-e"></span></td><td>&lt;7 &mu;IU/mL</td></tr>
+          <tr><td>HOMA-IR</td><td><span class="wb-e"></span></td><td><span class="wb-e"></span></td><td>&lt;1.5</td></tr>
+          <tr><td>HbA1c</td><td><span class="wb-e"></span></td><td><span class="wb-e"></span></td><td>&lt;5.4%</td></tr>
+          <tr><td>TG:HDL Ratio</td><td><span class="wb-e"></span></td><td><span class="wb-e"></span></td><td>&lt;1.5</td></tr>
+          <tr><td>ApoB</td><td><span class="wb-e"></span></td><td><span class="wb-e"></span></td><td>&lt;90 mg/dL</td></tr>
+          <tr><td>Vitamin D (25-OH)</td><td><span class="wb-e"></span></td><td><span class="wb-e"></span></td><td>60&ndash;80 ng/mL</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="wb-block">
+      <div class="wb-title">My Body Composition Baseline</div>
+      <div class="wb-prompt">Weight is not the metric. Track these instead. Body composition changes precede and outperform weight changes as indicators of metabolic health.</div>
+      <table class="wb-tbl">
+        <thead><tr><th>Measurement</th><th>Baseline</th><th>90-Day</th></tr></thead>
+        <tbody>
+          <tr><td>Muscle mass</td><td><span class="wb-e"></span></td><td><span class="wb-e"></span></td></tr>
+          <tr><td>Body fat %</td><td><span class="wb-e"></span></td><td><span class="wb-e"></span></td></tr>
+          <tr><td>Waist circumference</td><td><span class="wb-e"></span></td><td><span class="wb-e"></span></td></tr>
+          <tr><td>Waist-to-hip ratio</td><td><span class="wb-e"></span></td><td><span class="wb-e"></span></td></tr>
+          <tr><td>Daily protein (g)</td><td><span class="wb-e"></span></td><td><span class="wb-e"></span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="wb-block">
+      <div class="wb-title">My Training Assessment</div>
+      <div class="wb-prompt">Be honest about where you are starting. This is a baseline &mdash; not a judgment. The only direction from here is forward.</div>
+      <div class="wb-lines">
+        <div class="wbl"><div class="wbll">Current training frequency (days per week)</div></div>
+        <div class="wbl"></div>
+        <div class="wbl"><div class="wbll">Primary training type right now (cardio / strength / mixed)</div></div>
+        <div class="wbl"></div>
+        <div class="wbl"><div class="wbll">How long since I&rsquo;ve done progressive resistance training</div></div>
+        <div class="wbl"></div>
+        <div class="wbl"><div class="wbll">My biggest barrier to training consistently</div></div>
+        <div class="wbl"></div>
+        <div class="wbl"><div class="wbll">My training commitment for the next 12 weeks</div></div>
+        <div class="wbl"></div>
+      </div>
+    </div>
+    <div class="wb-block">
+      <div class="wb-title">The Perfect Storm &mdash; My Pattern</div>
+      <div class="wb-prompt">Identify which of the three storm elements applies to you and the first intervention for each.</div>
+      <div class="wb-lines">
+        <div class="wbl"><div class="wbll">Underfueling &mdash; my current daily protein intake (g)</div></div>
+        <div class="wbl"></div>
+        <div class="wbl"><div class="wbll">My protein target at 1.6g/kg body weight (calculate: weight in kg &times; 1.6)</div></div>
+        <div class="wbl"></div>
+        <div class="wbl"><div class="wbll">Chronic cardio &mdash; hours per week of steady-state cardio currently</div></div>
+        <div class="wbl"></div>
+        <div class="wbl"><div class="wbll">Cortisol &mdash; my dominant pattern from Pillar 2 workbook</div></div>
+        <div class="wbl"></div>
+        <div class="wbl"><div class="wbll">My single highest-priority change from this pillar</div></div>
+        <div class="wbl"></div>
+      </div>
+    </div>
+  </div>
+  <div class="callout reveal" style="margin-top:36px;">
+    <div class="callout-label">The Pillar 4 Timeline &mdash; This Is a 6&ndash;12 Month Project</div>
+    <p><strong>At 4&ndash;6 weeks:</strong> energy and training performance improve as protein and fueling normalize. <strong>At 8&ndash;12 weeks:</strong> HOMA-IR begins to improve, body composition shifts become measurable, strength increases. <strong>At 6 months:</strong> meaningful changes in fasting insulin, HbA1c, and triglyceride:HDL ratio. <strong>At 12 months:</strong> body composition transformation, bone density improvements, and a fundamentally different metabolic baseline. This is the timeline. Commit to the full arc.</p>
+  </div>
+</section>
+
+<!-- COMPLETION -->
+<div class="completion reveal">
+  <div class="comp-ghost">5</div>
+  <div class="comp-eyebrow">Pillar Four Complete</div>
+  <div class="comp-title">The foundation<br><em>is almost built.</em></div>
+  <p class="comp-sub">You now understand the real driver of perimenopausal metabolic dysfunction &mdash; the decade-long insulin resistance that estrogen was masking, the three-way storm that most women are living in, why muscle is your most powerful metabolic intervention, and what to do about all of it. One pillar left.</p>
+  <a href="https://stan.store/thebuiltmovement" class="comp-btn">Continue to Pillar 5 &mdash; Hormone Optimization &rarr;</a>
+  <div class="comp-next" style="display:none">The final pillar &middot; HRT as the capstone, not the foundation &middot; Testosterone, estrogen, progesterone &mdash; optimized on a rebuilt metabolic platform</div>
+</div>
+
+<footer style="background:#3A3530;border-top:1px solid rgba(245,240,232,0.06);padding:28px 52px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
+  <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:0.95rem;color:rgba(245,240,232,0.4);"><span style="color:#B04070;font-style:normal;">Rebuilt Rebels</span> &middot; The Hormone Reset</div>
+  <div style="font-family:'Jost',sans-serif;font-size:0.6rem;color:rgba(245,240,232,0.2);letter-spacing:0.08em;text-align:right;">Candace, PA-C &middot; Educational content &middot; Not a substitute for medical care &middot; <a href="glossary.html" style="color:#B04070;text-decoration:none;">Glossary &rarr;</a></div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{
+  const st=document.documentElement.scrollTop;
+  const dh=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+  document.getElementById('pbar').style.width=(st/dh*100)+'%';
+});
+const ro=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
+},{threshold:0.05});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+</script>
+</body>
+</html>

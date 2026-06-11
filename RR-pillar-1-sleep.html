@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pillar 1: Sleep Restoration — Rebuilt Rebels</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#FAF7F2;--ecru:#F5F0E8;--parchment:#EDE8DE;
+  --taupe:#C4B9A8;--greige:#A89C8C;--ash:#7A7068;--charcoal:#3A3530;--ink:#252018;
+  --berry:#7A2040;--berry-lt:#9A3058;--berry-glow:#B04070;
+  --berry-dim:#5A1530;--berry-mist:#F8EFF3;
+  --gold:#8A6A20;--gold-lt:#B08A30;
+  --b:rgba(58,53,48,0.08);--bmd:rgba(58,53,48,0.14);
+}
+html{scroll-behavior:smooth}
+body{background:#FAF7F2;color:#252018;font-family:'Lora',serif;font-weight:400;line-height:1.82;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:999;opacity:0.025;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23n)'/%3E%3C/svg%3E")}
+@keyframes rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes breathe{0%,100%{opacity:0.04}50%{opacity:0.07}}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity 0.9s ease,transform 0.9s ease}
+.reveal.visible{opacity:1;transform:none}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 52px;background:rgba(250,247,242,0.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--b)}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1rem;font-style:italic;color:var(--charcoal);text-decoration:none}
+.nav-logo span{font-style:normal;color:var(--berry);font-weight:600}
+.nav-links{display:flex}
+.nav-link{font-family:'Jost',sans-serif;font-size:0.62rem;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--greige);text-decoration:none;padding:4px 10px;transition:color 0.2s}
+.nav-link:hover{color:var(--berry)}
+.pbar{position:fixed;top:58px;left:0;height:2px;background:linear-gradient(90deg,var(--berry-dim),var(--berry),var(--berry-glow));z-index:201;width:0%;transition:width 0.1s}
+.hero{min-height:100vh;padding-top:58px;position:relative;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr auto;background:var(--ecru)}
+.hero-texture{position:absolute;inset:0;background-image:linear-gradient(var(--b) 1px,transparent 1px),linear-gradient(90deg,var(--b) 1px,transparent 1px);background-size:60px 60px;opacity:0.6}
+.hero-glow{position:absolute;inset:0;background:radial-gradient(ellipse 55% 50% at 30% 50%,rgba(122,32,64,0.06) 0%,transparent 65%)}
+.hero-ghost{position:absolute;right:-40px;bottom:-20px;font-family:'Playfair Display',serif;font-size:clamp(8rem,16vw,16rem);font-weight:700;line-height:0.85;color:rgba(122,32,64,0.04);user-select:none;animation:breathe 8s ease-in-out infinite}
+.hero-left{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;padding:80px 56px 80px 72px}
+.hero-eyebrow{font-family:'Jost',sans-serif;font-size:0.62rem;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:var(--berry);margin-bottom:24px;display:flex;align-items:center;gap:14px;animation:rise 0.8s ease both}
+.hero-eyebrow::before{content:'';width:24px;height:1px;background:var(--berry)}
+h1.hero-title{font-family:'Playfair Display',serif;font-size:clamp(3rem,7vw,6rem);font-weight:700;line-height:0.92;color:var(--ink);margin-bottom:8px;animation:rise 0.8s 0.1s ease both}
+h1.hero-title em{font-style:italic;font-weight:400;color:var(--berry)}
+.hero-sub{font-family:'Lora',serif;font-style:italic;font-size:clamp(1rem,1.8vw,1.25rem);color:var(--ash);margin-bottom:32px;animation:rise 0.8s 0.2s ease both}
+.hero-desc{font-family:'Lora',serif;font-size:0.97rem;color:var(--ash);max-width:420px;line-height:1.88;margin-bottom:40px;animation:rise 0.8s 0.3s ease both}
+.hero-desc strong{color:var(--charcoal);font-weight:600}
+.hero-chips{display:flex;flex-wrap:wrap;gap:8px;animation:rise 0.8s 0.4s ease both}
+.chip{border:1px solid var(--bmd);padding:7px 16px;font-family:'Jost',sans-serif;font-size:0.62rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--greige);text-decoration:none;background:rgba(250,247,242,0.7);transition:all 0.25s}
+.chip:hover{border-color:var(--berry);color:var(--berry);background:var(--berry-mist)}
+.hero-right{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;padding:80px 56px}
+.pillar-seal{width:240px;height:240px;border-radius:50%;background:var(--charcoal);border:2px solid var(--taupe);display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 0 0 8px var(--ecru),0 0 0 9px var(--taupe),0 20px 60px rgba(58,53,48,0.15);animation:rise 0.8s 0.5s ease both}
+.seal-inner{width:200px;height:200px;border-radius:50%;border:1px solid rgba(245,240,232,0.15);display:flex;flex-direction:column;align-items:center;justify-content:center}
+.seal-series{font-family:'Jost',sans-serif;font-size:0.5rem;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:rgba(245,240,232,0.4);margin-bottom:8px}
+.seal-num{font-family:'Playfair Display',serif;font-size:5.5rem;font-weight:700;color:#FAF7F2;line-height:1;margin-bottom:4px}
+.seal-title{font-family:'Lora',serif;font-style:italic;font-size:0.72rem;color:var(--berry-glow);text-align:center;padding:0 20px;line-height:1.4}
+.seal-rule{width:40px;height:1px;background:rgba(245,240,232,0.2);margin:10px auto}
+.seal-sub{font-family:'Jost',sans-serif;font-size:0.5rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;color:rgba(245,240,232,0.3)}
+.hero-foot{grid-column:1/-1;padding:14px 28px;border-top:1px solid var(--b);display:flex;justify-content:center;text-align:center;font-family:'Jost',sans-serif;font-size:0.58rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--taupe)}
+section{padding:88px 72px;background:#FAF7F2}
+section.alt{background:var(--ecru)}
+.eyebrow{font-family:'Jost',sans-serif;font-size:0.6rem;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:var(--berry);margin-bottom:16px;display:flex;align-items:center;gap:14px}
+.eyebrow::after{content:'';width:32px;height:1px;background:var(--berry)}
+h2.sh{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:600;line-height:1.15;color:var(--ink);margin-bottom:14px}
+h2.sh em{font-style:italic;font-weight:400;color:var(--berry)}
+.lead{font-family:'Lora',serif;font-size:1rem;color:#3A3530;max-width:620px;line-height:1.88;margin-bottom:52px}
+.lead strong{color:var(--ink);font-weight:600}
+
+/* SLEEP STAGES */
+.stages-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--bmd);margin:44px 0}
+.stage-card{background:#FAF7F2;padding:28px 20px}
+.stage-badge{font-family:'Jost',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;padding:4px 10px;display:inline-block;margin-bottom:10px}
+.stage-badge.n1{background:rgba(58,53,48,0.06);color:var(--charcoal)}
+.stage-badge.n2{background:rgba(58,53,48,0.1);color:var(--charcoal)}
+.stage-badge.n3{background:rgba(122,32,64,0.1);color:var(--berry)}
+.stage-badge.rem{background:rgba(138,106,32,0.1);color:var(--gold)}
+.stage-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:4px;line-height:1.2}
+.stage-sub{font-family:'Jost',sans-serif;font-size:0.6rem;color:var(--greige);margin-bottom:10px;letter-spacing:0.06em}
+.stage-body{font-family:'Lora',serif;font-size:0.84rem;color:#3A3530;line-height:1.72}
+.stage-body strong{color:var(--ink);font-weight:600}
+.stage-note{margin-top:8px;font-family:'Jost',sans-serif;font-size:0.6rem;color:var(--berry);border-top:1px solid var(--b);padding-top:6px;font-style:italic;line-height:1.55}
+
+/* SLEEP CYCLE */
+.sleep-cycle{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;background:var(--bmd);margin:44px 0}
+.sc-step{background:#FAF7F2;padding:20px 14px;text-align:center;position:relative}
+.sc-arrow{position:absolute;right:-10px;top:50%;transform:translateY(-50%);color:var(--berry);opacity:0.4}
+.sc-step:last-child .sc-arrow{display:none}
+.sc-num{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:rgba(122,32,64,0.2);line-height:1;margin-bottom:4px}
+.sc-name{font-family:'Playfair Display',serif;font-size:0.9rem;font-weight:600;color:var(--ink);margin-bottom:4px;line-height:1.2}
+.sc-time{font-family:'Jost',sans-serif;font-size:0.58rem;color:var(--berry);font-weight:600;margin-bottom:6px}
+.sc-body{font-family:'Lora',serif;font-size:0.76rem;color:#3A3530;line-height:1.55}
+
+/* THE LOOP */
+.loop-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--bmd);margin:36px 0}
+.loop-step{background:#FAF7F2;padding:28px 22px;position:relative}
+.loop-arrow{position:absolute;right:-10px;top:50%;transform:translateY(-50%);color:var(--berry);opacity:0.4;font-size:1.2rem}
+.loop-step:last-child .loop-arrow{display:none}
+.loop-icon{font-size:1.2rem;margin-bottom:8px;display:block;color:var(--berry)}
+.loop-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:6px}
+.loop-body{font-family:'Lora',serif;font-size:0.84rem;color:#3A3530;line-height:1.72}
+.loop-body strong{color:var(--ink);font-weight:600}
+
+/* MECHANISM CARDS */
+.mech-three{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--bmd);margin:44px 0}
+.mech-card{background:#FAF7F2;padding:28px 22px}
+.mech-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:rgba(122,32,64,0.15);line-height:1;margin-bottom:6px}
+.mech-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:8px;line-height:1.2}
+.mech-body{font-family:'Lora',serif;font-size:0.84rem;color:#3A3530;line-height:1.75}
+.mech-body strong{color:var(--ink);font-weight:600}
+
+/* SURVIVAL vs RESTORATIVE */
+.survival-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--bmd);margin:44px 0}
+.survival-card{background:#FAF7F2;padding:30px 26px}
+.survival-badge{font-family:'Jost',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;padding:4px 10px;display:inline-block;margin-bottom:12px}
+.survival-badge.bad{background:rgba(122,32,64,0.1);color:var(--berry)}
+.survival-badge.good{background:rgba(138,106,32,0.1);color:var(--gold)}
+.survival-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:600;color:var(--ink);margin-bottom:10px}
+.survival-list{display:flex;flex-direction:column;gap:8px}
+.survival-item{font-family:'Lora',serif;font-size:0.84rem;color:#3A3530;padding-left:22px;position:relative;line-height:1.6}
+.survival-item::before{position:absolute;left:0;font-weight:700}
+.survival-item.bad::before{content:'✗';color:var(--berry)}
+.survival-item.good::before{content:'✓';color:var(--gold)}
+
+/* SYMPTOM DECODER */
+.symptom-list{display:flex;flex-direction:column;gap:2px;background:var(--bmd);margin:44px 0}
+.sym-item{background:#FAF7F2;padding:22px 28px;display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start;border-left:2px solid transparent;transition:border-color 0.25s}
+.sym-item:hover{border-left-color:var(--berry)}
+.sym-complaint{font-family:'Playfair Display',serif;font-size:0.9rem;font-weight:600;color:var(--ink);margin-bottom:4px}
+.sym-told{font-family:'Jost',sans-serif;font-size:0.6rem;color:var(--greige);font-style:italic;margin-bottom:0}
+.sym-col-label{font-family:'Jost',sans-serif;font-size:0.55rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--berry);margin-bottom:5px}
+.sym-real{font-family:'Lora',serif;font-size:0.84rem;color:#3A3530;line-height:1.65}
+.sym-real strong{color:var(--ink);font-weight:600}
+
+/* LABS */
+.lab-list{display:flex;flex-direction:column;gap:2px;background:var(--bmd);margin:44px 0}
+.lab-item{background:#FAF7F2;padding:22px 28px;display:grid;grid-template-columns:160px 1fr 1fr;gap:16px;align-items:start;border-left:2px solid transparent;transition:border-color 0.25s}
+.lab-item:hover{border-left-color:var(--berry)}
+.lab-priority{font-family:'Jost',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:3px 8px;display:inline-block;margin-bottom:6px}
+.lab-priority.essential{background:rgba(122,32,64,0.1);color:var(--berry)}
+.lab-priority.important{background:rgba(138,106,32,0.1);color:var(--gold)}
+.lab-priority.consider{background:rgba(58,53,48,0.06);color:var(--charcoal)}
+.lab-name{font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:600;color:var(--ink)}
+.lab-body{font-family:'Lora',serif;font-size:0.84rem;color:#3A3530;line-height:1.65}
+.lab-body strong{color:var(--ink);font-weight:600}
+.lab-target{font-family:'Jost',sans-serif;font-size:0.62rem;color:var(--berry);font-style:italic}
+
+/* PROTOCOL TIMING */
+.timing-list{display:flex;flex-direction:column;gap:2px;background:var(--bmd);margin:44px 0}
+.timing-item{background:#FAF7F2;padding:20px 28px;display:grid;grid-template-columns:100px 1fr;gap:16px;align-items:start;border-left:2px solid transparent;transition:border-color 0.25s}
+.timing-item:hover{border-left-color:var(--berry)}
+.timing-time{font-family:'Jost',sans-serif;font-size:0.62rem;font-weight:700;color:var(--berry);letter-spacing:0.08em;line-height:1.4}
+.timing-name{font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:600;color:var(--ink);margin-bottom:4px}
+.timing-body{font-family:'Lora',serif;font-size:0.84rem;color:#3A3530;line-height:1.65}
+.timing-body strong{color:var(--ink);font-weight:600}
+.timing-tag{display:inline-block;margin-top:6px;font-family:'Jost',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:3px 8px;background:rgba(122,32,64,0.08);color:var(--berry)}
+
+/* SUPPLEMENT CARDS */
+.supp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--bmd);margin:32px 0}
+.supp-card{background:#FAF7F2;padding:26px 22px}
+.supp-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:3px}
+.supp-dose{font-family:'Jost',sans-serif;font-size:0.6rem;color:var(--berry);margin-bottom:10px;font-weight:600;letter-spacing:0.06em}
+.supp-body{font-family:'Lora',serif;font-size:0.82rem;color:#3A3530;line-height:1.72}
+.supp-body strong{color:var(--ink);font-weight:600}
+.supp-timing{margin-top:8px;font-family:'Jost',sans-serif;font-size:0.6rem;color:var(--gold);border-top:1px solid var(--b);padding-top:6px;font-style:italic}
+
+/* STOP LIST */
+.stop-list{display:flex;flex-direction:column;gap:2px;background:var(--bmd);margin:32px 0}
+.stop-item{background:#FAF7F2;padding:16px 24px;display:grid;grid-template-columns:80px 1fr;gap:12px;align-items:start}
+.stop-label{font-family:'Jost',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--berry);padding:3px 8px;background:rgba(122,32,64,0.08);text-align:center}
+.stop-body{font-family:'Lora',serif;font-size:0.84rem;color:#3A3530;line-height:1.65}
+.stop-body strong{color:var(--ink);font-weight:600}
+
+/* ENVIRONMENT GRID */
+.env-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--bmd);margin:32px 0}
+.env-card{background:#FAF7F2;padding:24px 20px}
+.env-icon{font-size:1.2rem;margin-bottom:8px;display:block}
+.env-name{font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:600;color:var(--ink);margin-bottom:6px}
+.env-body{font-family:'Lora',serif;font-size:0.82rem;color:#3A3530;line-height:1.65}
+.env-body strong{color:var(--ink);font-weight:600}
+
+/* PULL QUOTE */
+.pull-quote{background:var(--charcoal);padding:40px 48px;margin:40px 0;position:relative;overflow:hidden}
+.pull-quote::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--berry),transparent)}
+.pq-label{font-family:'Jost',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--berry-glow);margin-bottom:14px}
+.pull-quote p{font-family:'Playfair Display',serif;font-style:italic;font-size:clamp(1.1rem,2vw,1.5rem);color:#FAF7F2;line-height:1.55;max-width:700px;font-weight:400}
+.pq-attr{margin-top:16px;font-family:'Jost',sans-serif;font-size:0.65rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:rgba(245,240,232,0.3)}
+
+/* CALLOUT */
+.callout{border-left:2px solid var(--berry);padding:18px 26px;background:var(--berry-mist);margin:28px 0}
+.callout-label{font-family:'Jost',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--berry);margin-bottom:8px}
+.callout p{font-family:'Lora',serif;font-size:0.95rem;color:var(--charcoal);line-height:1.78}
+.callout p strong{color:var(--berry);font-weight:600}
+.callout.gold{border-left-color:var(--gold);background:rgba(138,106,32,0.05)}
+.callout.gold .callout-label{color:var(--gold)}
+.callout.gold p strong{color:var(--gold)}
+
+/* WORKBOOK */
+.workbook{background:var(--parchment);border-top:2px solid var(--berry);padding:88px 72px}
+.wb-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:44px}
+.wb-block{background:#FAF7F2;border:1px solid var(--bmd);padding:28px}
+.wb-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:600;color:var(--ink);margin-bottom:5px}
+.wb-prompt{font-family:'Lora',serif;font-size:0.78rem;color:var(--greige);margin-bottom:16px;line-height:1.6}
+.wb-checks{display:flex;flex-direction:column;gap:10px}
+.wb-check{display:flex;align-items:flex-start;gap:12px}
+.wbc-box{width:18px;height:18px;border:1px solid var(--bmd);flex-shrink:0;margin-top:2px;background:white}
+.wbc-text{font-family:'Lora',serif;font-size:0.84rem;color:#3A3530;line-height:1.6}
+.wb-lines{display:flex;flex-direction:column}
+.wbl{border-bottom:1px solid var(--bmd);height:34px;position:relative}
+.wbll{position:absolute;left:0;bottom:5px;font-family:'Jost',sans-serif;font-size:0.53rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--taupe)}
+.wb-tbl{width:100%;border-collapse:collapse;margin-top:8px}
+.wb-tbl th{text-align:left;padding:8px 10px;font-family:'Jost',sans-serif;font-size:0.58rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--greige);border-bottom:1px solid var(--bmd);background:var(--ecru)}
+.wb-tbl td{padding:9px 10px;border-bottom:1px solid var(--b);font-family:'Lora',serif;font-size:0.8rem;color:#3A3530}
+.wb-e{display:block;width:100%;height:20px;border-bottom:1px dashed var(--bmd)}
+
+/* COMPLETION */
+.completion{background:var(--charcoal);padding:96px 72px;text-align:center;position:relative;overflow:hidden}
+.completion::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--berry),transparent)}
+.comp-ghost{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:clamp(12rem,22vw,22rem);font-weight:700;color:rgba(122,32,64,0.06);line-height:1;user-select:none;pointer-events:none}
+.comp-eyebrow{font-family:'Jost',sans-serif;font-size:0.6rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;color:var(--berry-glow);margin-bottom:16px;position:relative;z-index:1}
+.comp-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:600;color:#FAF7F2;margin-bottom:10px;line-height:1.15;position:relative;z-index:1}
+.comp-title em{font-style:italic;font-weight:400;color:var(--berry-glow)}
+.comp-sub{font-family:'Lora',serif;font-size:0.97rem;color:rgba(245,240,232,0.5);max-width:560px;margin:0 auto 32px;line-height:1.85;position:relative;z-index:1}
+.comp-btn{display:inline-block;background:var(--berry);color:#FAF7F2;padding:13px 36px;font-family:'Jost',sans-serif;font-size:0.72rem;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;text-decoration:none;transition:background 0.25s;position:relative;z-index:1}
+.comp-btn:hover{background:var(--berry-lt)}
+.comp-next{margin-top:16px;font-family:'Jost',sans-serif;font-size:0.6rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(245,240,232,0.2);position:relative;z-index:1}
+
+@media(max-width:900px){
+  nav{padding:0 20px}.nav-links{display:none}
+  .hero{grid-template-columns:1fr}.hero-right{display:none}.hero-left{padding:72px 28px 56px}
+  section,.workbook,.completion{padding:64px 28px}
+  .stages-grid,.sleep-cycle,.mech-three,.supp-grid,.env-grid{grid-template-columns:1fr}
+  .survival-grid,.wb-grid{grid-template-columns:1fr}
+  .sym-item,.lab-item,.timing-item,.stop-item{grid-template-columns:1fr}
+  footer{padding:24px 28px;flex-direction:column;gap:10px;text-align:center}
+}
+</style>
+</head>
+<body>
+<div class="pbar" id="pbar"></div>
+<nav>
+  <a href="#" class="nav-logo"><span>Rebuilt Rebels</span> &middot; <em style="font-style:italic;">Pillar 1</em></a>
+  <div class="nav-links">
+    <a href="#biology" class="nav-link">Biology</a>
+    <a href="#loop" class="nav-link">The Loop</a>
+    <a href="#assessment" class="nav-link">Assessment</a>
+    <a href="#rootcause" class="nav-link">Root Cause</a>
+    <a href="#labs" class="nav-link">Labs</a>
+    <a href="#protocol" class="nav-link">Protocol</a>
+    <a href="#workbook" class="nav-link">Workbook</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-texture"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-ghost">SLEEP</div>
+  
+  <div class="hero-left">
+    <div class="hero-eyebrow">Rebuilt Rebels &middot; Pillar One of Five &middot; The Hormone Reset</div>
+    <h1 class="hero-title">Sleep<br><em>Restoration.</em></h1>
+    <p class="hero-sub">The foundation everything else depends on.</p>
+    <p class="hero-desc">You&rsquo;ve been told to try melatonin. Maybe Ambien. Maybe &ldquo;sleep hygiene.&rdquo; What no one has told you is that your sleep isn&rsquo;t broken &mdash; <strong>it&rsquo;s been hijacked.</strong> By a hormonal cascade that conventional medicine doesn&rsquo;t measure, doesn&rsquo;t treat, and doesn&rsquo;t even look for. This pillar changes that.</p>
+    <div class="hero-chips">
+      <a href="#biology" class="chip">01 &mdash; The Biology of Sleep</a>
+      <a href="#loop" class="chip">02 &mdash; The Hormonal Loop</a>
+      <a href="#assessment" class="chip">03 &mdash; Survival vs. Restorative</a>
+      <a href="#rootcause" class="chip">04 &mdash; Root Cause Map</a>
+      <a href="#labs" class="chip">05 &mdash; Your Labs</a>
+      <a href="#protocol" class="chip">06 &mdash; Your Protocol</a>
+      <a href="#workbook" class="chip">07 &mdash; Workbook</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="pillar-seal">
+      <div class="seal-inner">
+        <div class="seal-series">Rebuilt Rebels</div>
+        <div class="seal-num">1</div>
+        <div class="seal-title">Sleep Restoration</div>
+        <div class="seal-rule"></div>
+        <div class="seal-sub">Pillar One of Five</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-foot">
+    <span>Candace, PA-C &middot; Rebuilt Rebels &middot; Educational content &middot; Not a substitute for medical care</span>
+  </div>
+</section>
+
+<!-- S1: BIOLOGY OF SLEEP -->
+<section class="reveal" id="biology">
+  <div class="eyebrow">Clinical Foundation</div>
+  <h2 class="sh">Sleep isn&rsquo;t rest.<br><em>It&rsquo;s active reconstruction.</em></h2>
+  <p class="lead">Every night your body runs a biological repair sequence so complex and precise that no pharmaceutical can replicate it. When that sequence is interrupted &mdash; and perimenopause interrupts it systematically &mdash; the downstream damage compounds daily. <strong>Sleep is not the absence of wakefulness. It is the most hormonally active period of your entire day.</strong></p>
+
+  <div class="stages-grid reveal">
+    <div class="stage-card">
+      <span class="stage-badge n1">Stage N1</span>
+      <div class="stage-name">Light Sleep</div>
+      <div class="stage-sub">The Gateway &middot; 1&ndash;7 minutes</div>
+      <div class="stage-body">The transition from wakefulness. Muscle activity slows, eyes move slowly, body temperature begins to drop. <strong>This is where most perimenopausal women get stuck</strong> &mdash; unable to deepen into restorative stages because cortisol remains too elevated and core temperature won&rsquo;t fall.</div>
+      <div class="stage-note">Cortisol begins dropping &middot; Body temp must fall 1&ndash;2&deg;F to proceed</div>
+    </div>
+    <div class="stage-card">
+      <span class="stage-badge n2">Stage N2</span>
+      <div class="stage-name">Confirmed Sleep</div>
+      <div class="stage-sub">The Consolidator &middot; ~50% of total sleep</div>
+      <div class="stage-body">Heart rate slows, body temperature drops further. Sleep spindles &mdash; bursts of neural activity &mdash; consolidate memories and protect sleep from disturbance. <strong>Disruption here causes the &ldquo;woke up but was I even asleep?&rdquo; phenomenon</strong> so common in perimenopause.</div>
+      <div class="stage-note">Sleep spindles generated &middot; Memory consolidation begins</div>
+    </div>
+    <div class="stage-card">
+      <span class="stage-badge n3">Stage N3 &mdash; Critical</span>
+      <div class="stage-name">Deep Sleep</div>
+      <div class="stage-sub">The Reconstructor &middot; Where repair happens</div>
+      <div class="stage-body">Growth hormone peaks &mdash; repairing tissue, regulating metabolism, and rebuilding the hormonal substrate that every other system depends on. Blood pressure drops, immune function peaks, cortisol hits its lowest point. <strong>This is the stage perimenopause robs first and hardest.</strong> If you&rsquo;re waking at 2&ndash;4 AM, you are losing N3.</div>
+      <div class="stage-note">Growth hormone surge &middot; Cortisol nadir &middot; Immune repair &middot; Metabolic regulation</div>
+    </div>
+    <div class="stage-card">
+      <span class="stage-badge rem">Stage REM</span>
+      <div class="stage-name">REM Sleep</div>
+      <div class="stage-sub">The Integrator &middot; Estrogen-dependent</div>
+      <div class="stage-body">Emotional regulation, stress processing, and cognitive function consolidation all happen here. REM cycles lengthen toward morning &mdash; which is why sleep deprivation in the second half of the night hits mood and cognition so hard. <strong>As estrogen drops, REM fragments.</strong> The brain fog and emotional dysregulation are not psychiatric &mdash; they are architectural.</div>
+      <div class="stage-note">Estrogen-dependent &middot; Emotional processing &middot; Cognitive consolidation</div>
+    </div>
+  </div>
+
+  <div class="callout reveal">
+    <div class="callout-label">The Clinical Reality</div>
+    <p>Most perimenopausal women are getting <strong>quantity</strong> of sleep without <strong>quality</strong> of sleep. They&rsquo;re cycling through N1 and N2 but barely touching N3. They wake feeling like they haven&rsquo;t slept at all &mdash; because biologically, they haven&rsquo;t. The repair cycle never completed.</p>
+  </div>
+
+  <div class="sleep-cycle reveal">
+    <div class="sc-step"><div class="sc-arrow">&rarr;</div><div class="sc-num">1</div><div class="sc-name">N1 Gateway</div><div class="sc-time">1&ndash;7 min</div><div class="sc-body">Temp drops, cortisol falls</div></div>
+    <div class="sc-step"><div class="sc-arrow">&rarr;</div><div class="sc-num">2</div><div class="sc-name">N2 Consolidation</div><div class="sc-time">10&ndash;25 min</div><div class="sc-body">Spindles fire, memory consolidates</div></div>
+    <div class="sc-step"><div class="sc-arrow">&rarr;</div><div class="sc-num">3</div><div class="sc-name">N3 Deep Sleep</div><div class="sc-time">20&ndash;40 min</div><div class="sc-body">Growth hormone surges, repair begins</div></div>
+    <div class="sc-step"><div class="sc-arrow">&rarr;</div><div class="sc-num">4</div><div class="sc-name">REM</div><div class="sc-time">10&ndash;60 min</div><div class="sc-body">Emotional processing, cognitive repair</div></div>
+    <div class="sc-step"><div class="sc-num">&#8635;</div><div class="sc-name">Repeat</div><div class="sc-time">4&ndash;6 cycles</div><div class="sc-body">Each cycle shifts toward more REM</div></div>
+  </div>
+
+  <div class="callout gold reveal">
+    <div class="callout-label">The Perimenopause Disruption Pattern</div>
+    <p>In perimenopause, estrogen decline disrupts thermoregulation, cortisol stays elevated past midnight, and progesterone&rsquo;s GABA-enhancing effect disappears. The body never achieves the temperature drop required to enter N3. <strong>You cycle through shallow sleep all night &mdash; waking exhausted, inflamed, metabolically dysregulated, and emotionally raw.</strong> This is not a sleep problem. It is a hormonal architecture problem.</p>
+  </div>
+</section>
+
+<!-- S2: THE HORMONAL LOOP -->
+<section class="alt reveal" id="loop">
+  <div class="eyebrow">The Mechanism</div>
+  <h2 class="sh">The loop no one<br><em>explains to you.</em></h2>
+  <p class="lead">There is a three-way feedback loop between estrogen, cortisol, and your hypothalamic thermostat that is the direct biological cause of perimenopausal sleep destruction. <strong>Understanding it explains everything</strong> &mdash; the hot flashes, the 3 AM waking, the inability to fall back asleep, the daytime crash.</p>
+
+  <div class="loop-steps reveal">
+    <div class="loop-step"><div class="loop-arrow">&rarr;</div><span class="loop-icon">&#10022;</span><div class="loop-name">Estrogen Drops</div><div class="loop-body">Hypothalamic thermostat loses its calibration signal. The thermoneutral zone narrows to near zero &mdash; the smallest thermal fluctuation triggers the full hot flash cascade.</div></div>
+    <div class="loop-step"><div class="loop-arrow">&rarr;</div><span class="loop-icon">&#10022;</span><div class="loop-name">Thermoregulation Fails</div><div class="loop-body">Core temp spikes. Hot flash triggered. Sweat response activates. <strong>Sleep requires a 1&ndash;2&deg;F core body temperature drop to enter deep sleep.</strong> When your thermostat is firing randomly, that drop never happens consistently.</div></div>
+    <div class="loop-step"><span class="loop-icon">&#10022;</span><div class="loop-name">Cortisol Surges</div><div class="loop-body">Stress response fires. HPA axis activates. You&rsquo;re awake at 3 AM. And elevated nocturnal cortisol then <strong>suppresses estrogen production further</strong> &mdash; making the thermostat less stable tomorrow night. Every disrupted night creates the conditions for a worse night.</div></div>
+  </div>
+
+  <div class="mech-three reveal">
+    <div class="mech-card">
+      <div class="mech-num">01</div>
+      <div class="mech-name">The Estrogen&ndash;Thermostat Connection</div>
+      <div class="mech-body">Estrogen regulates the hypothalamic thermostat &mdash; your body&rsquo;s internal temperature control system. It narrows the thermoneutral zone from roughly 0.4&deg;F down to near zero as estrogen falls. The smallest thermal fluctuation triggers the full hot flash cascade. <strong>Sleep requires a 1&ndash;2&deg;F core body temperature drop.</strong> When your thermostat is firing randomly, that drop never happens consistently.</div>
+    </div>
+    <div class="mech-card">
+      <div class="mech-num">02</div>
+      <div class="mech-name">The Progesterone&ndash;GABA Pathway</div>
+      <div class="mech-body">Progesterone metabolizes into allopregnanolone &mdash; a neurosteroid that binds to GABA-A receptors in the brain. GABA is your primary inhibitory neurotransmitter: it quiets neural activity and is essential for sleep onset and maintenance. <strong>As progesterone drops in perimenopause, GABA tone drops with it.</strong> The brain becomes hyperexcitable. The neural &ldquo;quiet&rdquo; required for deep sleep disappears. This is why so many perimenopausal women describe lying awake with a racing mind &mdash; the GABA brake has been cut.</div>
+    </div>
+    <div class="mech-card">
+      <div class="mech-num">03</div>
+      <div class="mech-name">The Cortisol Timing Inversion</div>
+      <div class="mech-body">In a healthy hormonal state, cortisol peaks at 6&ndash;8 AM and reaches its nadir around midnight. In perimenopausal hormonal dysregulation, this rhythm inverts or blunts. <strong>Nocturnal cortisol remains elevated past the point where the body should be in deep repair.</strong> Every hot flash is a micro-stress event that triggers a cortisol spike. Each spike extends wakefulness and prevents re-entry into N3. By morning, the repair cycle was never completed.</div>
+    </div>
+  </div>
+
+  <div class="pull-quote reveal">
+    <div class="pq-label">The Clinical Implication</div>
+    <p>This is why prescribing a sleep medication without addressing estrogen, progesterone, and cortisol is not just ineffective &mdash; it&rsquo;s actively harmful. Benzodiazepines and Z-drugs suppress N3 sleep. They produce unconsciousness, not restoration. You will sleep through the night and wake up more depleted than before.</p>
+    <div class="pq-attr">&mdash; Candace, PA-C &middot; Rebuilt Rebels</div>
+  </div>
+</section>
+
+<!-- S3: SURVIVAL vs RESTORATIVE -->
+<section class="reveal" id="assessment">
+  <div class="eyebrow">Self-Assessment</div>
+  <h2 class="sh">Survival sleep vs.<br><em>restorative sleep.</em></h2>
+  <p class="lead">Most perimenopausal women are in survival sleep &mdash; and don&rsquo;t know there&rsquo;s a difference. Survival sleep keeps you alive. Restorative sleep rebuilds you. <strong>Here is how to tell which one you&rsquo;re in, and what it means for everything downstream.</strong></p>
+
+  <div class="survival-grid reveal">
+    <div class="survival-card">
+      <span class="survival-badge bad">Survival Sleep</span>
+      <div class="survival-title">What It Feels Like</div>
+      <div class="survival-list">
+        <div class="survival-item bad">Wake feeling like you never slept despite 7&ndash;8 hours in bed</div>
+        <div class="survival-item bad">Wake between 2&ndash;4 AM and can&rsquo;t fall back asleep &mdash; or sleep is very light</div>
+        <div class="survival-item bad">Dreams feel exhausting, anxious, or hyperreal</div>
+        <div class="survival-item bad">Morning cortisol blunted &mdash; no natural wake energy, dependent on caffeine</div>
+        <div class="survival-item bad">Cognitive fog that persists past 10 AM despite adequate sleep hours</div>
+        <div class="survival-item bad">Emotional sensitivity or dysregulation that seems disproportionate</div>
+        <div class="survival-item bad">Weight gain, particularly around the midsection, despite no dietary changes</div>
+        <div class="survival-item bad">Getting sick more often or taking longer to recover</div>
+      </div>
+    </div>
+    <div class="survival-card">
+      <span class="survival-badge good">Restorative Sleep</span>
+      <div class="survival-title">The Goal</div>
+      <div class="survival-list">
+        <div class="survival-item good">Wake before the alarm &mdash; or with the alarm &mdash; feeling genuinely rested</div>
+        <div class="survival-item good">Night waking is rare and brief; return to sleep within minutes</div>
+        <div class="survival-item good">Dreams are vivid but not exhausting &mdash; REM is intact</div>
+        <div class="survival-item good">Natural morning cortisol peak &mdash; alert and functional within 30 minutes of waking</div>
+        <div class="survival-item good">Mental clarity and working memory intact by mid-morning</div>
+        <div class="survival-item good">Emotional baseline stable &mdash; proportional responses to stressors</div>
+        <div class="survival-item good">Metabolic function supported &mdash; body composition responds to diet and exercise</div>
+        <div class="survival-item good">Immune resilience &mdash; appropriate recovery from illness</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S4: ROOT CAUSE MAP -->
+<section class="alt reveal" id="rootcause">
+  <div class="eyebrow">Symptom Decoding</div>
+  <h2 class="sh">Stop treating symptoms.<br><em>Find the root.</em></h2>
+  <p class="lead">Every sleep symptom has a hormonal root cause. When you treat the symptom &mdash; melatonin for trouble falling asleep, Ambien for staying asleep, Xanax for bedtime anxiety &mdash; you suppress the signal without addressing the source. <strong>Here is what is actually happening.</strong></p>
+
+  <div class="symptom-list reveal">
+    <div class="sym-item">
+      <div>
+        <div class="sym-complaint">Can&rsquo;t fall asleep despite being exhausted</div>
+        <div class="sym-told">Told: Try melatonin / better sleep hygiene</div>
+      </div>
+      <div>
+        <div class="sym-col-label">What&rsquo;s actually happening</div>
+        <div class="sym-real">Depleted progesterone has reduced GABA tone. The brain cannot quiet itself. Cortisol remains elevated at bedtime. <strong>Thermoregulation is unstable</strong> &mdash; the body temperature drop required for sleep onset is not occurring.</div>
+      </div>
+    </div>
+    <div class="sym-item">
+      <div>
+        <div class="sym-complaint">Waking at 2&ndash;4 AM, unable to return to sleep</div>
+        <div class="sym-told">Told: Reduce fluid intake / limit alcohol</div>
+      </div>
+      <div>
+        <div class="sym-col-label">What&rsquo;s actually happening</div>
+        <div class="sym-real"><strong>Nocturnal cortisol spike</strong> &mdash; often triggered by a hot flash or glucose drop. The HPA axis activates, pulls you out of N3, and cortisol keeps you alert. Without the GABA support of progesterone, re-entry into deep sleep is nearly impossible.</div>
+      </div>
+    </div>
+    <div class="sym-item">
+      <div>
+        <div class="sym-complaint">Night sweats soaking sheets</div>
+        <div class="sym-told">Told: Try a fan / keep room cooler</div>
+      </div>
+      <div>
+        <div class="sym-col-label">What&rsquo;s actually happening</div>
+        <div class="sym-real">Estrogen decline has narrowed the thermoneutral zone to near zero. The hypothalamic thermostat fires at the slightest provocation &mdash; releasing norepinephrine and triggering a full sweat response. <strong>This is a vascular event, not a temperature management problem.</strong></div>
+      </div>
+    </div>
+    <div class="sym-item">
+      <div>
+        <div class="sym-complaint">Racing thoughts and bedtime anxiety</div>
+        <div class="sym-told">Told: Try meditation / reduce screen time</div>
+      </div>
+      <div>
+        <div class="sym-col-label">What&rsquo;s actually happening</div>
+        <div class="sym-real">Progesterone&rsquo;s metabolite allopregnanolone is a natural anxiolytic &mdash; essentially endogenous Valium. As progesterone drops, this calming effect disappears. <strong>The brain becomes hyperexcitable, especially at night.</strong> This is neurochemistry, not a mindset problem.</div>
+      </div>
+    </div>
+    <div class="sym-item">
+      <div>
+        <div class="sym-complaint">Vivid, exhausting, or anxious dreams</div>
+        <div class="sym-told">Told: Stress management / journaling</div>
+      </div>
+      <div>
+        <div class="sym-col-label">What&rsquo;s actually happening</div>
+        <div class="sym-real"><strong>REM sleep is estrogen-dependent.</strong> As estrogen fluctuates, REM becomes fragmented and intensified. The emotional processing that normally happens quietly during REM becomes amplified. These aren&rsquo;t just bad dreams &mdash; they&rsquo;re evidence of disrupted emotional regulation circuitry.</div>
+      </div>
+    </div>
+    <div class="sym-item">
+      <div>
+        <div class="sym-complaint">Waking unrested after &ldquo;enough&rdquo; sleep</div>
+        <div class="sym-told">Told: Try a sleep tracker / go to bed earlier</div>
+      </div>
+      <div>
+        <div class="sym-col-label">What&rsquo;s actually happening</div>
+        <div class="sym-real">Hours of sleep are not the measure. <strong>Architecture is.</strong> Without adequate N3, growth hormone does not surge, tissue repair doesn&rsquo;t complete, cortisol doesn&rsquo;t reach its nadir, and inflammatory markers don&rsquo;t clear. You can spend 9 hours in bed cycling through N1 and N2 and wake biologically unrested.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S5: LABS -->
+<section class="reveal" id="labs">
+  <div class="eyebrow">Clinical Testing</div>
+  <h2 class="sh">The labs that actually<br><em>tell you what&rsquo;s happening.</em></h2>
+  <p class="lead">Standard labs won&rsquo;t catch this. A single morning estrogen draw is nearly useless in perimenopause &mdash; levels fluctuate wildly day to day. <strong>Here is the specific testing that gives you real diagnostic information, and exactly what to say to get it ordered.</strong></p>
+
+  <div class="lab-list reveal">
+    <div class="lab-item">
+      <div>
+        <span class="lab-priority essential">Essential</span>
+        <div class="lab-name">DUTCH Complete Panel</div>
+        <div class="lab-target">Full report &middot; Cortisol diurnal curve &middot; Estrogen metabolites &middot; Progesterone metabolites</div>
+      </div>
+      <div>
+        <div class="lab-body">The single most comprehensive view of your hormonal reality. Dried urine testing captures estrogen metabolites, cortisol diurnal curve including nocturnal cortisol, progesterone metabolites, testosterone, DHEA, and melatonin. <strong>This is not a standard blood panel.</strong> You will likely need to request this specifically or order it independently through Precision Analytical.</div>
+      </div>
+      <div>
+        <div class="lab-body">What to look for: <strong>Nocturnal cortisol &middot; Cortisol awakening response &middot; Estrone:Estriol ratio &middot; Progesterone metabolites</strong></div>
+      </div>
+    </div>
+    <div class="lab-item">
+      <div>
+        <span class="lab-priority essential">Essential</span>
+        <div class="lab-name">Fasting Insulin + Glucose (HOMA-IR)</div>
+        <div class="lab-target">Fasting glucose &lt;90 &middot; Fasting insulin &lt;7 &mu;IU/mL &middot; HOMA-IR &lt;1.0</div>
+      </div>
+      <div>
+        <div class="lab-body">Insulin resistance silently destroys sleep architecture. <strong>Nocturnal glucose instability &mdash; drops that occur between 2&ndash;4 AM &mdash; are a primary driver of cortisol-induced waking.</strong> This is almost never checked in the context of sleep complaints. A HOMA-IR above 1.5 warrants metabolic intervention before anything else.</div>
+      </div>
+      <div>
+        <div class="lab-body">Must request fasting insulin explicitly &mdash; it is almost never included in standard metabolic panels without specific request.</div>
+      </div>
+    </div>
+    <div class="lab-item">
+      <div>
+        <span class="lab-priority essential">Essential</span>
+        <div class="lab-name">Full Thyroid Panel</div>
+        <div class="lab-target">TSH 1.0&ndash;2.0 &middot; Free T3 3.2&ndash;4.2 &middot; Free T4 1.1&ndash;1.6 &middot; TPO + TgAb negative</div>
+      </div>
+      <div>
+        <div class="lab-body">TSH alone is not a thyroid panel. You need TSH, Free T3, Free T4, and thyroid antibodies (TPO and TG). <strong>Subclinical hypothyroidism and Hashimoto&rsquo;s thyroiditis are profoundly underdiagnosed in perimenopausal women</strong> and both directly disrupt sleep architecture. Low Free T3 in particular impairs the temperature regulation and metabolic function required for deep sleep.</div>
+      </div>
+      <div>
+        <div class="lab-body">Must request Free T3 explicitly &mdash; it is almost never included in standard thyroid panels.</div>
+      </div>
+    </div>
+    <div class="lab-item">
+      <div>
+        <span class="lab-priority important">Important</span>
+        <div class="lab-name">hs-CRP + Ferritin</div>
+        <div class="lab-target">hs-CRP &lt;1.0 mg/L &middot; Ferritin 50&ndash;150 ng/mL</div>
+      </div>
+      <div>
+        <div class="lab-body">High-sensitivity CRP measures systemic inflammation &mdash; chronic sleep deprivation is profoundly pro-inflammatory. <strong>Ferritin below 50 ng/mL is associated with restless legs syndrome and impaired sleep quality in women,</strong> independent of anemia. Both are frequently overlooked in sleep workups.</div>
+      </div>
+      <div>
+        <div class="lab-body">Ferritin is not the same as serum iron &mdash; request specifically by name.</div>
+      </div>
+    </div>
+    <div class="lab-item">
+      <div>
+        <span class="lab-priority important">Important</span>
+        <div class="lab-name">Vitamin D3 (25-OH)</div>
+        <div class="lab-target">Optimal: 60&ndash;80 ng/mL &middot; Standard range starts at 20 &mdash; insufficient for sleep function</div>
+      </div>
+      <div>
+        <div class="lab-body">Vitamin D receptors are located in the brain regions that regulate sleep &mdash; including the hypothalamus and brainstem. <strong>Deficiency is directly associated with shorter sleep duration, reduced N3 sleep, and increased nighttime waking.</strong> The standard &ldquo;normal&rdquo; range starts at 20 ng/mL &mdash; not the optimal range for sleep function.</div>
+      </div>
+      <div>
+        <div class="lab-body">Over 40% of American adults are deficient. Test before supplementing to guide appropriate dose.</div>
+      </div>
+    </div>
+    <div class="lab-item">
+      <div>
+        <span class="lab-priority consider">Consider</span>
+        <div class="lab-name">Magnesium RBC</div>
+        <div class="lab-target">RBC Mg 5.0&ndash;6.5 mg/dL &middot; Serum magnesium is not adequate</div>
+      </div>
+      <div>
+        <div class="lab-body">Standard serum magnesium is unreliable &mdash; the body maintains serum levels by pulling from cells. <strong>RBC magnesium measures intracellular status.</strong> Magnesium is required for GABA receptor function, melatonin synthesis, and muscle relaxation. Deficiency is nearly universal in women under chronic stress.</div>
+      </div>
+      <div>
+        <div class="lab-body">If DUTCH testing isn&rsquo;t accessible, this is a high-yield, low-cost starting point for identifying one of the most common and correctable sleep disruptors.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout gold reveal">
+    <div class="callout-label">What to Say at Your Appointment</div>
+    <p>&ldquo;I&rsquo;m experiencing significant sleep disruption that I believe is hormonally driven &mdash; specifically fragmented sleep, 2&ndash;4 AM waking, and night sweats. I&rsquo;d like to rule out underlying drivers before we discuss sleep medications. <strong>Can we run a fasting insulin and glucose, a full thyroid panel including Free T3 and antibodies, hs-CRP, ferritin, and Vitamin D?</strong> I&rsquo;m also interested in DUTCH testing for a comprehensive hormonal picture including cortisol diurnal rhythm.&rdquo;</p>
+  </div>
+</section>
+
+<!-- S6: PROTOCOL -->
+<section class="alt reveal" id="protocol">
+  <div class="eyebrow">Your Action Plan</div>
+  <h2 class="sh">The Pillar 1<br><em>Sleep Protocol.</em></h2>
+  <p class="lead">This protocol is built on the mechanisms we&rsquo;ve covered. Every intervention targets a specific biological driver. This is not a generic sleep hygiene list &mdash; <strong>it is a clinically sequenced approach to restoring sleep architecture.</strong></p>
+
+  <div class="callout reveal">
+    <div class="callout-label">The Non-Negotiable First Step</div>
+    <p>Before any supplement or environment optimization, you must anchor your circadian rhythm. <strong>A dysregulated HPA axis cannot be supplemented into regulation</strong> &mdash; the cortisol curve must be reset through consistent timing. Begin timing protocol in Week 1. Add supplements in Week 2.</p>
+  </div>
+
+  <div class="timing-list reveal">
+    <div class="timing-item">
+      <div class="timing-time">6&ndash;7:30 AM</div>
+      <div>
+        <div class="timing-name">Morning Light Exposure</div>
+        <div class="timing-body">10&ndash;20 minutes of outdoor light within 30 minutes of waking. This triggers the cortisol awakening response (CAR) that anchors your entire diurnal hormone rhythm. The CAR sets the countdown to melatonin onset 14&ndash;16 hours later. <strong>Sunglasses off. Face toward the sky. Overcast days still work.</strong> This single intervention has more impact on sleep architecture than any supplement on this list.</div>
+        <span class="timing-tag">Anchors CAR &middot; Sets melatonin countdown</span>
+      </div>
+    </div>
+    <div class="timing-item">
+      <div class="timing-time">Within 60 min</div>
+      <div>
+        <div class="timing-name">Protein-Forward Breakfast</div>
+        <div class="timing-body">30g+ of protein within 60 minutes of waking. Morning protein blunts the post-cortisol spike in glucose, supports dopamine and serotonin synthesis (the precursors to melatonin), and prevents mid-morning blood sugar instability that drives afternoon cortisol surges. <strong>Skipping breakfast or eating carbohydrate-only meals sets up the nocturnal glucose instability that wakes you at 3 AM.</strong></div>
+        <span class="timing-tag">Stabilizes glucose &middot; Supports neurotransmitter synthesis</span>
+      </div>
+    </div>
+    <div class="timing-item">
+      <div class="timing-time">12:00 PM</div>
+      <div>
+        <div class="timing-name">Caffeine Cutoff &mdash; Hard Stop</div>
+        <div class="timing-body">No caffeine after noon. Caffeine has a half-life of 5&ndash;7 hours &mdash; a 3 PM coffee still has half its caffeine in your system at 8&ndash;9 PM. Beyond blocking adenosine (your sleep pressure signal), caffeine elevates cortisol. <strong>In women with already dysregulated HPA axes, afternoon caffeine extends the cortisol curve past its natural decline</strong> &mdash; directly delaying melatonin onset and preventing N3 entry.</div>
+        <span class="timing-tag">Preserves adenosine &middot; Prevents evening cortisol extension</span>
+      </div>
+    </div>
+    <div class="timing-item">
+      <div class="timing-time">5&ndash;7 PM</div>
+      <div>
+        <div class="timing-name">Last Meal &mdash; 3 Hours Before Sleep</div>
+        <div class="timing-body">Complete eating 3 hours before your target bedtime. Digestion elevates core body temperature. Since sleep onset requires a 1&ndash;2&deg;F drop in core temperature, eating close to bedtime directly competes with this mechanism. Include a small amount of complex carbohydrate with dinner to support serotonin and prevent the nocturnal glucose drop that triggers 3 AM cortisol waking.</div>
+        <span class="timing-tag">Supports temp drop &middot; Prevents nocturnal glucose crash</span>
+      </div>
+    </div>
+    <div class="timing-item">
+      <div class="timing-time">90 min before bed</div>
+      <div>
+        <div class="timing-name">Light Dimming Protocol</div>
+        <div class="timing-body">Dim all lights to below eye level. Warm spectrum only. Blue light blocking glasses if screens are necessary. <strong>Even brief blue light exposure at this window suppresses melatonin for up to 90 minutes.</strong> This is about signaling your hypothalamus that night is coming &mdash; a signal perimenopause has already made more fragile.</div>
+        <span class="timing-tag">Initiates melatonin rise &middot; Signals hypothalamus</span>
+      </div>
+    </div>
+    <div class="timing-item">
+      <div class="timing-time">30 min before bed</div>
+      <div>
+        <div class="timing-name">Warm Shower or Bath</div>
+        <div class="timing-body">10&ndash;15 minute warm (not hot) shower or bath. Warm water draws blood to the skin surface, which then rapidly releases heat when you exit &mdash; core body temperature drops more rapidly and deeply than through passive cooling alone. <strong>Studies show this shortens sleep onset by an average of 10 minutes and increases N3 duration.</strong> The most underused clinical tool in perimenopausal sleep management.</div>
+        <span class="timing-tag">Accelerates core temp drop &middot; Deepens N3</span>
+      </div>
+    </div>
+    <div class="timing-item">
+      <div class="timing-time">Consistent</div>
+      <div>
+        <div class="timing-name">Fixed Sleep and Wake Time &mdash; Within &plusmn;20 Minutes</div>
+        <div class="timing-body">Set a bedtime and a wake time. Hold them within 20 minutes every day &mdash; including weekends. <strong>For the first 4 weeks of this protocol, consistency of timing matters more than duration.</strong> Your cortisol curve, melatonin rhythm, and growth hormone pulse are all timed to your sleep schedule. Moving that schedule moves all of them.</div>
+        <span class="timing-tag">Anchors circadian rhythm &middot; Stabilizes cortisol curve</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="eyebrow" style="margin-top:52px;">Targeted Supplements</div>
+  <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:600;color:var(--ink);margin-bottom:14px;">Begin in Week 2 &mdash; after circadian anchoring is established.</h3>
+
+  <div class="supp-grid reveal">
+    <div class="supp-card">
+      <div class="supp-name">Magnesium Glycinate</div>
+      <div class="supp-dose">300&ndash;400mg elemental</div>
+      <div class="supp-body">The highest-priority supplement for perimenopausal sleep. Supports GABA-A receptor function &mdash; the same receptor that progesterone&rsquo;s metabolite targets. <strong>Reduces time to sleep onset, increases N3 duration, and reduces nocturnal cortisol.</strong> Glycinate form has excellent bioavailability and does not cause GI distress.</div>
+      <div class="supp-timing">45&ndash;60 min before bed</div>
+    </div>
+    <div class="supp-card">
+      <div class="supp-name">L-Theanine</div>
+      <div class="supp-dose">200&ndash;400mg</div>
+      <div class="supp-body">Increases alpha brain wave activity &mdash; the state associated with calm wakefulness that transitions into sleep. Potentiates GABA without causing sedation or next-day grogginess. <strong>Particularly effective for the &ldquo;exhausted but wired&rdquo; state</strong> that is the hallmark of perimenopausal HPA axis dysregulation. Does not cause dependence.</div>
+      <div class="supp-timing">30&ndash;45 min before bed</div>
+    </div>
+    <div class="supp-card">
+      <div class="supp-name">Phosphatidylserine</div>
+      <div class="supp-dose">200&ndash;400mg</div>
+      <div class="supp-body">A phospholipid that directly blunts the HPA axis cortisol response. <strong>One of the few non-pharmaceutical interventions shown to reduce cortisol levels in clinical trials.</strong> Particularly useful if you wake at 2&ndash;4 AM and cannot return to sleep &mdash; this is nocturnal cortisol spike territory.</div>
+      <div class="supp-timing">With dinner OR at bedtime</div>
+    </div>
+    <div class="supp-card">
+      <div class="supp-name">Apigenin</div>
+      <div class="supp-dose">50mg</div>
+      <div class="supp-body">A flavonoid that binds to GABA-A receptors as a partial agonist &mdash; similar mechanism to benzodiazepines but without receptor downregulation or dependency. <strong>Reduces sleep onset latency and supports N3 architecture.</strong> In combination with magnesium glycinate, the synergy is meaningful.</div>
+      <div class="supp-timing">30 min before bed</div>
+    </div>
+    <div class="supp-card">
+      <div class="supp-name">Low-Dose Melatonin</div>
+      <div class="supp-dose">0.3&ndash;0.5mg ONLY</div>
+      <div class="supp-body">The most misused sleep supplement in existence. <strong>The pharmacological doses sold in the US (5&ndash;10mg) are 10&ndash;30x the physiological dose</strong> and can suppress your body&rsquo;s own melatonin production over time. 0.3&ndash;0.5mg is clinically more effective for sleep maintenance than high doses. If it &ldquo;isn&rsquo;t working,&rdquo; high dose is likely why.</div>
+      <div class="supp-timing">60&ndash;90 min before bed &mdash; low dose only</div>
+    </div>
+    <div class="supp-card">
+      <div class="supp-name">Vitamin D3 + K2</div>
+      <div class="supp-dose">4,000&ndash;6,000 IU D3 + 100mcg K2</div>
+      <div class="supp-body">If labs confirm deficiency (below 60 ng/mL), therapeutic repletion is warranted. <strong>D3 requires K2 for proper calcium routing</strong> &mdash; without K2, high-dose D3 can drive calcium into soft tissues rather than bone. Take with highest-fat meal. Recheck in 90 days. Do not supplement without baseline lab confirmation.</div>
+      <div class="supp-timing">With largest meal &mdash; daytime only</div>
+    </div>
+  </div>
+
+  <div class="eyebrow" style="margin-top:52px;">Environment</div>
+  <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:600;color:var(--ink);margin-bottom:14px;">For perimenopausal women, bedroom environment is not a comfort variable &mdash; it&rsquo;s a therapeutic one.</h3>
+
+  <div class="env-grid reveal">
+    <div class="env-card">
+      <span class="env-icon">&#10022;</span>
+      <div class="env-name">Room Temperature: 65&ndash;68&deg;F</div>
+      <div class="env-body">Core body temperature must drop 1&ndash;2&deg;F to enter and maintain N3. A cool environment is the single most impactful environmental intervention for thermoregulation-disrupted sleep. <strong>Non-negotiable if you experience night sweats.</strong> Dual-zone cooling mattress pads (ChiliPad, Eight Sleep) are a clinical investment, not a luxury.</div>
+    </div>
+    <div class="env-card">
+      <span class="env-icon">&#10022;</span>
+      <div class="env-name">Complete Darkness</div>
+      <div class="env-body">Even low-level light exposure during sleep can measurably suppress melatonin and reduce N3 duration. Blackout curtains are not optional for light-sensitive sleepers. <strong>If you need to navigate to the bathroom at night, use a red-spectrum nightlight only</strong> &mdash; red wavelengths do not suppress melatonin the way blue and white light does.</div>
+    </div>
+    <div class="env-card">
+      <span class="env-icon">&#10022;</span>
+      <div class="env-name">Sound Environment</div>
+      <div class="env-body">Noise above 40 decibels during sleep reduces N3 duration and increases microarousals. <strong>Pink noise specifically has been shown in studies to enhance slow-wave (N3) sleep</strong> and improve next-day memory. Ear plugs are a legitimate clinical tool.</div>
+    </div>
+    <div class="env-card">
+      <span class="env-icon">&#10022;</span>
+      <div class="env-name">Phone Out of the Bedroom</div>
+      <div class="env-body">The psychological availability of the phone &mdash; even face down &mdash; maintains a low-level vigilance response. <strong>This is particularly significant for women with HPA axis dysregulation,</strong> where the threat-detection circuitry is already hyperactivated. Remove the phone from the room entirely. Use a dedicated alarm clock.</div>
+    </div>
+    <div class="env-card">
+      <span class="env-icon">&#10022;</span>
+      <div class="env-name">Bed = Sleep Only</div>
+      <div class="env-body">Working in bed, watching TV in bed, or scrolling in bed creates a conditioned arousal response &mdash; your brain begins to associate the bed with wakefulness. <strong>For perimenopausal women already fighting hyperexcitability,</strong> this conditioning compounds the problem. If you cannot sleep after 20 minutes, get up and return when sleepy.</div>
+    </div>
+    <div class="env-card">
+      <span class="env-icon">&#10022;</span>
+      <div class="env-name">Warm Socks</div>
+      <div class="env-body">Warm feet accelerate peripheral vasodilation &mdash; the same mechanism as the pre-sleep shower. Blood flows to the periphery, core temperature drops faster. <strong>A randomized trial showed wearing socks to bed reduced sleep onset by 15 minutes</strong> and increased total sleep time. Feet warm, room cool.</div>
+    </div>
+  </div>
+
+  <div class="eyebrow" style="margin-top:52px;">What to Stop</div>
+  <div class="stop-list reveal">
+    <div class="stop-item">
+      <div class="stop-label">Stop This</div>
+      <div class="stop-body"><strong>Alcohol within 4 hours of sleep.</strong> Alcohol is not a sleep aid &mdash; it is an N3 suppressant. It may help you fall asleep faster but it fragments the second half of your sleep cycle dramatically, increases night sweats by dilating blood vessels, and suppresses REM. Even 1&ndash;2 drinks can reduce N3 sleep by 20%.</div>
+    </div>
+    <div class="stop-item">
+      <div class="stop-label">Stop This</div>
+      <div class="stop-body"><strong>High-intensity exercise after 6 PM.</strong> Intense exercise elevates core body temperature and cortisol for 4&ndash;6 hours post-workout. For women with thermoregulation instability, this extends the window where core temp cannot fall adequately for N3 entry. Morning or early afternoon training is clinically superior.</div>
+    </div>
+    <div class="stop-item">
+      <div class="stop-label">Stop This</div>
+      <div class="stop-body"><strong>Checking the clock when you wake at night.</strong> Clock-watching during a 3 AM waking activates the prefrontal cortex &mdash; calculating how many hours of sleep remain triggers a cortisol response that extends waking. Turn clocks away from you.</div>
+    </div>
+    <div class="stop-item">
+      <div class="stop-label">Stop This</div>
+      <div class="stop-body"><strong>Napping after 3 PM or longer than 30 minutes.</strong> Sleep pressure (adenosine buildup) is the mechanical drive that pulls you into deep sleep at night. Extended or late naps discharge adenosine prematurely. If you need to nap: before 2 PM, 20&ndash;25 minutes maximum. Use an alarm.</div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKBOOK -->
+<section class="workbook reveal" id="workbook">
+  <div class="eyebrow">Pillar 1 Workbook</div>
+  <h2 class="sh">Your clinical notes.</h2>
+  <div class="wb-grid">
+    <div class="wb-block">
+      <div class="wb-title">My Survival Sleep Inventory</div>
+      <div class="wb-prompt">Before you can fix it, you have to see it clearly. List your top symptoms with specificity &mdash; times, patterns, duration.</div>
+      <div class="wb-lines">
+        <div class="wbl"><div class="wbll">Sleep symptom 1 &mdash; be specific (time, frequency, duration)</div></div>
+        <div class="wbl"></div>
+        <div class="wbl"><div class="wbll">Sleep symptom 2</div></div>
+        <div class="wbl"></div>
+        <div class="wbl"><div class="wbll">Sleep symptom 3</div></div>
+        <div class="wbl"></div>
+        <div class="wbl"><div class="wbll">Pattern I&rsquo;ve noticed (cycle-related / stress-related / random)</div></div>
+        <div class="wbl"></div>
+        <div class="wbl"><div class="wbll">How long has this been happening</div></div>
+        <div class="wbl"></div>
+      </div>
+    </div>
+    <div class="wb-block">
+      <div class="wb-title">Labs I&rsquo;m Requesting</div>
+      <div class="wb-prompt">Use the appointment script from Section 5. Check off what you&rsquo;re ordering and note your current results if you have them.</div>
+      <table class="wb-tbl">
+        <thead><tr><th>Test</th><th>Ordered?</th><th>My Result</th><th>Optimal</th></tr></thead>
+        <tbody>
+          <tr><td>DUTCH Complete</td><td><span class="wb-e"></span></td><td><span class="wb-e"></span></td><td>Full report</td></tr>
+          <tr><td>Fasting Insulin</td><td><span class="wb-e"></span></td><td><span class="wb-e"></span></td><td>&lt;7 &mu;IU/mL</td></tr>
+          <tr><td>HOMA-IR</td><td><span class="wb-e"></span></td><td><span class="wb-e"></span></td><td>&lt;1.0</td></tr>
+          <tr><td>Free T3</td><td><span class="wb-e"></span></td><td><span class="wb-e"></span></td><td>3.2&ndash;4.2</td></tr>
+          <tr><td>Ferritin</td><td><span class="wb-e"></span></td><td><span class="wb-e"></span></td><td>50&ndash;150</td></tr>
+          <tr><td>Vitamin D (25-OH)</td><td><span class="wb-e"></span></td><td><span class="wb-e"></span></td><td>60&ndash;80 ng/mL</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="wb-block">
+      <div class="wb-title">My Week 1 Protocol Commitments</div>
+      <div class="wb-prompt">Choose the 3 timing interventions you&rsquo;re committing to this week. Write your specific implementation plan.</div>
+      <div class="wb-lines">
+        <div class="wbl"><div class="wbll">Morning light &mdash; my specific plan (time / location)</div></div>
+        <div class="wbl"></div>
+        <div class="wbl"><div class="wbll">My fixed wake time (hold within &plusmn;20 min every day)</div></div>
+        <div class="wbl"></div>
+        <div class="wbl"><div class="wbll">My fixed bedtime</div></div>
+        <div class="wbl"></div>
+        <div class="wbl"><div class="wbll">Caffeine cutoff time</div></div>
+        <div class="wbl"></div>
+        <div class="wbl"><div class="wbll">One thing I am stopping this week</div></div>
+        <div class="wbl"></div>
+      </div>
+    </div>
+    <div class="wb-block">
+      <div class="wb-title">7-Day Sleep Tracker</div>
+      <div class="wb-prompt">Rate each morning on a 1&ndash;10 scale. Note what changed each day. Patterns will emerge by day 5.</div>
+      <table class="wb-tbl">
+        <thead><tr><th>Day</th><th>Bed</th><th>Wake</th><th>Woke?</th><th>Score</th></tr></thead>
+        <tbody>
+          <tr><td>Day 1</td><td><span class="wb-e"></span></td><td><span class="wb-e"></span></td><td><span class="wb-e"></span></td><td><span class="wb-e"></span></td></tr>
+          <tr><td>Day 2</td><td><span class="wb-e"></span></td><td><span class="wb-e"></span></td><td><span class="wb-e"></span></td><td><span class="wb-e"></span></td></tr>
+          <tr><td>Day 3</td><td><span class="wb-e"></span></td><td><span class="wb-e"></span></td><td><span class="wb-e"></span></td><td><span class="wb-e"></span></td></tr>
+          <tr><td>Day 4</td><td><span class="wb-e"></span></td><td><span class="wb-e"></span></td><td><span class="wb-e"></span></td><td><span class="wb-e"></span></td></tr>
+          <tr><td>Day 5</td><td><span class="wb-e"></span></td><td><span class="wb-e"></span></td><td><span class="wb-e"></span></td><td><span class="wb-e"></span></td></tr>
+          <tr><td>Day 6</td><td><span class="wb-e"></span></td><td><span class="wb-e"></span></td><td><span class="wb-e"></span></td><td><span class="wb-e"></span></td></tr>
+          <tr><td>Day 7</td><td><span class="wb-e"></span></td><td><span class="wb-e"></span></td><td><span class="wb-e"></span></td><td><span class="wb-e"></span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="callout reveal" style="margin-top:36px;">
+    <div class="callout-label">Your Pillar 1 Commitment</div>
+    <p>Give this pillar a minimum of <strong>3 weeks of consistent implementation</strong> before evaluating results. Sleep architecture changes are measurable by Week 2 in most women, but the HPA axis requires 3&ndash;4 weeks of consistent circadian anchoring before cortisol rhythm meaningfully shifts. <strong>Be patient with the timing. Impatient with the excuses.</strong></p>
+  </div>
+</section>
+
+<!-- COMPLETION -->
+<div class="completion reveal">
+  <div class="comp-ghost">2</div>
+  <div class="comp-eyebrow">Pillar One Complete</div>
+  <div class="comp-title">You now understand<br><em>what&rsquo;s actually happening.</em></div>
+  <p class="comp-sub">Most women who reach this point realize that the last decade of their sleep problems were not their fault, and were not random. They had a cause. Now you have a protocol. Give it three weeks before you evaluate. The architecture takes time to rebuild &mdash; but it rebuilds.</p>
+  <a href="https://stan.store/thebuiltmovement" class="comp-btn">Continue to Pillar 2 &mdash; HPA Axis &amp; Cortisol &rarr;</a>
+  <div class="comp-next" style="display:none">Next: Why stress isn&rsquo;t just psychological &middot; Your cortisol curve as the master key &middot; The adrenal androgen driver &middot; The protocol that addresses the HPA axis directly</div>
+</div>
+
+<footer style="background:#3A3530;border-top:1px solid rgba(245,240,232,0.06);padding:28px 52px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
+  <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:0.95rem;color:rgba(245,240,232,0.4);"><span style="color:#B04070;font-style:normal;">Rebuilt Rebels</span> &middot; The Hormone Reset</div>
+  <div style="font-family:'Jost',sans-serif;font-size:0.6rem;color:rgba(245,240,232,0.2);letter-spacing:0.08em;text-align:right;">Candace, PA-C &middot; Educational content &middot; Not a substitute for medical care &middot; <a href="glossary.html" style="color:#B04070;text-decoration:none;">Glossary &rarr;</a></div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{
+  const st=document.documentElement.scrollTop;
+  const dh=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+  document.getElementById('pbar').style.width=(st/dh*100)+'%';
+});
+const ro=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
+},{threshold:0.05});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+</script>
+</body>
+</html>
