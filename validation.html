@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Validation — Rebuilt Rebels</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lora:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap');
+
+  :root {
+    --berry: #6B2D5E;
+    --berry-light: #8B3D7E;
+    --charcoal: #2C2C2C;
+    --cream: #FAF7F2;
+    --cream-dark: #F0EBE3;
+    --gold: #C9A84C;
+    --muted: #7A7A7A;
+    --white: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--cream);
+    color: var(--charcoal);
+    font-family: 'Lora', serif;
+    font-size: 17px;
+    line-height: 1.85;
+  }
+
+  /* COVER */
+  .cover {
+    background: var(--charcoal);
+    color: var(--cream);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 40px;
+    position: relative;
+  }
+
+  .cover-brand {
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 48px;
+  }
+
+  .cover h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(52px, 9vw, 88px);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -1px;
+    color: var(--white);
+    margin-bottom: 24px;
+  }
+
+  .cover-subtitle {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: clamp(15px, 2.5vw, 19px);
+    color: #C0B0BB;
+    max-width: 520px;
+    margin-bottom: 60px;
+    line-height: 1.7;
+  }
+
+  .cover-rule {
+    width: 48px;
+    height: 2px;
+    background: var(--gold);
+    margin: 0 auto 40px;
+  }
+
+  .cover-byline {
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #8A7A88;
+  }
+
+  .cover-byline strong {
+    color: var(--cream);
+    font-weight: 600;
+  }
+
+  .cover-disclaimer {
+    position: absolute;
+    bottom: 28px;
+    font-family: 'Jost', sans-serif;
+    font-size: 10px;
+    color: #5A5058;
+    letter-spacing: 0.5px;
+    max-width: 480px;
+    text-align: center;
+    line-height: 1.6;
+  }
+
+  /* SECTION WRAPPER */
+  .section {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 80px 40px;
+  }
+
+  .section + .section {
+    border-top: 1px solid var(--cream-dark);
+  }
+
+  /* SECTION HEADER */
+  .section-label {
+    font-family: 'Jost', sans-serif;
+    font-weight: 600;
+    font-size: 10px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--berry);
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 5vw, 42px);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--charcoal);
+    margin-bottom: 36px;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--berry);
+  }
+
+  /* BODY TEXT */
+  p {
+    margin-bottom: 22px;
+    color: #3A3A3A;
+  }
+
+  p:last-child { margin-bottom: 0; }
+
+  /* VALIDATION STATEMENTS — Part 1 hero block */
+  .validation-block {
+    background: var(--charcoal);
+    border-radius: 4px;
+    padding: 48px 44px;
+    margin: 40px 0;
+  }
+
+  .validation-block .v-intro {
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 28px;
+  }
+
+  .validation-statement {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(20px, 3.5vw, 26px);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--white);
+    line-height: 1.5;
+    padding: 14px 0;
+    border-bottom: 1px solid #3A3A3A;
+  }
+
+  .validation-statement:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .validation-statement:first-of-type {
+    padding-top: 0;
+  }
+
+  /* PULL QUOTE */
+  .pull-quote {
+    border-left: 3px solid var(--berry);
+    padding: 8px 0 8px 28px;
+    margin: 36px 0;
+  }
+
+  .pull-quote p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(18px, 3vw, 22px);
+    line-height: 1.55;
+    color: var(--charcoal);
+    margin-bottom: 12px;
+  }
+
+  .pull-quote cite {
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-style: normal;
+  }
+
+  /* CONCEPT CARD */
+  .concept-card {
+    background: var(--white);
+    border: 1px solid #E0D8D0;
+    border-radius: 4px;
+    padding: 36px 40px;
+    margin: 36px 0;
+  }
+
+  .concept-card .card-label {
+    font-family: 'Jost', sans-serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--berry);
+    margin-bottom: 14px;
+  }
+
+  .concept-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--charcoal);
+    margin-bottom: 16px;
+  }
+
+  /* TWO COLUMN CARDS */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 36px 0;
+  }
+
+  .two-col-card {
+    background: var(--white);
+    border: 1px solid #E0D8D0;
+    border-radius: 4px;
+    padding: 28px 28px 32px;
+  }
+
+  .two-col-card .card-label {
+    font-family: 'Jost', sans-serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--berry);
+    margin-bottom: 12px;
+  }
+
+  .two-col-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--charcoal);
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+
+  .two-col-card p {
+    font-size: 15px;
+    line-height: 1.75;
+    color: #555;
+    margin: 0;
+  }
+
+  /* DARK ACCENT SECTION */
+  .section-dark {
+    background: var(--charcoal);
+    padding: 80px 40px;
+  }
+
+  .section-dark .section-inner {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .section-dark .section-label { color: var(--gold); }
+  .section-dark .section-title { color: var(--white); }
+  .section-dark .section-title em { color: var(--gold); }
+  .section-dark p { color: #B0A8B0; }
+
+  .section-dark .pull-quote {
+    border-left-color: var(--gold);
+  }
+
+  .section-dark .pull-quote p { color: var(--cream); }
+
+  /* OFFENDER CARDS */
+  .offender-card {
+    border: 1px solid #E0D8D0;
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 28px 0;
+    background: var(--white);
+  }
+
+  .offender-header {
+    background: var(--berry);
+    padding: 22px 32px;
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+  }
+
+  .offender-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: rgba(255,255,255,0.4);
+  }
+
+  .offender-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(20px, 3vw, 26px);
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.2;
+  }
+
+  .offender-tagline {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: rgba(255,255,255,0.65);
+    margin-top: 4px;
+  }
+
+  .offender-body {
+    padding: 28px 32px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+  }
+
+  .offender-col-label {
+    font-family: 'Jost', sans-serif;
+    font-size: 9px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--berry);
+    margin-bottom: 10px;
+  }
+
+  .offender-col ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .offender-col ul li {
+    font-family: 'Jost', sans-serif;
+    font-size: 13.5px;
+    color: #4A4A4A;
+    padding: 4px 0;
+    line-height: 1.5;
+    border-bottom: 1px solid #F0EBE3;
+  }
+
+  .offender-col ul li:last-child { border-bottom: none; }
+
+  .offender-translation {
+    grid-column: 1 / -1;
+    background: var(--cream-dark);
+    border-radius: 3px;
+    padding: 18px 22px;
+    margin-top: 4px;
+  }
+
+  .offender-translation .t-label {
+    font-family: 'Jost', sans-serif;
+    font-size: 9px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--berry);
+    margin-bottom: 8px;
+  }
+
+  .offender-translation .t-quote {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 15px;
+    color: var(--charcoal);
+    margin-bottom: 8px;
+  }
+
+  .offender-translation .t-symptoms {
+    font-family: 'Jost', sans-serif;
+    font-size: 12.5px;
+    color: var(--muted);
+    letter-spacing: 0.5px;
+  }
+
+  /* SWAP GUIDE */
+  .swap-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 32px 0;
+  }
+
+  .swap-table th {
+    font-family: 'Jost', sans-serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--berry);
+    padding: 12px 20px;
+    text-align: left;
+    background: var(--cream-dark);
+    border-bottom: 2px solid #E0D8D0;
+  }
+
+  .swap-table td {
+    font-family: 'Lora', serif;
+    font-size: 15px;
+    color: #3A3A3A;
+    padding: 16px 20px;
+    border-bottom: 1px solid #EDE8E0;
+    vertical-align: top;
+    line-height: 1.6;
+  }
+
+  .swap-table tr:last-child td { border-bottom: none; }
+
+  .swap-table td.swap-arrow {
+    color: var(--berry);
+    font-size: 18px;
+    text-align: center;
+    padding: 16px 8px;
+    width: 40px;
+  }
+
+  .short-rule {
+    font-family: 'Jost', sans-serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: center;
+    margin: 40px 0 16px;
+  }
+
+  .rule-quote {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: clamp(18px, 3vw, 22px);
+    text-align: center;
+    color: var(--charcoal);
+    max-width: 560px;
+    margin: 0 auto 12px;
+    line-height: 1.5;
+  }
+
+  /* CTA SECTION */
+  .section-cta {
+    background: var(--berry);
+    padding: 80px 40px;
+    text-align: center;
+  }
+
+  .section-cta .section-inner {
+    max-width: 620px;
+    margin: 0 auto;
+  }
+
+  .section-cta .section-label { color: rgba(255,255,255,0.5); }
+  .section-cta .section-title { color: var(--white); margin-bottom: 24px; }
+
+  .section-cta p {
+    color: rgba(255,255,255,0.8);
+    font-size: 17px;
+    margin-bottom: 20px;
+  }
+
+  .rebel-list {
+    list-style: none;
+    text-align: left;
+    max-width: 420px;
+    margin: 28px auto 40px;
+  }
+
+  .rebel-list li {
+    font-family: 'Jost', sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    color: rgba(255,255,255,0.85);
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .rebel-list li::before {
+    content: '→';
+    color: var(--gold);
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  .rebel-list li:last-child { border-bottom: none; }
+
+  .cta-url {
+    font-family: 'Jost', sans-serif;
+    font-size: 13px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-decoration: none;
+    border: 1px solid var(--gold);
+    padding: 14px 36px;
+    display: inline-block;
+    margin-top: 8px;
+    transition: all 0.2s;
+  }
+
+  /* KNOW YOUR SOURCE */
+  .source-block {
+    background: var(--cream-dark);
+    border-radius: 4px;
+    padding: 44px 44px;
+    margin: 40px 0;
+  }
+
+  .source-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 28px;
+  }
+
+  .source-card {
+    background: var(--white);
+    border: 1px solid #E0D8D0;
+    border-radius: 4px;
+    padding: 26px 26px 30px;
+  }
+
+  .source-card .s-label {
+    font-family: 'Jost', sans-serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--berry);
+    margin-bottom: 14px;
+  }
+
+  .source-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--charcoal);
+    margin-bottom: 14px;
+  }
+
+  .source-card ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .source-card ul li {
+    font-family: 'Jost', sans-serif;
+    font-size: 13.5px;
+    color: #555;
+    padding: 6px 0;
+    border-bottom: 1px solid #F0EBE3;
+    line-height: 1.5;
+    display: flex;
+    gap: 10px;
+  }
+
+  .source-card ul li::before {
+    content: '—';
+    color: var(--berry);
+    flex-shrink: 0;
+  }
+
+  .source-card ul li:last-child { border-bottom: none; }
+
+  /* FOOTER */
+  .footer {
+    background: var(--charcoal);
+    padding: 48px 40px;
+    text-align: center;
+  }
+
+  .footer-brand {
+    font-family: 'Jost', sans-serif;
+    font-size: 10px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  .footer-tagline {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: #8A7A88;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 680px) {
+    .section { padding: 60px 24px; }
+    .section-dark { padding: 60px 24px; }
+    .section-cta { padding: 60px 24px; }
+    .two-col { grid-template-columns: 1fr; }
+    .source-split { grid-template-columns: 1fr; }
+    .offender-body { grid-template-columns: 1fr; }
+    .offender-translation { grid-column: 1; }
+    .validation-block { padding: 36px 28px; }
+    .concept-card { padding: 28px 24px; }
+  }
+
+  @media print {
+    body { font-size: 14px; }
+    .cover { min-height: auto; page-break-after: always; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-brand">Rebuilt Rebels</div>
+  <h1>Validation</h1>
+  <div class="cover-rule"></div>
+  <div class="cover-subtitle">For when you are not okay — but the system keeps telling you that you are.</div>
+  <div class="cover-byline">A guide by <strong>Candace, PA-C</strong> · Healthcare Architect</div>
+  <div class="cover-disclaimer">This guide is for educational purposes only and does not constitute medical advice. Always consult with a qualified healthcare provider regarding your individual health concerns.</div>
+</div>
+
+
+<!-- PART 1: YOU KNOW SOMETHING IS WRONG -->
+<div class="section">
+  <div class="section-label">Part One</div>
+  <h2 class="section-title">You know something<br><em>is wrong.</em></h2>
+
+  <p>You have said it out loud — maybe to a doctor, maybe to a partner, maybe just to yourself in the car on the way home from an appointment where someone told you everything looked fine.</p>
+
+  <p>And you already know it doesn't feel fine.</p>
+
+  <div class="validation-block">
+    <div class="v-intro">This is where we start.</div>
+    <div class="validation-statement">You are not crazy.</div>
+    <div class="validation-statement">You are not lazy.</div>
+    <div class="validation-statement">You are not weak.</div>
+    <div class="validation-statement">You are not imagining this.</div>
+    <div class="validation-statement">The fact that your labs are normal does not mean your experience isn't real.</div>
+  </div>
+
+  <p>This encounter is different. I am not going to hand you a pamphlet and send you home. I am going to explain — from a root cause perspective — what is actually happening in your body. Where the disruption starts, what you can control, and where you may need help.</p>
+
+  <p>What this guide will do is walk you through a single day in your life and show you where the interference is hiding. Not to frighten you — but to give you back your power. Because once you see it, you cannot unsee it. And once you cannot unsee it, you can begin to change it.</p>
+
+  <div class="pull-quote">
+    <p>"You do not have a Prozac deficiency. Prozac is not something your body makes. When we strip everything back to the basics — when you understand this in the context of every layer — the full picture starts to make sense."</p>
+    <cite>— Candace, PA-C · Healthcare Architect</cite>
+  </div>
+</div>
+
+
+<!-- PART 2: HORMONES ARE SIGNALS -->
+<div class="section">
+  <div class="section-label">Part Two</div>
+  <h2 class="section-title">Hormones are <em>signals.</em></h2>
+
+  <p>Before we talk about what is disrupting your hormones, you need to understand what hormones actually are — and why they are so sensitive to interference.</p>
+
+  <p>Hormones are chemical messages sent from one part of your body to another with a very specific instruction. And the tissue on the receiving end is either receptive to that signal — or it isn't.</p>
+
+  <p>When receptivity is compromised — by inflammation, by chronic stress, by years of exposure to chemicals that mimic or block those signals — the message never lands. Your body keeps sending. The tissue keeps ignoring it. And you keep feeling like something is fundamentally wrong. Because something is.</p>
+
+  <div class="concept-card">
+    <div class="card-label">Clinical Concept</div>
+    <h3>SHBG — The Cargo Truck</h3>
+    <p>SHBG stands for Sex Hormone Binding Globulin. It is a protein produced by your liver that binds to sex hormones — estrogen, testosterone, and others — and carries them through your bloodstream. <strong>Only the hormone that is NOT bound to SHBG is biologically active.</strong> Only the free hormone can enter your cells, reach your tissues, and do its job.</p>
+    <p style="margin-top:16px;">This matters enormously — because your doctor measures your total hormone level. Not your free level. Not your SHBG. Just the total. And that number can look completely normal while your body is effectively running on empty. SHBG is rarely ordered on a standard panel. You will almost certainly have to ask for it by name.</p>
+  </div>
+
+  <div class="two-col">
+    <div class="two-col-card">
+      <div class="card-label">Too Many Trucks</div>
+      <h3>All the cargo is trapped.</h3>
+      <p>Your hormone is sitting inside the truck, not being delivered. Not available. Your body has hormone — but it cannot use it. You feel every symptom of deficiency even when your total levels look normal on paper.</p>
+    </div>
+    <div class="two-col-card">
+      <div class="card-label">Too Few Trucks</div>
+      <h3>Cargo piles up unbound.</h3>
+      <p>Too much free hormone overwhelming the system produces the same exhaustion and dysfunction. The effect goes flat — not because there's too little, but because the ratio is wrong.</p>
+    </div>
+  </div>
+
+  <div class="pull-quote">
+    <p>"This is why your doctor can look at your labs and say you're normal — while you are sitting across from them barely functioning. The total number looked fine. No one checked the trucks."</p>
+    <cite>— Candace, PA-C</cite>
+  </div>
+
+  <p>Here is what makes the endocrine system uniquely vulnerable: it is designed to respond to the most minute concentrations of real hormones. Which means it cannot distinguish a real signal from a synthetic one. It just listens. And it responds.</p>
+</div>
+
+
+<!-- PART 3: THE INTERFERENCE -->
+<div class="section">
+  <div class="section-label">Part Three</div>
+  <h2 class="section-title">The <em>interference.</em></h2>
+
+  <p>Endocrine disruptors are interference. They jam the signal. They hijack the trucks. They flood your system with cargo that was never meant to be there — synthetic chemicals that your body reads as hormonal instructions. And your endocrine system cannot tell the difference.</p>
+
+  <p>The soap in your shower. The liner of your canned food. The fragrance in your laundry detergent. They are all sending signals. And your body is listening to every single one.</p>
+
+  <div class="two-col">
+    <div class="two-col-card">
+      <div class="card-label">If This Resonates</div>
+      <h3>The Rabbit Hole Person</h3>
+      <p>You've suspected something environmental was at play. You were right. What you didn't have was a clinician who could confirm it with authority. This is your permission slip.</p>
+    </div>
+    <div class="two-col-card">
+      <div class="card-label">If This Is New</div>
+      <h3>The Completely Unaware Person</h3>
+      <p>You've been eating well, exercising, doing everything right — and still feel terrible. The idea that your deodorant could affect your hormones has never occurred to you. What comes next will change everything.</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- PART 4: A DAY IN YOUR LIFE -->
+<div class="section-dark">
+  <div class="section-inner">
+    <div class="section-label">Part Four</div>
+    <h2 class="section-title">A day in <em>your life.</em></h2>
+
+    <p>You are trying. That is the part no one acknowledges. You are not sitting still. You are not ignoring your health. You are actively doing the things you were told to do.</p>
+
+    <p>You bought the good shampoo. You drink the water. You go to the gym even when you're exhausted. You read the labels — at least some of them. You are following the rules.</p>
+
+    <p>And you still feel terrible. And no one can explain why.</p>
+
+    <div class="pull-quote">
+      <p>Here is what a single day actually looks like. Not a bad day. A normal one.</p>
+    </div>
+
+    <p><strong style="color:var(--gold); font-family:'Jost',sans-serif; font-size:11px; letter-spacing:3px; text-transform:uppercase;">Before You Even Open Your Eyes</strong><br>
+    Your phone charged beside your head all night. The plug-in in the corner of your room ran for eight hours. The sheets wrapped around you smell like the detergent you chose because it said <em>clean</em> on the label.</p>
+
+    <p><strong style="color:var(--gold); font-family:'Jost',sans-serif; font-size:11px; letter-spacing:3px; text-transform:uppercase;">The Bathroom</strong><br>
+    You brush your teeth with the toothpaste your dentist recommended. You rinse with the mouthwash that promises fresh breath. You turn on the shower and step in — because starting your day with a hot shower is one of the small things that still feels good.</p>
+
+    <p><strong style="color:var(--gold); font-family:'Jost',sans-serif; font-size:11px; letter-spacing:3px; text-transform:uppercase;">The Shower</strong><br>
+    Your body wash smells like something that cost real money and feels worth it. You chose it. You like it. Your shampoo, your conditioner, your face wash — you've tried to make good choices. You reach for the products that feel like self-care.</p>
+
+    <p><strong style="color:var(--gold); font-family:'Jost',sans-serif; font-size:11px; letter-spacing:3px; text-transform:uppercase;">After the Shower</strong><br>
+    You dry off. You put on lotion because you were told to take care of your skin. Deodorant. Makeup — maybe a little, maybe a lot, because you want to feel like yourself today. You are doing all of it right.</p>
+
+    <p><strong style="color:var(--gold); font-family:'Jost',sans-serif; font-size:11px; letter-spacing:3px; text-transform:uppercase;">Getting Dressed</strong><br>
+    You pull on clothes that smell like the detergent you've used for years. The one your mom used. The one that smells like home. You are dressed. You are trying. You are ready to go.</p>
+
+    <p><strong style="color:var(--gold); font-family:'Jost',sans-serif; font-size:11px; letter-spacing:3px; text-transform:uppercase;">The Kitchen</strong><br>
+    You make coffee — the good kind. You cook breakfast in the pan you've had for years because it still works fine. You pack your lunch in the container you keep meaning to replace. You grab your water bottle and head out the door.</p>
+
+    <p><strong style="color:var(--gold); font-family:'Jost',sans-serif; font-size:11px; letter-spacing:3px; text-transform:uppercase;">And You Haven't Even Left the Driveway Yet.</strong><br>
+    The lawn next door was treated last week. The air carries exhaust. You haven't gotten to work, to the stress, to the food, to the rest of the day. And already — your endocrine system has been receiving input for hours.</p>
+
+    <div class="pull-quote">
+      <p>None of what you did this morning was wrong. You did exactly what you were told. That is what makes this so hard to see — and so important to understand.</p>
+    </div>
+
+    <p>The accumulation is not theoretical. It is measurable. It is in your blood, your urine, your tissue. And your body has been quietly responding to every single input — the ones you chose and the ones you never knew were there.</p>
+
+    <p>You were not failing. You were uninformed. There is a difference. And now you know.</p>
+  </div>
+</div>
+
+
+<!-- PART 5: THE FIVE MAJOR OFFENDERS -->
+<div class="section">
+  <div class="section-label">Part Five</div>
+  <h2 class="section-title">Meet the <em>suspects.</em></h2>
+
+  <p>You don't have a hormone problem. You have a signal problem. Your endocrine system runs on chemical messaging. What you put on your skin, breathe in, and wash your clothes with — becomes part of that conversation.</p>
+
+  <!-- OFFENDER 1 -->
+  <div class="offender-card">
+    <div class="offender-header">
+      <div>
+        <div class="offender-number">01</div>
+        <div class="offender-name">Phthalates</div>
+        <div class="offender-tagline">Plastic-softening chemicals used to hold scent longer</div>
+      </div>
+    </div>
+    <div class="offender-body">
+      <div class="offender-col">
+        <div class="offender-col-label">Where It Hides</div>
+        <ul>
+          <li>"Fragrance" on any label</li>
+          <li>Perfume &amp; body lotions</li>
+          <li>Scented candles</li>
+          <li>Laundry detergent</li>
+          <li>Air fresheners</li>
+        </ul>
+      </div>
+      <div class="offender-col">
+        <div class="offender-col-label">What It Does</div>
+        <ul>
+          <li>Disrupts androgen signaling</li>
+          <li>Lowers testosterone</li>
+          <li>Interferes with ovarian function</li>
+        </ul>
+      </div>
+      <div class="offender-col">
+        <div class="offender-col-label">&nbsp;</div>
+      </div>
+      <div class="offender-translation">
+        <div class="t-label">Clinical Translation</div>
+        <div class="t-quote">"You're doing everything right in the gym… but your body won't tighten."</div>
+        <div class="t-symptoms">Stubborn lower belly fat · Low libido · Hormone-resistant weight loss · Irregular cycles</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OFFENDER 2 -->
+  <div class="offender-card">
+    <div class="offender-header">
+      <div>
+        <div class="offender-number">02</div>
+        <div class="offender-name">Parabens</div>
+        <div class="offender-tagline">Preservatives that mimic estrogen</div>
+      </div>
+    </div>
+    <div class="offender-body">
+      <div class="offender-col">
+        <div class="offender-col-label">Where It Hides</div>
+        <ul>
+          <li>Shampoo &amp; conditioner</li>
+          <li>Moisturizers &amp; face creams</li>
+          <li>Makeup</li>
+          <li>Body wash</li>
+        </ul>
+      </div>
+      <div class="offender-col">
+        <div class="offender-col-label">What It Does</div>
+        <ul>
+          <li>Weak estrogen mimic</li>
+          <li>Binds estrogen receptors directly</li>
+          <li>Adds to total estrogen load</li>
+          <li>Creates estrogen dominance picture</li>
+        </ul>
+      </div>
+      <div class="offender-col">
+        <div class="offender-col-label">&nbsp;</div>
+      </div>
+      <div class="offender-translation">
+        <div class="t-label">Clinical Translation</div>
+        <div class="t-quote">"Your labs look 'normal'… but your symptoms don't."</div>
+        <div class="t-symptoms">Breast tenderness · Heavy periods · Mood swings · Water retention</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OFFENDER 3 -->
+  <div class="offender-card">
+    <div class="offender-header">
+      <div>
+        <div class="offender-number">03</div>
+        <div class="offender-name">PFAS</div>
+        <div class="offender-tagline">Forever chemicals — they don't break down, they accumulate</div>
+      </div>
+    </div>
+    <div class="offender-body">
+      <div class="offender-col">
+        <div class="offender-col-label">Where It Hides</div>
+        <ul>
+          <li>Nonstick cookware</li>
+          <li>Waterproof fabrics</li>
+          <li>Fast food wrappers</li>
+          <li>Some cosmetics</li>
+        </ul>
+      </div>
+      <div class="offender-col">
+        <div class="offender-col-label">What It Does</div>
+        <ul>
+          <li>Thyroid disruption</li>
+          <li>Alters lipid metabolism</li>
+          <li>Drives chronic inflammatory signaling</li>
+        </ul>
+      </div>
+      <div class="offender-col">
+        <div class="offender-col-label">&nbsp;</div>
+      </div>
+      <div class="offender-translation">
+        <div class="t-label">Clinical Translation</div>
+        <div class="t-quote">"Your thyroid panel isn't terrible… but you feel like it is."</div>
+        <div class="t-symptoms">Fatigue unresponsive to sleep · Cold intolerance · Brain fog · Weight gain despite effort</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OFFENDER 4 -->
+  <div class="offender-card">
+    <div class="offender-header">
+      <div>
+        <div class="offender-number">04</div>
+        <div class="offender-name">Bisphenols</div>
+        <div class="offender-tagline">Plastic compounds that act like estrogen disruptors</div>
+      </div>
+    </div>
+    <div class="offender-body">
+      <div class="offender-col">
+        <div class="offender-col-label">Where It Hides</div>
+        <ul>
+          <li>Plastic food containers</li>
+          <li>Canned food linings</li>
+          <li>Thermal receipts</li>
+          <li>Plastic water bottles</li>
+        </ul>
+      </div>
+      <div class="offender-col">
+        <div class="offender-col-label">What It Does</div>
+        <ul>
+          <li>Alters insulin signaling</li>
+          <li>Promotes fat storage</li>
+          <li>Disrupts ovarian function</li>
+        </ul>
+      </div>
+      <div class="offender-col">
+        <div class="offender-col-label">&nbsp;</div>
+      </div>
+      <div class="offender-translation">
+        <div class="t-label">Clinical Translation</div>
+        <div class="t-quote">"You eat clean… but your metabolism isn't responding."</div>
+        <div class="t-symptoms">Blood sugar swings · Uncontrollable cravings · Midsection weight gain · PCOS-like patterns</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OFFENDER 5 -->
+  <div class="offender-card">
+    <div class="offender-header">
+      <div>
+        <div class="offender-number">05</div>
+        <div class="offender-name">Synthetic Fragrance</div>
+        <div class="offender-tagline">A chemical cocktail — often contains phthalates and dozens of undisclosed compounds</div>
+      </div>
+    </div>
+    <div class="offender-body">
+      <div class="offender-col">
+        <div class="offender-col-label">Where It Hides</div>
+        <ul>
+          <li>"Fragrance" or "parfum" on any label</li>
+          <li>Nearly every personal care product</li>
+          <li>Cleaning products</li>
+        </ul>
+      </div>
+      <div class="offender-col">
+        <div class="offender-col-label">What It Does</div>
+        <ul>
+          <li>Neuroendocrine disruption</li>
+          <li>Triggers cortisol pathways</li>
+          <li>Sensitizes the nervous system over time</li>
+        </ul>
+      </div>
+      <div class="offender-col">
+        <div class="offender-col-label">&nbsp;</div>
+      </div>
+      <div class="offender-translation">
+        <div class="t-label">Clinical Translation</div>
+        <div class="t-quote">"You're anxious, wired, and exhausted at the same time."</div>
+        <div class="t-symptoms">Headaches · Brain fog · Anxiety that feels physical · Poor sleep quality</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- PART 6: THE SWAP GUIDE -->
+<div class="section">
+  <div class="section-label">Part Six</div>
+  <h2 class="section-title">The swap <em>guide.</em></h2>
+
+  <p>This is not about perfection. It is about reducing the noise so your body can finally speak clearly again. Start with the swaps that feel most manageable. Every single one matters.</p>
+
+  <table class="swap-table">
+    <thead>
+      <tr>
+        <th>Instead of this</th>
+        <th style="width:40px; text-align:center;">→</th>
+        <th>Choose this</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Fragrance-heavy personal care products</td>
+        <td class="swap-arrow">→</td>
+        <td>Fragrance-free or essential oil-based alternatives</td>
+      </tr>
+      <tr>
+        <td>Plastic food containers</td>
+        <td class="swap-arrow">→</td>
+        <td>Glass or stainless steel storage</td>
+      </tr>
+      <tr>
+        <td>Conventional laundry detergent</td>
+        <td class="swap-arrow">→</td>
+        <td>Short-ingredient, plant-based detergent</td>
+      </tr>
+      <tr>
+        <td>Paraben-containing skincare</td>
+        <td class="swap-arrow">→</td>
+        <td>Minimal ingredient skincare you can pronounce</td>
+      </tr>
+      <tr>
+        <td>Nonstick cookware</td>
+        <td class="swap-arrow">→</td>
+        <td>Cast iron or stainless steel</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="short-rule">The Short Ingredient Rule</div>
+  <div class="rule-quote">"Your endocrine system was not designed to interpret 47 synthetic compounds before breakfast."</div>
+  <p style="text-align:center; font-family:'Jost',sans-serif; font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--muted); margin-top:8px;">— Candace, PA-C · Healthcare Architect</p>
+
+  <div class="concept-card" style="margin-top:40px;">
+    <div class="card-label">Instead of this</div>
+    <p style="font-family:'Jost',sans-serif; font-size:13px; color:var(--muted); line-height:1.8; margin-bottom:20px;">sodium laureth sulfate, methylparaben, propylparaben, fragrance, dimethicone, tetrasodium EDTA, cocamidopropyl betaine...</p>
+    <div class="card-label">Choose this</div>
+    <p style="font-family:'Jost',sans-serif; font-size:13px; color:var(--charcoal); font-weight:500;">water, coconut-derived surfactant, essential oil</p>
+  </div>
+</div>
+
+
+<!-- PART 7: YOUR NEXT STEP -->
+<div class="section-cta">
+  <div class="section-inner">
+    <div class="section-label">Part Seven</div>
+    <h2 class="section-title">Your next step.</h2>
+
+    <p>You did not arrive at your current health state in a few days or weeks. It likely took years to get here. And the real, lasting fix will also be a process.</p>
+
+    <p>That is not a discouragement. That is the truth that sets you free from the expectation that healing happens after one supplement, one protocol, one guide.</p>
+
+    <p>Sometimes you have to break things down to rebuild them. Not when the timing is perfect. Not when the money is right. You rebuild because your body is worth it — because <em>you</em> are worth it.</p>
+
+    <ul class="rebel-list">
+      <li>You will be seen here.</li>
+      <li>You will be believed here.</li>
+      <li>You will find your people here.</li>
+      <li>You will ask questions and get real answers here.</li>
+      <li>Every single day you show up — you are one step closer to free.</li>
+    </ul>
+
+    <p style="font-family:'Playfair Display',serif; font-style:italic; font-size:18px; color:rgba(255,255,255,0.9);">Being rebuilt in a system that is designed to keep you sick — is one of the most badass things you could ever do.</p>
+
+    <br>
+    <a href="https://stan.store/thebuiltmovement" class="cta-url">Go Deeper at The Built Movement</a>
+  </div>
+</div>
+
+
+<!-- WHY I CREATED REBUILT REBELS -->
+<div class="section">
+  <div class="section-label">Why I Created Rebuilt Rebels</div>
+  <h2 class="section-title">Know your <em>source.</em></h2>
+
+  <div class="pull-quote">
+    <p>"When I looked across the exam room at patients who had followed advice they found online — I saw myself."</p>
+    <cite>— Candace, PA-C</cite>
+  </div>
+
+  <p>A person who was broken and nothing was working like it had in the past. Grasping at straws to keep her sanity. No longer feeling like herself. Stress consuming everything that used to feel manageable.</p>
+
+  <p>I have a background in this area and I was still that frustrated. I can only imagine how frustrated other women must be.</p>
+
+  <p>That moment is why this guide exists. Not because I had all the answers. Because I knew what it felt like to not have them — and I also knew what it took to find them. Twenty-three years of clinical training, pattern recognition, and the kind of meticulous analysis that cannot be taught in a weekend course.</p>
+
+  <div class="source-block">
+    <p style="font-family:'Jost',sans-serif; font-size:11px; letter-spacing:4px; text-transform:uppercase; color:var(--berry); margin-bottom:20px;">The uncomfortable truth about who you're learning from</p>
+    <div class="source-split">
+      <div class="source-card">
+        <div class="s-label">The Content Creator</div>
+        <h3>Certainty is the product.</h3>
+        <ul>
+          <li>Packages simple concepts into confidence and aesthetic branding</li>
+          <li>Speaks in certainty — even when nuance is required</li>
+          <li>Has never seen what goes wrong</li>
+        </ul>
+      </div>
+      <div class="source-card">
+        <div class="s-label">The Clinician</div>
+        <h3>Complexity is the responsibility.</h3>
+        <ul>
+          <li>Actually understands feedback loops, axes, individual variation</li>
+          <li>Second-guesses because the stakes are a human body</li>
+          <li>Has watched things go wrong — and learned from it</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="pull-quote">
+    <p>"Confidence without complexity is not expertise. It is a performance. And when we are talking about hormones — about feedback loops and metabolic pathways that affect every system in your body — a performance can cause real harm."</p>
+    <cite>— Candace, PA-C · Healthcare Architect</cite>
+  </div>
+
+  <p>Medicine is always evolving. The clinician who stops learning is the clinician who starts harming. I second-guess myself not because I am uncertain about your care — but because I respect it enough to keep asking better questions.</p>
+</div>
+
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-brand">Candace, PA-C · Healthcare Architect · Rebuilt Rebels · Rustic Roots Mercantile</div>
+  <div class="footer-tagline">"Help the people no one else sees."</div>
+</div>
+
+</body>
+</html>
